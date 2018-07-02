@@ -1,6 +1,13 @@
 BEM
 ===
 
+Building
+--------
+* conda create -n bem27 python=2.7
+* source activate bem27
+* conda install jupyter scipy mayavi cython 
+* python setup.py build_ext --inplace
+
 
 License
 -------
