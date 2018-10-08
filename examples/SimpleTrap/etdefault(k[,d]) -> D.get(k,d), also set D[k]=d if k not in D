@@ -1,0 +1,4 @@
+Help on built-in function setdefault:
+
+sseettddeeffaauulltt(...)
+    D.setdefault(k[,d]) -> D.get(k,d), also set D[k]=d if k not in D

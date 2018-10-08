@@ -20,6 +20,7 @@
 
 """BEM FMM Laplace solver"""
 
+#The fastlap.pyx usage: wrap MIT fastlap multipole-accelerated C solver package.  wwc  
 import sys
 import cython
 

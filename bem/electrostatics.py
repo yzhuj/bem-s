@@ -56,7 +56,9 @@ class Result(object):
                 origin=self.grid.get_origin(),
                 spacing=self.grid.step,
                 dimensions=self.grid.shape)
-        spw = tvtk.StructuredPointsWriter(input=sp)
+        # spw = tvtk.StructuredPointsWriter(input=sp)   # wwc
+        spw = tvtk.StructuredPointsWriter()    # wwc
+        spw.set_input_data(sp)    # wwc
         spw.file_name = "%s_%s.vtk" % (prefix, self.configuration.name)
         #xidr = tvtk.XMLImageDataWriter(input=sp)
         for data_name in "potential field pseudo_potential".split():
@@ -69,8 +71,9 @@ class Result(object):
                 data = data.T.flatten()
             d = tvtk.DoubleArray(name=data_name)
             d.from_array(data)
-            sp.point_data.add_array(d)
-        spw.write()
+            # The StructuredPoints and DoubleArray class method don't cause precision loss.  wwc
+            sp.point_data.add_array(d) 
+        spw.write()    # The precision loss should be caused by StructuredPointsWriter or vtk file itself.  wwc
         logging.info("wrote %s", spw.file_name)
 
     @classmethod
@@ -173,7 +176,7 @@ class Result(object):
 class Configuration(object):
     """
     a simulation configuration: simulate given mesh for certain
-    potentials on certain lecetrodes
+    potentials on certain elecetrodes
     """
     mesh = None
     potentials = None
@@ -199,8 +202,8 @@ class Configuration(object):
         for i, name in enumerate(names):
             match = any(re.match(p, name) for p in electrodes)
             if match or not electrodes:
-                potentials = np.zeros(len(names))
-                potentials[i] = 1.
+                potentials = np.zeros(len(names))    # Other electrodes are 0 V.  wwc
+                potentials[i] = 1.    # select one electrode to be 1 V.  wwc  Tried 100.
                 obj = cls(mesh, potentials, name)
                 yield obj
 

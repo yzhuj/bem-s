@@ -3,9 +3,10 @@ BEM
 
 Building
 --------
+Joe Britton 7 2018
 * conda create -n bem27 python=2.7
 * source activate bem27
-* conda install jupyter scipy mayavi cython 
+* conda install jupyter scipy matplotlib mayavi cython
 * python setup.py build_ext --inplace
 
 

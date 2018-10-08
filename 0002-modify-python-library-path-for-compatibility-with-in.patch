@@ -1,0 +1,31 @@
+From 372d2bf629f445c3e7d7b03b5d9c04b0aee3d938 Mon Sep 17 00:00:00 2001
+From: Joe Britton <joe.britton@gmail.com>
+Date: Mon, 2 Jul 2018 16:23:16 -0400
+Subject: [PATCH 2/4] modify python library path for compatibility with
+ --inplace build
+
+---
+ examples/SimpleTrap/SimpleTrap.ipynb | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/examples/SimpleTrap/SimpleTrap.ipynb b/examples/SimpleTrap/SimpleTrap.ipynb
+index 4e4186a..3f4a86b 100644
+--- a/examples/SimpleTrap/SimpleTrap.ipynb
++++ b/examples/SimpleTrap/SimpleTrap.ipynb
+@@ -37,10 +37,13 @@
+    "metadata": {},
+    "outputs": [],
+    "source": [
++    "import sys\n",
+     "import logging, os\n",
+     "import numpy as np\n",
+     "import matplotlib.pyplot as plt\n",
+     "\n",
++    "sys.path.append('../../')\n",
++    "\n",
+     "from bem import Electrodes, Sphere, Mesh, Grid, Configuration, Result\n",
+     "from bem.formats import stl"
+    ]
+-- 
+2.7.4
+

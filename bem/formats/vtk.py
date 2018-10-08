@@ -79,7 +79,7 @@ def show(d):
 
 def mesh_to_vtk(prefix, mesh):
     names, pd = cpy_to_vtk(mesh)
-    pdw = tvtk.PolyDataWriter(input=pd)
+    pdw = tvtk.PolyDataWriter(input=pd)     # wwc haven't been changed.
     pdw.file_name = "%s_geometry.vtk" % prefix
     pdw.write()
 

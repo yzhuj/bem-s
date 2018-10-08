@@ -27,6 +27,7 @@ except ImportError:
     import warnings
     warnings.warn("not tvtk found")
 
+#from tvtk.common import configure_input     # wwc
 
 from .pytriangle import triangulate
 
@@ -226,6 +227,25 @@ class Triangulation(object):
                 triangles=triangles)
         return obj
 
+    # # wwc function
+    # @classmethod
+    # def from_mesh3D(cls, planes):
+    #     """
+    #     load a planar face from a (points, triangles) pair
+    #     """
+    #     elecface = []  # electrode faces
+    #     for points_triangles in planes: 
+    #         points, triangles = points_triangles
+    #         obj = cls()
+    #         obj.coords = ThreeTwoTransform.from_points(points)
+    #         obj.triangles = triangles
+    #         obj.points = points
+    #         obj._args = dict(
+    #                 points=obj.coords.threed_to_twod(points),
+    #                 triangles=triangles)
+    #         elecface.append(obj)
+    #     return elecface    # [Triangulation1,Triangulation2,...]
+
     def triangulate(self, opts, new=False):
         """
         (re) triangulate this face using options in `opts`. creates a
@@ -233,7 +253,7 @@ class Triangulation(object):
         Returns the new triangulation or self.
         """
         # logging.debug("calling triangulate()")
-        ret = triangulate(opts=opts, **self._args)
+        ret = triangulate(opts=opts, **self._args)    # from .pytriangle import triangulate  wwc
         # logging.debug("done with triangulate()")
         if new:
             obj = Triangulation()
@@ -253,6 +273,7 @@ class Triangulation(object):
         created in future refinements conforms to the minimum of the
         constraints. constraints must not be empty.
         """
+        # "for c in constraints", accepts multiple constrains.  wwc
         areas = np.nanmin([
             c.lookup(self.points) for c in constraints], axis=0)
         # take minimum over triangle vertices
@@ -275,7 +296,7 @@ class Mesh(OrderedDict):
     """
     A Mesh is a mapping of electrode names to list of faces
     """
-    points = None
+    points = None    # points
     triangles = None
     groups = None
 
@@ -296,13 +317,17 @@ class Mesh(OrderedDict):
 
     @classmethod
     def from_parts(cls, data, method):
+        
         """
         loads a mesh description {name: [data, ...], ...}
         by calling method(data) for each face of each electrode
         """
+        # Accept different methods to create Mesh instances.  wwc
         mesh = cls()
-        for name, faces in data.items():
-            mesh[name] = [method(face) for face in faces]
+        for name, faces in data.iteritems(): # data is from stl_to_mesh. change to iteritems() wwc
+            # 1. Left side: a "mesh" dict whose keys named "DC1", "RF"...  wwc
+            # 2. Right side: OrderedDict.keys() are stl rename, .values() are Triangulation instances.  wwc
+            mesh[name] = [method(face) for face in faces]  # method(face) are Triangulation instances.  wwc
         return mesh
 
     @classmethod
@@ -318,9 +343,22 @@ class Mesh(OrderedDict):
     @classmethod
     def from_mesh(cls, mesh):
         """
-        reads a free-format mesh {name: [(points, triangles), ...], ...}
+        reads a free-format 2D mesh {name: [(points, triangles), ...], ...}
         """
+        # Following "mesh" isn't Mesh instance, it's a data structure received from e.g. stl.stl_to_mesh method.  wwc
         return cls.from_parts(mesh, Triangulation.from_mesh)
+
+    # wwc function
+    @classmethod
+    def from_mesh3D(cls, mesh):
+        """
+        reads a free-format 3D mesh {name: [ [(points, triangles)],[(points, triangles)], ...], ...}
+        """
+        # Following "mesh" isn't Mesh instance, it's a data structure received from e.g. stl.stl_to_mesh method.  wwc
+        mesh = cls()
+        for name, electrodes in mesh.iteritems():
+            mesh[name] = [Triangulation.from_mesh3D(elec) for elec in electrodes]
+        return mesh
 
     def triangulate(self, opts="qQ", new=False):
         """
@@ -330,7 +368,8 @@ class Mesh(OrderedDict):
         if new:
             obj = Mesh()
         else:
-            obj = self
+            obj = self  # Should be class 'bem.triangulation.Mesh'.  wwc
+        # Mesh = {name:[Triangulation1, Triangulation2, ...]}  wwc
         for name, faces in self.items():
             obj[name] = [face.triangulate(opts, new) for face in faces]
         obj.gather()
@@ -368,7 +407,8 @@ class Mesh(OrderedDict):
    
     def areas_from_constraints(self, constraints):
         """set max triangle areas for subsequent triangulations"""
-        for face in itertools.chain(*self.values()):
+        # Mesh is a subclass of OrderedDict class, so it has dict.values() method.  wwc
+        for face in itertools.chain(*self.values()):    # face is usually trangulation instance.  wwc
             face.areas_from_constraints(constraints)
 
     def set_max_areas(self, max_areas):
@@ -400,7 +440,10 @@ class Mesh(OrderedDict):
     def to_vtk(self, prefix, **kwargs):
         """saves mesh as prefix_mesh.vtk"""
         pd = self.to_polydata(**kwargs)
-        pdw = tvtk.PolyDataWriter(input=pd)
+        # pdw = tvtk.PolyDataWriter(input=pd)    # wwc
+        pdw = tvtk.PolyDataWriter()     # wwc
+        pdw.set_input_data(pd)   # wwc
+        #tvtk.configure_input(pwd,pd)    # wwc doesn't work.
         pdw.file_name = "%s_mesh.vtk" % prefix
         pdw.write()
         logging.debug("written mesh to %s, polydata %s",

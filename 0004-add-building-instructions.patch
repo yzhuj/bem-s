@@ -1,0 +1,30 @@
+From eef5a09ebc673b19776a59e7aa150810b0e5ab1f Mon Sep 17 00:00:00 2001
+From: wwc <wwcphy@terpmail.umd.edu>
+Date: Mon, 2 Jul 2018 16:30:59 -0400
+Subject: [PATCH 4/4] add building instructions
+
+---
+ README.rst | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/README.rst b/README.rst
+index 101a0b9..e2b2701 100644
+--- a/README.rst
++++ b/README.rst
+@@ -1,6 +1,13 @@
+ BEM
+ ===
+ 
++Building
++--------
++* conda create -n bem27 python=2.7
++* source activate bem27
++* conda install jupyter scipy mayavi cython 
++* python setup.py build_ext --inplace
++
+ 
+ License
+ -------
+-- 
+2.7.4
+

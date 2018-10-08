@@ -19,6 +19,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+# The pytriangle usage: use cython to wrap Jonathan Shewchuk's C triangle package.  wwc
 from libc.stdlib cimport free
 from cpython cimport PyObject, Py_INCREF
 
@@ -138,8 +139,10 @@ def triangulate(
 
     # grab the parameters and fill the three triangulateio structures
     # accordingly. also enforce necessary flags in opts
+
+    # opts are the command line options of "../triangle/triangle", see ./triangle -h  wwc
     
-    opts += "z"
+    opts += "z"    # Numbers all items starting from zero, just for external call.  wwc 
     tin.pointlist = &points[0, 0]
     tin.numberofpoints = points.shape[0]
     if pointattributes is not None:
@@ -154,7 +157,7 @@ def triangulate(
     else:
         tin.pointmarkerlist = NULL
     if triangles is not None:
-        opts += "r"
+        opts += "r"    # Refines a previously generated mesh.  wwc
         tin.trianglelist = &triangles[0, 0]
         tin.numberoftriangles = triangles.shape[0]
         tin.numberofcorners = triangles.shape[1]
@@ -168,14 +171,14 @@ def triangulate(
         tin.numberoftriangles = 0
         assert "r" not in opts
     if triangleareas is not None:
-        opts += "a"
+        opts += "a"    # Imposes a maximum triangle area. a[value]: triangle area won't be larger than value.  wwc
         assert triangleareas.shape[0] == triangles.shape[0]
         tin.trianglearealist = &triangleareas[0]
     else:
         #assert "a" not in opts # FIXME a0.01 is fine
         pass
     if segments is not None:
-        opts += "p"
+        opts += "p"    # Reads a Planar Straight Line Graph. The format connected with lines? e.g. .stl?  wwc
         tin.segmentlist = &segments[0, 0]
         tin.numberofsegments = segments.shape[0]
         if segmentmarkers is not None:
@@ -214,7 +217,7 @@ def triangulate(
 
     if not triunsuitable is None:
         py_triunsuitable = <PyObject*> triunsuitable
-        opts += "u"
+        opts += "u"    # Imposes a user-defined constraint on triangle size.  If you don't use "triunsuitable" you needn't worry.  wwc
     else:
         assert not "u" in opts
 

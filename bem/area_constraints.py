@@ -17,12 +17,15 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+#The area_constrains module usage: add regions of varous shape, and allow you to refine mesh inside/outside it.  wwc
 import numpy as np
 
 
 class Constraint(object):
     def __init__(self, inside, outside=1e30):
-        self.inside, self.outside = inside, outside
+        self.inside, self.outside = inside, outside    # stepsize inside and outside.  wwc
+    # All constraint class inherit this method.  wwc
+    # lookup() is for checking if a point is in/out the constraint domain.  wwc
     def lookup(self, x):
         # return min angle, max area
         raise NotImplemented

@@ -18,6 +18,7 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+#The grid module usage: generate and reshape x coordinates.  wwc
 import numpy as np
 
 from .spherical_harmonics import SphericalHarmonics
