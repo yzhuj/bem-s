@@ -91,6 +91,22 @@ equations) + FMM (fast multipole method) + Laplace kernel implementation
 from http://www.rle.mit.edu/cpg/research_codes.htm The original code is
 in doc/fastlap_fl-2.0-22oct96 for reference.
 
+Python Environment Setup
+------------------------
+
+Wance Wang 7 2018
+Create a python environment "bem27" for bem package:
+* conda create -n bem27 python=2.7
+* conda install -n bem27 jupyter=1.0.0 scipy=1.1.0 matplotlib=1.5.1 mayavi=4.5.0 cython=0.28.3 cvxopt=1.2.0
+* source activate bem27
+
+Or you can reproduce my environment by using file bem27_2018.yml.
+* conda env create -f bem27_2018.yml
+* source activate bem27
+
+For building fastlap and triangle C extensions:
+* python setup.py build_ext --inplace
+(This bem version has been built, if you want to rebuild it, add a --force option.)
 
 General Notes
 -------------
