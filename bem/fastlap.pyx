@@ -39,23 +39,23 @@ cdef extern from "fastlap.h":
             int *pnumLev, int *pnumMom, int *pmaxItr,
             double *ptol, int *pjob, double* pAreas) nogil
 
-    cdef enum PANEL_TYPES:
-        FL_POINT "POINT" = 1
-        FL_TRIANGLE "TRIANGLE" = 3
-        FL_QUADRILAT "QUADRILAT" = 4
+    ######## Use "cdef int" instead of "cdef enum".  wwc
+    cdef int FL_POINT "POINT"
+    cdef int FL_TRIANGLE "TRIANGLE"
+    cdef int FL_QUADRILAT "QUADRILAT"
 
-    cdef enum SOURCE_TYPES:
-        FL_NO_SOURCE "NO_SOURCE" = 0
-        FL_POINT_SOURCE "POINT_SOURCE" = 1
-        FL_CONSTANT_SOURCE "CONSTANT_SOURCE" = 11
-        FL_CONSTANT_DIPOLE "CONSTANT_DIPOLE" = 12
-        FL_LINEAR_SOURCE "LINEAR_SOURCE" = 21
-        FL_LINEAR_DIPOLE "LINEAR_DIPOLE" = 22
+    cdef int FL_NO_SOURCE "NO_SOURCE"
+    cdef int FL_POINT_SOURCE "POINT_SOURCE"
+    cdef int FL_CONSTANT_SOURCE "CONSTANT_SOURCE"
+    cdef int FL_CONSTANT_DIPOLE "CONSTANT_DIPOLE"
+    cdef int FL_LINEAR_SOURCE "LINEAR_SOURCE"
+    cdef int FL_LINEAR_DIPOLE "LINEAR_DIPOLE"
 
-    cdef enum JOB_TYPES:
-        FL_FIELD "FIELD" = 0
-        FL_GREEN "GREEN" = 1
-        FL_INDIRECT "INDIRECT" = 2
+    cdef int FL_FIELD "FIELD"
+    cdef int FL_GREEN "GREEN"
+    cdef int FL_INDIRECT "INDIRECT"
+    ######## wwc
+    
 
 cdef extern from "memtracker.h":
     cdef void mtinit() nogil
