@@ -400,7 +400,9 @@ class Mesh(OrderedDict):
     def to_vtk(self, prefix, **kwargs):
         """saves mesh as prefix_mesh.vtk"""
         pd = self.to_polydata(**kwargs)
-        pdw = tvtk.PolyDataWriter(input=pd)
+        # pdw = tvtk.PolyDataWriter(input=pd)
+        pdw = tvtk.PolyDataWriter()     # wwc
+        pdw.set_input_data(pd)   # wwc
         pdw.file_name = "%s_mesh.vtk" % prefix
         pdw.write()
         logging.debug("written mesh to %s, polydata %s",
