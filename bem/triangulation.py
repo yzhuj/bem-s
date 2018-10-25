@@ -345,7 +345,8 @@ class Mesh(OrderedDict):
         """
         reads a free-format 2D mesh {name: [(points, triangles), ...], ...}
         """
-        # Following "mesh" isn't Mesh instance, it's a data structure received from e.g. stl.stl_to_mesh method.  wwc
+        # Following "mesh" isn't Mesh instance, it's a data structure received from other format function
+        # e.g. an OrderedDict() from stl.stl_to_mesh method.  wwc
         return cls.from_parts(mesh, Triangulation.from_mesh)
 
     # wwc function
