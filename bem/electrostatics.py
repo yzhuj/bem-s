@@ -57,8 +57,8 @@ class Result(object):
                 spacing=self.grid.step,
                 dimensions=self.grid.shape)
         # spw = tvtk.StructuredPointsWriter(input=sp)
-        spw = tvtk.StructuredPointsWriter()    # wwc
-        spw.set_input_data(sp)    # wwc
+        spw = tvtk.StructuredPointsWriter()
+        spw.set_input_data(sp)
         spw.file_name = "%s_%s.vtk" % (prefix, self.configuration.name)
         #xidr = tvtk.XMLImageDataWriter(input=sp)
         for data_name in "potential field pseudo_potential".split():
@@ -85,7 +85,7 @@ class Result(object):
         spr = tvtk.StructuredPointsReader(
             file_name="%s_%s.vtk" % (prefix, name))
         spr.update()
-        sp = spr.output    # may be changed to "get_output()" in python 3 mayavi.tvtk  wwc
+        sp = spr.output    # may need to change to "get_output()" in updated mayavi.tvtk
         for i in range(sp.point_data.number_of_arrays):
             da = sp.point_data.get_array(i)
             name = da.name

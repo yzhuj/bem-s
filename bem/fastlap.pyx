@@ -39,7 +39,11 @@ cdef extern from "fastlap.h":
             int *pnumLev, int *pnumMom, int *pmaxItr,
             double *ptol, int *pjob, double* pAreas) nogil
 
-    ######## Use "cdef int" instead of "cdef enum".  wwc
+    # Following variables are C macros from fastlap mulGlobal.h. Using "cdef enum"
+    # to declare macros in current .pyx namespace causes error when Cython builds 
+    # them, but "cdef int/float" works fine. For this naming format, see 
+    # https://cython.readthedocs.io/en/latest/src/userguide/external_C_code.html#resolving-naming-conflicts-c-name-specifications 
+
     cdef int FL_POINT "POINT"
     cdef int FL_TRIANGLE "TRIANGLE"
     cdef int FL_QUADRILAT "QUADRILAT"
@@ -54,7 +58,6 @@ cdef extern from "fastlap.h":
     cdef int FL_FIELD "FIELD"
     cdef int FL_GREEN "GREEN"
     cdef int FL_INDIRECT "INDIRECT"
-    ######## wwc
     
 
 cdef extern from "memtracker.h":

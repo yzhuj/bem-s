@@ -25,18 +25,18 @@
 # This setup uses cythonize(), which is an updated cython buildin function.
 # See https://cython.readthedocs.io/en/latest/src/changes.html#id42.  wwc
 try:
-    import multiprocessing  # wwc: this is for parallel compilation 
+    import multiprocessing  # parallel compilation 
 except ImportError:
     pass
 
 try:
     from setuptools import setup, Extension, find_packages
 except ImportError:
-    from distutils import setup    # wwc: seems to be distutils.core
+    from distutils.core import setup    # distutils
     from distutils.extension import Extension
 
 #from Cython.Distutils import build_ext
-from Cython.Build import cythonize #wwc
+from Cython.Build import cythonize
 import numpy
 import os
 
@@ -52,10 +52,8 @@ setup(
     install_requires=["numpy", "mayavi", "cython"],
     packages = find_packages(),
     test_suite = "bem.tests",
-    #cmdclass = {"build_ext":build_ext},
-    zip_safe = False, #wwc from https://cython.readthedocs.io/en/latest/src/reference/compilation.html#configuring-the-c-build
+    # zip_safe = False, # See https://cython.readthedocs.io/en/latest/src/reference/compilation.html#configuring-the-c-build
     ext_modules = cythonize([
-        # wwc: fastlap here
         Extension("bem.fastlap",
             define_macros = [],
             # extra_compile_args=["-ffast-math"],
