@@ -7,12 +7,17 @@
 import sys
 import logging, os
 import numpy as np
-import pyface.qt	# method 1 wwc. Although you don't use it, it will set API to v2 for you when importing.
+# The importing sets pyqt4 API to version 2 before the importing of matplotlib. 
+# This API can't be changed and matplotlib automatically sets it to version 1.
+# But pyside package like mayavi only supports v2.
+# https://ipython.readthedocs.io/en/stable/interactive/reference.html#pyqt-and-pyside
+import pyface.qt
 
-#import sip         # method 2 wwc. Try to explicit set API version.
-#sip.setapi('QDate',2)	# you need to include all 'QDate', 'QDateTime', 'QString'... or it won't be useful
+# Alternative method. Try to explicit set API version. But you need to include 
+# all 'QDate', 'QDateTime', 'QString'... or it won't be useful.
+#import sip
+#sip.setapi('QDate',2)
 
-#os.environ['QT_API']= 'pyside'		# attempt 4 wwc, not useful
 import matplotlib.pyplot as plt
 
 sys.path.append('../')
@@ -78,7 +83,6 @@ pmap = map # serial map
 pmap(run_job, ((job, grid, prefix) for job in jobs))
 
 
-
 # isocontour plot of the RF pseudopotential radially
 result = Result.from_vtk(prefix, "RF")
 p = result.pseudo_potential
@@ -115,10 +119,7 @@ for name in "DC1 DC2 DC3 DC4 DC5 RF".split():
 s["RF"].rf = 1.
 
 
-
 n = 30
-#xyz = np.mgrid[-.1:.1:1j*n, -.1:.1:1j*n, 1.12:2]
-#xyz = np.mgrid[0:1, -.02:.02:1j*n, .5:1.5:1j*n]
 xyz = grid.to_mgrid()
 p = s.potential(xyz.reshape(3, -1).T, 0).reshape(xyz[0].shape)
 v = np.linspace(0, 2e-2, 21)
