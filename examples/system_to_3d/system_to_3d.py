@@ -77,8 +77,8 @@ def main():
     pool = Pool(4)
     c = pool.map(run_job, ((sim, grid, prefix, job) for job in sel))
 
-    print [i[0] for i in sel]
-    print np.array(c)*4*np.pi*epsilon_0*scale
+    print([i[0] for i in sel])
+    print(np.array(c)*4*np.pi*epsilon_0*scale)
 
     Result.view(prefix, "r")
 

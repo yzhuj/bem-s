@@ -18,7 +18,7 @@ r = read_stl(open(sys.argv[1], "rb"))
 check_normals(*r[:2])
 r = stl_to_mesh(*r)
 del r["stl_0"]
-print r.keys()
+print(r.keys())
 r = split_by_normal(r)
 m = Mesh.from_mesh(r)
 m.triangulate("qQ")

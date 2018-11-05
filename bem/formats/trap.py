@@ -81,7 +81,7 @@ class Electrodes(OrderedDict):
                         coords.append(vector)
 
         # cleanup
-        for name, faces in electrodes.iteritems():
+        for name, faces in electrodes.items():
             for face in faces[:]:
                 for loop in face[:]:
                     face.remove(loop)
@@ -145,7 +145,7 @@ class Electrodes(OrderedDict):
 
     def cleanup(self, tol=1e-9):
         """remove close adjacent points"""
-        for name, faces in self.iteritems():
+        for name, faces in self.items():
             for face in faces:
                 for i, loop in enumerate(face[:]):
                     sign, coords = loop

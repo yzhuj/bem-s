@@ -75,7 +75,7 @@ def run_job(args):
     # get potentials and fields
     result = job.simulate(grid, field=job.name=="RF", num_lev=1)
     result.to_vtk(prefix)
-    print "finished job %s" % job.name
+    print("finished job %s" % job.name)
     return job.collect_charges()
 
 # <codecell>
@@ -144,7 +144,7 @@ from scipy.constants import atomic_mass
 x0 = s.minimum((0, 0, 1.))
 for _ in s.analyze_static(x0, m=25*atomic_mass, u=50.,
                           l=40e-6, o=100e6*2*np.pi):
-    print _
+    print(_)
 
 # <codecell>
 

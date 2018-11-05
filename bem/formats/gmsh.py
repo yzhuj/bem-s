@@ -32,7 +32,7 @@ def flatten(fun):
 def to_file(fun):
     def wrapper(f, *args, **kwargs):
         for i in fun(*args, **kwargs):
-            print >> f, i
+            print(i, file=f)
     return wrapper
 
 def msh_section(name, contents):
@@ -46,7 +46,7 @@ def msh_section(name, contents):
 def cpy_to_msh(c):
     points, panels, names = [], [], []
     i, k, l = 0, 0, 0
-    for j, (n, s) in enumerate(c.iteritems()):
+    for j, (n, s) in enumerate(c.items()):
         names.append(n)
         for k, (p, q) in enumerate(s):
             #print n, p, q
@@ -76,7 +76,7 @@ def cpy_to_geo(c):
     yield "lc1 = 1e22;" # characteristic length
     names = {}
     j, k, l = 0, 0, 0
-    for n, s in c.iteritems():
+    for n, s in c.items():
         for points, panels in s:
             for pi in points:
                 j += 1
@@ -97,7 +97,7 @@ def cpy_to_geo(c):
             #        ", ".join([str(l-m-1) for m in
             #            range(len(panels))]))
             #names.setdefault(n, []).append(l)
-    for n, pi in names.iteritems():
+    for n, pi in names.items():
         yield "Physical Surface(\"%s\") = {%s};" % (n,
                 ", ".join(map(str, pi)))
 
@@ -106,30 +106,30 @@ def read_msh(f):
         assert line.startswith("$"), line
         section = line[1:].strip()
         if section == "Nodes":
-            p = np.loadtxt(itertools.islice(f, int(f.next())),
+            p = np.loadtxt(itertools.islice(f, int(next(f))),
                 dtype=[("id", np.int), ("x", np.float),
                     ("y", np.float), ("z", np.float)])
             assert p[-1][0] == p.shape[0]
             assert f.next().startswith("$End")
         elif section == "PhysicalNames":
-            n = np.loadtxt(itertools.islice(f, int(f.next())),
+            n = np.loadtxt(itertools.islice(f, int(next(f))),
                 dtype=[("dim", np.int), ("id", np.int),
                     ("name", np.chararray)])
             n["name"] = [ni.strip("\"") for ni in n["name"]]
             assert n[-1][1] == n.shape[0]
             assert f.next().startswith("$End")
         elif section == "Elements":
-            a = np.loadtxt(itertools.islice(f, int(f.next())),
+            a = np.loadtxt(itertools.islice(f, int(next(f))),
                 dtype=[("id", np.int), ("typ", np.int),
                 ("ntag", np.int), ("phys", np.int), ("geo", np.int),
                 ("a", np.int), ("b", np.int), ("c", np.int)])
             assert a[-1][0] == a.shape[0]
             assert f.next().startswith("$End")
         elif section == "MeshFormat":
-            f.next()
+            next(f)
             assert f.next().startswith("$End")
         else:
-            print section
+            print(section)
             for l in f:
                 if l.startswith("$End"): break
     return p, a, n
@@ -149,15 +149,15 @@ def grid_to_gmsh_field(origin, step, dat, fil):
     """saves the structured rectangular grid `dat` starting at `origin`
     samples spaces by `step` to the file `fil`. Format is suitable for
     a gmsh "structured field"."""
-    print >> fil, "%g %g %g" % origin
-    print >> fil, "%g %g %g" % step
-    print >> fil, "%i %i %i" % dat.shape
+    print("%g %g %g" % origin, file=fil)
+    print("%g %g %g" % step, file=fil)
+    print("%i %i %i" % dat.shape, file=fil)
     np.savetxt(fil, dat.reshape((-1, dat.shape[-1])))
 
 
 def main():
     import sys
-    import cpy
+    from . import cpy
     for f in sys.argv[1:]:
         if True:
             c = cpy.read_cpy(open(f))

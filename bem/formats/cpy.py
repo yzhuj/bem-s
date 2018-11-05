@@ -47,7 +47,7 @@ def read_cpy(f, scale=1.):
             elif point_name.startswith("Center Point"):
                 origin = map(float, line) # unused
             else:
-                print "ignoring line", cmd, point_name, line
+                print("ignoring line", cmd, point_name, line)
         elif cmd == "S":
             points, panels = [], []
             name = line.pop(0)
@@ -64,7 +64,7 @@ def read_cpy(f, scale=1.):
             panels -= 1 # move to 0-index
             surfs.setdefault(name, []).append((points, panels))
         else:
-            print "ignoring line", cmd, line
+            print("ignoring line", cmd, line)
     return surfs
 
 def concat_cpy(cpy):
@@ -101,4 +101,4 @@ def split_by_normal(cpy):
 if __name__ == "__main__":
     import sys
     for f in sys.argv[1:]:
-        print read_cpy(open(f))
+        print(read_cpy(open(f)))

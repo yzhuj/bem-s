@@ -23,7 +23,7 @@ from enthought.tvtk.api import tvtk
 def cpy_to_vtk(cpy):
     pd = tvtk.AppendPolyData()
     names = []
-    for name, (points, panels) in cpy.iteritems():
+    for name, (points, panels) in cpy.items():
         p = tvtk.PolyData(points=points, polys=panels)
         names.append(name)
         p.cell_data.scalars = len(names)*np.ones(panels.shape[0])
@@ -86,7 +86,7 @@ def mesh_to_vtk(prefix, mesh):
 
 if __name__ == "__main__":
     import sys
-    import cpy
+    from . import cpy
     #show(tvtk.ConeSource(resolution=36).output)
     for f in sys.argv[1:]:
         c = cpy.read_cpy(open(f))

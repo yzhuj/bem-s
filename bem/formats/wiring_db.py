@@ -46,11 +46,11 @@ class WiringDB:
 #End of class WiringDB    
 
 def makeStyXML(enames, outputfilename):
-    s=u''
+    s=''
     s=s+"""<?xml version="1.0" encoding="utf-16"?>""" + '\n'
     s=s+"<Export>"+'\n'
     for ename in enames:
-	print 'Adding electrode: %s\n' %ename
+	print('Adding electrode: %s\n' %ename)
         s=s+"<Colors Version=\"11\">"
         s=s+"<Style InternalName=\"1:"
         s=s+ename

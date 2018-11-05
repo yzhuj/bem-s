@@ -29,6 +29,7 @@ from .formats.trap import Electrodes
 from .formats.cpy import read_cpy
 from .formats.gmsh import cpy_to_geo, read_msh, msh_to_fastlap
 from .formats.vtk import results_to_vtk, read_vtk_component
+from functools import reduce
 
 default_footer = """
 Field[1] = Cylinder;

@@ -52,9 +52,9 @@ for line in fxic:
         for x,y in coords:
             key1 = (layer,xp,yp,x,y)
             key2 = (layer,x,y,xp,yp)
-            if edgeList.has_key(key1):
+            if key1 in edgeList:
                 edgeList[key1] = 1   # Edge is shared
-            elif edgeList.has_key(key2):
+            elif key2 in edgeList:
                 edgeList[key2] = 1
             else:
                 edgeList[key1] = 0   # Create key
@@ -110,10 +110,10 @@ for line in fxic:
         for x,y in coords:
             key1 = (layer,xp,yp,x,y)
             key2 = (layer,x,y,xp,yp)
-            if edgeList.has_key(key1) and edgeList[key1]==0:
+            if key1 in edgeList and edgeList[key1]==0:
                 psfile.write("newpath %i %i moveto %i %i lineto stroke\n" \
                     % (xp,yp,x,y))
-            elif edgeList.has_key(key2) and edgeList[key2]==0:
+            elif key2 in edgeList and edgeList[key2]==0:
                 psfile.write("newpath %i %i moveto %i %i lineto stroke\n" \
                     % (xp,yp,x,y))
             xp = x

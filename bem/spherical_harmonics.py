@@ -231,8 +231,8 @@ def test_gaussian():
                -((s.phi - np.pi / 3) / .5) ** 2)
     a = s.analysis(y)
     y1 = s.synthesis(a)
-    print(np.absolute(y).sum())
-    print(np.absolute(y1).sum())
+    print((np.absolute(y).sum()))
+    print((np.absolute(y1).sum()))
     fig, ax = plt.subplots(1, 4, figsize=(18, 7),
             subplot_kw=dict(aspect="equal"))
     for axi, yi in zip(ax, (y, 3 * a, y1, 20 * (y - y1))):

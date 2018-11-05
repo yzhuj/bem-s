@@ -21,11 +21,12 @@ import pyface.qt
 import matplotlib.pyplot as plt
 
 sys.path.append('../')
+sys.path.append('../../electrode/')
 
 from bem import Electrodes, Sphere, Mesh, Grid, Configuration, Result
 from bem.formats import stl
 
-print "Import part OK"
+print("Import part OK")
 
 # base file name for outputs and inputs is the script name
 prefix = "./SimpleTrap"
@@ -60,7 +61,7 @@ def run_job(args):
     # get potentials and fields
     result = job.simulate(grid, field=job.name=="RF", num_lev=1)
     result.to_vtk(prefix)
-    print "finished job %s" % job.name
+    print("finished job %s" % job.name)
     return job.collect_charges()
 
 
@@ -80,14 +81,14 @@ jobs = list(Configuration.select(mesh, "DC.*", "RF"))
 # run the different electrodes on the parallel pool
 #pmap = Pool().map # parallel map
 pmap = map # serial map
-pmap(run_job, ((job, grid, prefix) for job in jobs))
+list(pmap(run_job, ((job, grid, prefix) for job in jobs)))
 
 
 # isocontour plot of the RF pseudopotential radially
 result = Result.from_vtk(prefix, "RF")
 p = result.pseudo_potential
-x = grid.to_mgrid()[:, p.shape[0]/2]
-p = p[p.shape[0]/2]
+x = grid.to_mgrid()[:, p.shape[0]//2]
+p = p[p.shape[0]//2]
 fig, ax = plt.subplots()
 ax.set_aspect("equal")
 ax.contour(x[1], x[2], p, levels=np.linspace(0, 2e-2, 20), cmap=plt.cm.Reds)
@@ -100,11 +101,11 @@ mesh.plot(ax)
 # explore it in fancy 3D
 # fire up a mayavi2 window showing base mesh, charges on final mesh
 # and isosurfaces of the pseudopotential
-Result.view(prefix, "RF")
+# Result.view(prefix, "RF")
 # need to start the full eventloop for the window.
 # close it to return control to the notebook
-from pyface.api import GUI
-GUI().start_event_loop()
+# from pyface.api import GUI
+# GUI().start_event_loop()
 
 
 from electrode import System, GridElectrode

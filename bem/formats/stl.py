@@ -18,7 +18,7 @@ def read_stl(fil, ignore_attr_length=True):     # binary stl
     is the overall color default color.
     """
     h = fil.read(80)    # ASCII header of length 80 bytes.
-    assert h.startswith("STLB")    # Check if it's a binary stl or raise an AssertionError.
+    assert h.startswith(b"STLB")    # Check if it's a binary stl or raise an AssertionError.
     # n is the number of triangle faces.
     n, = struct.unpack("< I", fil.read(4))    # "< I" struct.unpack 4-byte unsigned int in little-endian.
     if ignore_attr_length:
@@ -95,7 +95,7 @@ def partition_normals(normals,triangles,numbers=[],TOL=1e-6):
 def split_by_normal(stlmesh):
     """split curved faces into one face per triangle (aka split by
     normal, planarize). in place"""
-    for name, faces in stlmesh.iteritems():
+    for name, faces in stlmesh.items():
         new_faces = []
         for points, triangles in faces:    # faces = [(points,triangles)]
             x = points[triangles, :]    # triangles are the index number of points.
@@ -142,7 +142,7 @@ def stl_to_mesh(normals, triangles, attributes, scale=None, rename=None):
         # d = {a:[nms, trs]}, a is face color number from Inventor.
         # nms = [array([x,y,z]),...] trs = [ array([[x1,y1,z1],[x2,y2,z2],[x3,y3,z3]]),...]
     o = OrderedDict()    # o = {name: [(points, triangles)]}
-    for a, nm_tr in d.iteritems():
+    for a, nm_tr in d.items():
         nms, trs = np.array(nm_tr[0]), np.array(nm_tr[1])
         if scale:
             trs /= scale
@@ -150,7 +150,7 @@ def stl_to_mesh(normals, triangles, attributes, scale=None, rename=None):
         if rename:
             # At the first run you don't know color number a, this prints it out for the "rename" of next run.
             if a not in rename:
-                print "dropping", a
+                print("dropping", a)
                 continue
             # At the second run you provide the known rename to replace a.
             else:
@@ -160,8 +160,8 @@ def stl_to_mesh(normals, triangles, attributes, scale=None, rename=None):
             n = "stl_%i" % a    # default name
         if partition:    # Designed for 3D multiplane partition.  
             o[n], planes = partition_normals(nms, trs)
-            print "%i planes in electrode %s"%(len(planes),n)
-            print "Normals vectors are:\n", planes
+            print("%i planes in electrode %s"%(len(planes),n))
+            print("Normals vectors are:\n", planes)
         else:    # Robert's original 2D version.
             i = np.arange(0, trs.shape[0]*3, 3)
             # reshape flats triangle arrays, puts all points together not distinguishing different triangles.
@@ -178,4 +178,4 @@ if __name__ == "__main__":
     import sys
     r = read_stl(open(sys.argv[1], "rb"))
     m = stl_to_mesh(*r)
-    print m
+    print(m)

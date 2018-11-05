@@ -76,6 +76,6 @@ if __name__ == "__main__":
     n2c, c2n = cpy_colormap(open(sys.argv[1]))
     for k in sorted(n2c):
         v = n2c[k]
-        print bin(v)
-        print '%5i: "%s",' % (v, k)
+        print(bin(v))
+        print('%5i: "%s",' % (v, k))
     

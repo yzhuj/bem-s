@@ -33,7 +33,7 @@ class SimpletrapNewCase(unittest.TestCase):
         self.ele = Electrodes.from_trap(open("%s.ele" % prefix), scale=40e-6)
         self.tri = Mesh.from_electrodes(self.ele)
         self.tri.triangulate(opts="qQ")
-        self.job = Configuration.select(self.tri, "RF").next()
+        self.job = next(Configuration.select(self.tri, "RF"))
         s, n = .1, 2*10
         self.grid = Grid(center=(0, 0, 1.5), step=(s, s, s), shape=(n, n, n))
 
