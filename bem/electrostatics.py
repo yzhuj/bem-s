@@ -23,8 +23,8 @@ import logging, re, operator, os
 import numpy as np
 try:
     from tvtk.api import tvtk
-    # from mayavi.modules.surface import Surface
-    # from mayavi.modules.iso_surface import IsoSurface
+    from mayavi.modules.surface import Surface
+    from mayavi.modules.iso_surface import IsoSurface
 except ImportError:
     import warnings
     warnings.warn("not tvtk found")
@@ -102,74 +102,84 @@ class Result(object):
         obj.grid = Grid(step, shape, origin+(np.array(shape)-1)/2.*step)
         return obj
 
-    # @staticmethod
-    # def view(prefix, name):
-    #     """
-    #     construct a generic visualization of base mesh, refined mesh,
-    #     and potential/field/pseudopotential data in mayavi2
-    #     requires running within mayavi2 or ipython with threads or
-    #     something like::
+    @staticmethod
+    def view(prefix, name):
+        """
+        construct a generic visualization of base mesh, refined mesh,
+        and potential/field/pseudopotential data in mayavi2
+        requires running within mayavi2 or ipython with threads or
+        something like::
 
-    #         from pyface.api import GUI
-    #         GUI().start_event_loop()
+            from pyface.api import GUI
+            GUI().start_event_loop()
 
-    #     in your script to interact with it.
+        in your script to interact with it.
 
-    #     this is from a simplified macro recorded in mayavi2
-    #     """
-    #     try:
-    #         engine = mayavi.engine
-    #     except NameError:
-    #         from mayavi.api import Engine
-    #         engine = Engine()
-    #         engine.start()
+        this is from a simplified macro recorded in mayavi2
+        """
+        """
+        wwc 11/23/2018
+        In both python 2.7 and 3.5, this 3D visualization with mayavi 
+        works in Linux, but it's not compatible with X11 remote forwarding. 
+        Install mayavi through conda channel "menpo" in python 3.5 or just 
+        see environment setup of "ele35" in README. However, I haven't 
+        found a mayavi version for python 3.6.
+        """
 
-    #     if len(engine.scenes) == 0:
-    #         engine.new_scene()
+        import mayavi
+        try:
+            engine = mayavi.engine
+        except NameError:
+            from mayavi.api import Engine
+            engine = Engine()
+            engine.start()
 
-    #     scene = engine.scenes[0]
+        if len(engine.scenes) == 0:
+            engine.new_scene()
 
-    #     base_mesh_name = "%s_mesh.vtk" % prefix
-    #     if os.access(base_mesh_name, os.R_OK):
-    #         base_mesh = engine.open(base_mesh_name)
-    #         surface = Surface()
-    #         engine.add_filter(surface, base_mesh)
-    #         surface.actor.property.representation = 'wireframe'
-    #         surface.actor.property.line_width = 1
+        scene = engine.scenes[0]
 
-    #     mesh_name = "%s_%s_mesh.vtk" % (prefix, name)
-    #     if os.access(mesh_name, os.R_OK):
-    #         mesh = engine.open(mesh_name)
-    #         mesh.cell_scalars_name = 'charge'
-    #         surface = Surface()
-    #         engine.add_filter(surface, mesh)
-    #         module_manager = mesh.children[0]
-    #         module_manager.scalar_lut_manager.lut_mode = 'RdBu'
-    #         module_manager.scalar_lut_manager.use_default_range = False
-    #         r = np.fabs(module_manager.scalar_lut_manager.data_range).max()
-    #         module_manager.scalar_lut_manager.data_range = [-r, r]
-    #         surface.actor.property.backface_culling = True
+        base_mesh_name = "%s_mesh.vtk" % prefix
+        if os.access(base_mesh_name, os.R_OK):
+            base_mesh = engine.open(base_mesh_name)
+            surface = Surface()
+            engine.add_filter(surface, base_mesh)
+            surface.actor.property.representation = 'wireframe'
+            surface.actor.property.line_width = 1
 
-    #     data_name = "%s_%s.vtk" % (prefix, name)
-    #     if os.access(data_name, os.R_OK):
-    #         data = engine.open(data_name)
-    #         if "pseudo_potential" in data._point_scalars_list:
-    #             data.point_scalars_name = "pseudo_potential"
-    #         else:
-    #             data.point_scalars_name = "potential"
-    #         iso_surface = IsoSurface()
-    #         engine.add_filter(iso_surface, data)
-    #         module_manager = data.children[0]
-    #         module_manager.scalar_lut_manager.lut_mode = 'Greys'
-    #         iso_surface.contour.auto_contours = True
-    #         iso_surface.contour.number_of_contours = 5
-    #         try:
-    #             iso_surface.contour.maximum_contour = 1e-2
-    #         except:
-    #             pass
+        mesh_name = "%s_%s_mesh.vtk" % (prefix, name)
+        if os.access(mesh_name, os.R_OK):
+            mesh = engine.open(mesh_name)
+            mesh.cell_scalars_name = 'charge'
+            surface = Surface()
+            engine.add_filter(surface, mesh)
+            module_manager = mesh.children[0]
+            module_manager.scalar_lut_manager.lut_mode = 'RdBu'
+            module_manager.scalar_lut_manager.use_default_range = False
+            r = np.fabs(module_manager.scalar_lut_manager.data_range).max()
+            module_manager.scalar_lut_manager.data_range = [-r, r]
+            surface.actor.property.backface_culling = True
 
-    #     scene.scene.isometric_view()
-    #     scene.scene.render()
+        data_name = "%s_%s.vtk" % (prefix, name)
+        if os.access(data_name, os.R_OK):
+            data = engine.open(data_name)
+            if "pseudo_potential" in data._point_scalars_list:
+                data.point_scalars_name = "pseudo_potential"
+            else:
+                data.point_scalars_name = "potential"
+            iso_surface = IsoSurface()
+            engine.add_filter(iso_surface, data)
+            module_manager = data.children[0]
+            module_manager.scalar_lut_manager.lut_mode = 'Greys'
+            iso_surface.contour.auto_contours = True
+            iso_surface.contour.number_of_contours = 5
+            try:
+                iso_surface.contour.maximum_contour = 1e-2
+            except:
+                pass
+
+        scene.scene.isometric_view()
+        scene.scene.render()
 
 
 class Configuration(object):
