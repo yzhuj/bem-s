@@ -17,6 +17,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import division, absolute_import
 
 import numpy as np
 
@@ -24,13 +25,13 @@ from .spherical_harmonics import SphericalHarmonics
 
 
 class Grid(object):
-    def __init__(self, step=None, shape=None, center=None):
+    def __init__(self, center=None, step=None, shape=None):
         """
         returns the rectangular uniform (in each dimension) grid
         with the midpoint (center of mass) at
         `center`, the cell diagonal `step` and a shape `shape`
         """
-        self.step, self.shape, self.center = step, shape, center
+        self.center, self.step, self.shape = center, step, shape
 
     def get_origin(self):
         return self.center-(np.array(self.shape)-1)/2.*self.step
@@ -47,6 +48,12 @@ class Grid(object):
         x = self.to_mgrid()
         x = x.reshape(x.shape[0], -1).T
         return x
+
+    def to_xyz(self):
+        """ Create ndarrays of x, y, z"""
+        xyz = np.array([np.linspace(c-s*(h-1)/2., c+s*(h-1)/2.,h)
+                for c, s, h in zip(self.center, self.step, self.shape)])
+        return xyz
 
     def indices_to_coordinates(self, idx):
         idx = np.atleast_1d(idx)
