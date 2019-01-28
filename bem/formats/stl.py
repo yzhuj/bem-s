@@ -112,7 +112,7 @@ def split_by_normal(stlmesh):
     return stlmesh
 
 
-def stl_to_mesh(normals, triangles, attributes, scale=None, rename=None):
+def stl_to_mesh(normals, triangles, attributes, scale=None, rename=None, quiet=True):
     """generates a {name: [(points, triangles)]} mesh from the
     stl arrays. For further treatment, use e.g:
 
@@ -160,8 +160,9 @@ def stl_to_mesh(normals, triangles, attributes, scale=None, rename=None):
             n = "stl_%i" % a    # default name
         if partition:    # Designed for 3D multiplane partition.  
             o[n], planes = partition_normals(nms, trs)
-            print("%i planes in electrode %s"%(len(planes),n))
-            print("Normals vectors are:\n", planes)
+            if not quiet:
+                print("%i planes in electrode %s"%(len(planes),n))
+                print("normals vectors:\n", planes)
         else:    # Robert's original 2D version.
             i = np.arange(0, trs.shape[0]*3, 3)
             # reshape flats triangle arrays, puts all points together not distinguishing different triangles.
