@@ -99,7 +99,8 @@ class Result(object):
             data = data.reshape(dim).T
             setattr(obj, name, data)
         # FIXME: only uses last array's data for grid
-        obj.grid = Grid(step, shape, origin+(np.array(shape)-1)/2.*step)
+        center = origin+(np.array(shape)-1)/2.*step
+        obj.grid = Grid(center=center, step=step, shape=shape)
         return obj
 
     @staticmethod
@@ -128,11 +129,11 @@ class Result(object):
 
         import mayavi
         try:
-            engine = mayavi.engine
-        except NameError:
             from mayavi.api import Engine
             engine = Engine()
             engine.start()
+        except AttributeError: # NameError:
+            engine = mayavi.engine
 
         if len(engine.scenes) == 0:
             engine.new_scene()
