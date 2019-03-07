@@ -94,23 +94,24 @@ in doc/fastlap_fl-2.0-22oct96 for reference.
 Python Environment Setup
 ------------------------
 
-07/2018
+03/2019 Wance Wang
 
-Create a python environment "bem27" for bem package:
+Create a python environment "ele36" for bem package:
 
-$ conda create -n bem27 python=2.7  
-$ conda install -n bem27 jupyter=1.0.0 scipy=1.1.0 matplotlib=1.5.1 mayavi=4.5.0 cython=0.28.3 cvxopt=1.2.0  
-$ source activate bem27  
+    $ conda create -n ele36 python=3.6  
+    $ conda install -n ele36 jupyter scipy matplotlib cython cvxopt apptools envisage  
+    $ source activate ele36
+    $ pip install mayavi
 
-Or you can reproduce my environment by using file bem27_2018.yml.
+Or you can reproduce my environment by using file `ele36pip_2019.yml`.
 
-$ conda env create -f bem27_2018.yml  
-$ source activate bem27  
+    $ conda env create -f ele36pip_2019.yml  
+    $ source activate ele36  
 
-For building fastlap and triangle C extensions:
+For building `fastlap` and `triangle` C extensions:
 
-$ python setup.py build_ext --inplace
-(When you want to rebuild it, add a --force option.)
+    $ python setup.py build_ext --inplace
+(When you want to rebuild it, add a `--force` option.)
 
 
 General Notes
