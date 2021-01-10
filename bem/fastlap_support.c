@@ -5,9 +5,12 @@
 #   fastlap support code originally from fastlap, (C) fastlap authors
 */
 
+#include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 #include "mulStruct.h"
 #include "mulGlobal.h"
+#include "calcp.h"
 #include "fastlap_support.h"
 
 #define XI 0
