@@ -67,11 +67,14 @@ def partition_normals(normals,triangles,numbers=[],TOL=1e-6):
     """
     nm_unique = [normals[0]]      # normals[0] as the first nm
     points = [[]]    # Each sublist [] represents a plane
-    for nm, tr in zip(normals, triangles):
+    points[-1].extend(triangles[0])
+    for nm, tr in zip(normals[1:], triangles[1:]):
         add_plane = True
         # Search existing normals in nm_unique, in reversed order. (Faces in the same plane are often ajacent.)
         for ith in range(len(nm_unique)-1,-1,-1):   # ith normal -- ith plane
-            if np.linalg.norm(nm-nm_unique[ith]) < TOL:
+            diff = np.array(points[ith][-1]) - tr
+            dot_abs = np.abs(nm_unique[ith] @ diff.T)
+            if np.all(dot_abs < TOL):
                 # Plane points aren't grouped by triangles -- [array([x1,y1,z1]),array([x2,y2,z2]), ...]
                 points[ith].extend(tr)
                 add_plane = False
