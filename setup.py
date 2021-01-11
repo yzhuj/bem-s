@@ -21,18 +21,21 @@
 # Hack to prevent stupid error on exit of `python setup.py test`. (See
 # http://www.eby-sarna.com/pipermail/peak/2010-May/003357.html.)
 # https://github.com/erikrose/more-itertools/commit/da7e3c771523711adeaef3c6a67ba99de5e2e81a
+
+# This setup uses cythonize(), which is an updated cython buildin function.
+# See https://cython.readthedocs.io/en/latest/src/changes.html#id42.  wwc
 try:
-    import multiprocessing
+    import multiprocessing  # parallel compilation 
 except ImportError:
     pass
 
 try:
     from setuptools import setup, Extension, find_packages
 except ImportError:
-    from distutils import setup
+    from distutils.core import setup    # distutils
     from distutils.extension import Extension
 
-from Cython.Distutils import build_ext
+from Cython.Build import cythonize
 import numpy
 import os
 
@@ -48,8 +51,8 @@ setup(
     install_requires=["numpy", "mayavi", "cython"],
     packages = find_packages(),
     test_suite = "bem.tests",
-    cmdclass = {"build_ext": build_ext},
-    ext_modules = [
+    # zip_safe = False, # See https://cython.readthedocs.io/en/latest/src/reference/compilation.html#configuring-the-c-build
+    ext_modules = cythonize([
         Extension("bem.fastlap",
             define_macros = [],
             # extra_compile_args=["-ffast-math"],
@@ -71,6 +74,7 @@ setup(
                 "fastlap",
                 numpy.get_include(),],
         ),
+        
         Extension("bem.pytriangle",
             define_macros = [
                 ("TRILIBRARY", "1"),
@@ -86,5 +90,5 @@ setup(
                 "triangle",
                 numpy.get_include(),],
         ),
-    ],
+    ]),
 )
