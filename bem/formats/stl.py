@@ -53,7 +53,7 @@ def check_normals(normals, triangles):
     assert np.allclose(n, normals, rtol=1e-3, atol=1e-10)
 
 # wwc function
-def partition_normals(normals,triangles,numbers=[],TOL=1e-6):
+def partition_normals(normals,triangles,numbers=[],TOL=5e-6):
     """Partition points into different planes according to the normals in 
     one electrode, for 3D/2D meshing (Shewchuk's triangle C code is 2D meshing).
     Return points_numbers which has following format
