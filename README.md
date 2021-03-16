@@ -26,7 +26,7 @@ Finally, install bem package:
 python setup.py install
 ```
 
-1/11/2020: tested compatible with latest vtk==9.0.1 and latest mayavi==4.7.2 on python==3.8.5
+3/1/2020: tested compatible with latest vtk==9.0.1 and latest mayavi==4.7.2 on python==3.6.12 on both Linux and macOS. Need more test on newer Python versions and on Windows.
 
 ## Notes
 
