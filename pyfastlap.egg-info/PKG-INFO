@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: pyfastlap
+Version: 0.0+dev
+Summary: BEM FMM Laplace solver
+Home-page: http://launchpad.net/pyfastlap
+Author: Robert Jordens
+Author-email: jordens@gmail.com
+License: multiple
+Description: Python bindings for Fastlap
+Platform: UNKNOWN
