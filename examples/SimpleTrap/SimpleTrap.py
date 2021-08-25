@@ -25,11 +25,12 @@
 # `bem` 3D electrostatics example
 
 # <codecell>
-
 import logging, os
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
+print("Python version")
+print (sys.version)
 sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/ionLifetimes/bem')
 sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/ionLifetimes/bem/examples')
 import pyximport; pyximport.install()
