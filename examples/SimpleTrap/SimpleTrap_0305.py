@@ -34,9 +34,10 @@ sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documen
 sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/ionLifetimes/bem/examples')
 sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/ionLifetimes/electrode')
 
+from helper_functions import *
 from bem import Electrodes, Sphere, Mesh, Grid, Configuration, Result
 from bem.formats import stl
-
+from trap_library import *
 
 # ### Import STL geometry file
 # base file name for outputs and inputs is the script name
@@ -51,23 +52,7 @@ print("done")
 scale = 72e-6    # Distance from ion to electrode is 40 um.
 use_stl = True
 
-if not use_stl:
-    # load electrode faces from loops
-    ele = Electrodes.from_trap(open("%s.ele" % prefix), scale)
-    # initial triangulation, area 20, quiet
-    mesh = Mesh.from_electrodes(ele)
-    mpl.rcParams['lines.linewidth'] = 0.2
-    mesh.triangulate(opts="a0.01q25.")
-else:
-    # load electrode faces from colored stl
-    # s_nta is intermediate processed stl file.
-    s_nta = stl.read_stl(open("%s.stl" % prefix, "rb"))
-    mpl.rcParams['lines.linewidth'] = 0.2
-    print("Import stl:",os.path.abspath("./"+prefix+".stl"),"\n")
-    print("Electrode colors (numbers):\n")
-    mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=scale/1e-3,rename={0:"DC21"})) 
-
-
+mesh,s_nta = load_file(Mesh,Electrodes,prefix,scale,use_stl)
 # The formal rename of electrode. Assign each electrode a string name instead of its color coding. Use the numbers you get above.  
 # `stl.stl_to_mesh()` prints normal vectors (different faces) in each electrode.
 
@@ -90,10 +75,7 @@ print("Triangles:",len(s_nta[0]),"\nColors:",len(s_nta[2]),"\n")    # This isn't
 #  13343:"DC16",31:"DC17",7199:"DC18",2079:"DC19",4127:"DC20",
 # 30653:"DC21"
 mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=scale/1e-3,
-    rename={1023:"DC0",31754:"DC1",17439:"RF",20511:"DC2",8776:"DC3",21535:"DC4",23583:"DC5",24607:"DC6",15391:"DC7",18463:"DC8",568:"DC9",14367:"DC10",
-1055:"DC11",3171:"DC12",8223:"DC13",10271:"DC14",6175:"DC15",
- 13343:"DC16",31:"DC17",7199:"DC18",2079:"DC19",4127:"DC20",
-30653:"DC21"}, quiet=False))
+    rename=el_colordict['htrap_f'], quiet=False))
 
 # ### Generate triangle mesh with constraints
 # 
@@ -113,26 +95,12 @@ mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
            radius=rad, inside=size/10, outside=0.4))  # "inside", "outside" set different mesh densities.
 # # retriangulate quality and quiet with areas
 mesh.triangulate(opts="q25Q",new = False)
-# mesh.areas_from_constraints(Sphere(center=np.array([3.7, 0., 1.]),
-#            radius=2.0, inside=0.08, outside=10.))  # "inside", "outside" set different mesh densities.
 # save base mesh to vtks
 # mesh.to_vtk(prefix+suffix)
 mesh.to_vtk(prefix+suffix)
 print("Output vtk:",os.path.abspath("./"+prefix+suffix+".vtk"))    # output path
 
-# Plot triangle meshes.
-fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(24,12), dpi=200)
-ax.set_xlabel("x/l",fontsize=10)
-ax.set_ylabel("y/l",fontsize=10)
-ax.text(-1.5,7,"l = %d um"%(scale/1e-6),fontsize=12)
-ax.plot(xl,yl,marker = 'o',color = 'k')
-# ax.grid(axis = 'both')
-yticks = np.arange(-100, 100, 2)
-ax.set_yticks(yticks)
-xticks = np.arange(-100, 100, 2)
-ax.set_xticks(xticks)
-mesh.plot(ax)
-plt.show()
+plot_mesh(xl,yl,mesh,scale)
 
 
 # ### Main boundary element calculations
@@ -148,35 +116,8 @@ plt.show()
 # + num_lev, the number of levels in the hierarchical spatial decomposition.  
 # num_lev=1 means direct computation without multipole acceleration. See fastlap ug.pdf and README.rst.
 
-# In[9]:
-
-
-# Define calculation function.
-def run_job(args):
-    # job is Configuration instance.
-    job, grid, prefix = args
-    # refine twice adaptively with increasing number of triangles, min angle 25 deg.
-#     print("clip")
-    memory_limit()
-#     job.adapt_mesh(triangles=1e2, opts="q25Q")
-#     job.adapt_mesh(triangles=1e3, opts="q25Q")
-#     print("clop")
-    # solve for surface charges
-    job.solve_singularities(num_mom=5, num_lev=3)
-#     print("done")
-    # get potentials and fields
-    result = job.simulate(grid, field=job.name=="RF", num_lev=4)    # For "RF", field=True computes the field.
-    result.to_vtk(prefix)
-    print("finished job %s" % job.name)
-    return job.collect_charges()
-
-
 # Create a grid in unit of scaled length `l`. Only choose the interested region (trap center) to save time.
-# 
 # For reference, to compute Seidelin trap, grid shape = (60, 60, 60) takes 266 s, while shape = (150, 150, 150) takes 3369 s.
-
-# In[10]:
-
 
 # grid to evalute potential and fields atCreate a grid in unit of scaled length l. Only choose the interested region (trap center) to save time.
 n, s = 100, 0.00002
@@ -191,12 +132,7 @@ grid = Grid(center=(xl,yl,zl), step=(sx, sy, sz), shape=(nx, ny, nz))
 # Grid center (nx, ny ,nz)/2 is shifted to origin
 print("Grid origin/l:", grid.get_origin())
 
-
 # Calculation. Parallel computation `Pool().map`
-
-# In[11]:
-
-
 # generate electrode potential configurations to simulate
 # use regexps to match electrode names
 jobs = list(Configuration.select(mesh, "DC.*","RF"))    # select() picks one electrode each time.
@@ -210,65 +146,12 @@ print("Computing time: %f s"%(time()-t0))
 
 
 # ### Contour plot of potential/pseudo-potential in 3 directions
-
-# In[14]:
-
 # isocontour plot of RF pseudopotential radially from x (axial) direction
-result = Result.from_vtk(prefix+suffix, "RF")
-p = result.pseudo_potential
-maxp = np.amax(p)
-print("p max", maxp)
-x = grid.to_mgrid()[:, p.shape[0]//2]    # p.shape[0]/2 is in the middle of x.
-p = p[p.shape[0]//2]    # get a slice of yz plane at x = p.shape[0]/2.
-print("yz plane, RF pseudo")
-fig, ax = plt.subplots()
-fig.set_size_inches(20,10)
-ax.set_aspect("equal")
-ax.grid(axis = 'both')
-yticks = np.arange(0, 1.7, 0.1)
-ax.set_yticks(yticks)
-xticks = np.arange(-2, 2, 0.1)
-ax.set_xticks(xticks)
-ax.set_ylim(0,2)
-ax.contourf(x[1], x[2], p, levels=np.linspace(0.6e-4, 1e-2, 300), cmap=plt.cm.RdYlGn)
-
-
-# In[ ]:
-
-
-
-
-# In[132]:
-
+plot_RF(Result,prefix,suffix,grid)
 
 # isocontour plot of DC potential from x (axial) direction
 strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
-result = Result.from_vtk(prefix+suffix, "DC1")
-pseed = result.potential
-Vx = np.zeros((pseed.shape[1],pseed.shape[0]))
-Vy = np.zeros((pseed.shape[1],pseed.shape[0]))
-for em in strs:
-    ele = em
-    result = Result.from_vtk(prefix+suffix, ele)
-    p = result.potential
-    maxp = np.amax(p)
-#     print("p max", maxp)
-    x = grid.to_mgrid()[:,p.shape[0]//2]
-#     print(np.shape(Vx))
-    p = p[p.shape[0]//2]
-    Vx = Vx+x[0]
-    Vy = Vy+x[2]
-print(np.shape(Vx))
-print("yz plane, %s potential"%ele)
-fig, ax = plt.subplots()
-ax.set_aspect("equal")
-# yz plane should use x[1], x[2]. wwc
-fig.set_size_inches(20,10)
-
-ax.contour(Vx, Vy, p, levels=np.linspace(0, maxp, 20), cmap=plt.cm.Reds)    # 2e-2
-
-
-# In[133]:
+plot_DC(Result,prefix,suffix,grid,strs,dir='x')
 
 
 # isocontour plot of electrode potential (electrode profile) from z direction
