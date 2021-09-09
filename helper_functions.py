@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from bem.formats import stl
+import logging, os
 
 def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
     if not use_stl:

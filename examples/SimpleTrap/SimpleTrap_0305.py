@@ -22,7 +22,6 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import sys
-import logging, os
 from time import time
 import numpy as np
 import resource
@@ -56,11 +55,6 @@ mesh,s_nta = load_file(Mesh,Electrodes,prefix,scale,use_stl)
 # The formal rename of electrode. Assign each electrode a string name instead of its color coding. Use the numbers you get above.  
 # `stl.stl_to_mesh()` prints normal vectors (different faces) in each electrode.
 
-# 1023:"DC0",17439:"RF",20083:"DC1",20511:"DC2",8776:"DC3",21535:"DC4",23583:"DC5",
-# 24607:"DC6",15391:"DC7",18463:"DC8",568:"DC9",14367:"DC10",
-# 1055:"DC11",3171:"DC12",8223:"DC13",10271:"DC14",6175:"DC15",
-#  13343:"DC16",31:"DC17",7199:"DC18",2079:"DC19",4127:"DC20",
-# 31754:"DC21"      
 
 print(len(s_nta), type(s_nta),"\n")
 # s_nta is a length 3 tuple. (normal, triangle, attribute) 
@@ -70,10 +64,6 @@ print("Triangles:",len(s_nta[0]),"\nColors:",len(s_nta[2]),"\n")    # This isn't
 # stl_to_mesh() only assigns names and does scaling, doing no triangulation to stl mesh.
 # "scale=scale/1e-6" only scales dimensionless scale/1e-6.    1e-6: if stl uses micron as unit.
 
-# 1023:"DC0",31754:"DC1",17439:"RF",20511:"DC2",8776:"DC3",21535:"DC4",23583:"DC5",15391:"DC7",18463:"DC8",568:"DC9",14367:"DC10",
-# 1055:"DC11",3171:"DC12",3200:"DC13",6175:"DC15",
-#  13343:"DC16",31:"DC17",7199:"DC18",2079:"DC19",4127:"DC20",
-# 30653:"DC21"
 mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=scale/1e-3,
     rename=el_colordict['htrap_f'], quiet=False))
 
@@ -123,6 +113,7 @@ plot_mesh(xl,yl,mesh,scale)
 n, s = 100, 0.00002
 Lx, Ly, Lz = 0.0004,0.0004,0.0004 # in the unit of scaled length l
 sx, sy, sz = s, s, s
+
 # ni is grid point number, si is step size. Thus to fix size on i direction you need to fix ni*si.
 nx, ny, nz = [2*np.ceil(L/2.0/s).astype('int') for L in (Lx, Ly, Lz)]
 print("Size/l:", Lx, Ly, Lz)
@@ -143,10 +134,9 @@ t0 = time()
 list(pmap(run_job, ((job, grid, prefix+suffix) for job in jobs)))
 print("Computing time: %f s"%(time()-t0))
 # run_job casts a word after finishing each electrode.
-
-
 # ### Contour plot of potential/pseudo-potential in 3 directions
 # isocontour plot of RF pseudopotential radially from x (axial) direction
+
 plot_RF(Result,prefix,suffix,grid)
 
 # isocontour plot of DC potential from x (axial) direction
