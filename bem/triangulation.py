@@ -27,7 +27,6 @@ except ImportError:
     import warnings
     warnings.warn("not tvtk found")
 
-
 from .pytriangle import triangulate
 
 

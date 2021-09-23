@@ -63,43 +63,46 @@ def plot_RF(Result,prefix,suffix,grid):
     p = p[p.shape[0] // 2]  # get a slice of yz plane at x = p.shape[0]/2.
     print("yz plane, RF pseudo")
     fig, ax = plt.subplots()
-    fig.set_size_inches(20, 10)
+    fig.set_size_inches(4, 10)
     ax.set_aspect("equal")
     ax.grid(axis='both')
-    yticks = np.arange(0, 1.7, 0.1)
+    yticks = np.arange(0.5, 1.5, 0.2)
     ax.set_yticks(yticks)
-    xticks = np.arange(-2, 2, 0.1)
+    xticks = np.arange(-1, 1, 0.2)
     ax.set_xticks(xticks)
-    ax.set_ylim(0, 2)
-    ax.contourf(x[1], x[2], p, levels=np.linspace(0.6e-4, 1e-2, 300), cmap=plt.cm.RdYlGn)
+    # ax.set_ylim(0.5, 1.5)
+    # ax.set_xlim(0.5,1.5)
+    ax.contourf(x[1], x[2], p, levels=np.linspace(p.min(),(p.max()-p.min())*0.05+p.min(), 50), cmap=plt.cm.RdYlGn)
+    plt.show()
 
 def plot_DC(Result,prefix,suffix,grid,strs,dir='x'):
-    result = Result.from_vtk(prefix + suffix, strs[0])
-    pseed = result.potential
-    if dir== 'x':
-        Vx = np.zeros((pseed.shape[1], pseed.shape[0]))
-        Vy = np.zeros((pseed.shape[1], pseed.shape[0]))
-    elif dir=='y':
-        Vx = np.zeros((pseed.shape[1], pseed.shape[0]))
-        Vy = np.zeros((pseed.shape[1], pseed.shape[0]))
-    else:
-        Vx = np.zeros((pseed.shape[1], pseed.shape[0]))
-        Vy = np.zeros((pseed.shape[1], pseed.shape[0]))
+    p = np.zeros(Result.from_vtk(prefix + suffix, strs[0]).potential.shape)
     for em in strs:
         ele = em
         result = Result.from_vtk(prefix + suffix, ele)
-        p = result.potential
+        pmid = result.potential
         maxp = np.amax(p)
         #     print("p max", maxp)
-        x = grid.to_mgrid()[:, p.shape[0] // 2]
         #     print(np.shape(Vx))
-        p = p[p.shape[0] // 2]
-        Vx = Vx + x[0]
-        Vy = Vy + x[2]
-    print(np.shape(Vx))
+        p = p+pmid
+    x,y,z = grid.to_xyz()
+    if dir== 'x':
+        p = p[p.shape[0] // 2,:,:]
+        xp = y
+        yp = z
+    elif dir== 'y':
+        p = p[:,p.shape[1] // 2,:]
+        xp = x
+        yp = z
+    else:
+        p = p[:,:,p.shape[2] // 2]
+        xp = x
+        yp = y
     print("yz plane, %s potential" % ele)
     fig, ax = plt.subplots()
     ax.set_aspect("equal")
     # yz plane should use x[1], x[2]. wwc
+    X, Y = np.meshgrid(xp, yp)
     fig.set_size_inches(20, 10)
-    ax.contour(Vx, Vy, p, levels=np.linspace(0, maxp, 20), cmap=plt.cm.Reds)  # 2e-2
+    ax.contourf(yp,xp, p, levels=np.linspace(p.min(),p.max(), 20), cmap=plt.cm.RdYlGn)
+    plt.show()
