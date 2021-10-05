@@ -15,7 +15,7 @@ from bem import Electrodes, Sphere, Mesh, Grid, Configuration, Result
 from bem.formats import stl
 from trap_library import *
 from SimpleTrap_0305 import *
-# ### Contour plot of potential/pseudo-potential in 3 directions
+# Contour plot of potential/pseudo-potential in 3 directions
 # isocontour plot of RF pseudopotential radially from x (axial) direction
 
 plot_RF(Result, prefix, suffix, grid)

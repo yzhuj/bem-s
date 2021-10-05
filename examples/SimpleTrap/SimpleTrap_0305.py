@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
-
+#here here!
+#more
 # In[1]:
 
 
@@ -32,7 +33,7 @@ from multiprocessing import Pool
 sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/ionLifetimes/bem')
 sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/ionLifetimes/bem/examples')
 sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/ionLifetimes/electrode')
-
+import numpy as np
 from helper_functions import *
 from bem import Electrodes, Sphere, Mesh, Grid, Configuration, Result
 from bem.formats import stl
@@ -43,8 +44,6 @@ from trap_library import *
 
 prefix = "htrapF"
 suffix = ""
-print("done")
-
 # scale to natural units (ion height)
 # this seems not right to me- I feel like the ion-to-electrode distance is own for a spherical
 # electrode geometry
@@ -77,8 +76,8 @@ zl = 1.5
 # set .1 max area within 3
 # areas_from_constraints specifies sphere with finer mesh inside it.
 mpl.rcParams['lines.linewidth'] = 0.2
-rad = 3
-size = 1
+rad = 6
+size = 0.05
 file_name = "mesh_"+str(rad)+"_"+str(size)+"SOld.txt"
 print(file_name)
 mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
@@ -110,9 +109,16 @@ plot_mesh(xl,yl,mesh,scale)
 # For reference, to compute Seidelin trap, grid shape = (60, 60, 60) takes 266 s, while shape = (150, 150, 150) takes 3369 s.
 
 # grid to evalute potential and fields atCreate a grid in unit of scaled length l. Only choose the interested region (trap center) to save time.
-n, s = 100, 0.05
+n, s = 100, 0.1
 Lx, Ly, Lz = 1,1,2 # in the unit of scaled length l
 sx, sy, sz = s, s, s
+
+prefix = "htrapF_s"+str(s)+"_size"+str(size)+""
+prefix = "htrapF"
+
+# os.mkdir(prefix)
+suffix = ""
+print("done")
 
 # ni is grid point number, si is step size. Thus to fix size on i direction you need to fix ni*si.
 nx, ny, nz = [2*np.ceil(L/2.0/s).astype('int') for L in (Lx, Ly, Lz)]
@@ -136,6 +142,6 @@ def run_map():
     print("Computing time: %f s"%(time()-t0))
     # run_job casts a word after finishing each electrode.
 
-# run_map()
+run_map()
 
 

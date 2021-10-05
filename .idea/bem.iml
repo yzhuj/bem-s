@@ -6,12 +6,13 @@
       <sourceFolder url="file://$MODULE_DIR$/examples/SimpleTrap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/bem" isTestSource="false" />
     </content>
-    <content url="file://$MODULE_DIR$/../electrode" />
-    <orderEntry type="jdk" jdkName="Python 3.7 (Keithley-2220-30-1-Control)" jdkType="Python SDK" />
+    <content url="file://$MODULE_DIR$/../electrode">
+      <sourceFolder url="file://$MODULE_DIR$/../electrode" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">
-    <option name="projectConfiguration" value="Twisted Trial" />
     <option name="PROJECT_TEST_RUNNER" value="Twisted Trial" />
   </component>
 </module>
