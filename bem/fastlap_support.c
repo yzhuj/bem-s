@@ -1,13 +1,16 @@
 /*
 # -*- coding: utf-8 -*-
 #
-#   bem: triangulation and fmm/bem electrostatics tools 
+#   bem: triangulation and fmm/bem electrostatics tools
 #   fastlap support code originally from fastlap, (C) fastlap authors
 */
 
+#include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 #include "mulStruct.h"
 #include "mulGlobal.h"
+#include "calcp.h"
 #include "fastlap_support.h"
 
 #define XI 0
@@ -24,8 +27,8 @@ void Dcentroid(int shape, double *pc, double *xcout)
   int i, j;
   double normalize();
   /* Load the corners. */
-  for(i=0; i<4; i++) { 
-      for(j=0; j<3; j++) { 
+  for(i=0; i<4; i++) {
+      for(j=0; j<3; j++) {
       corner[i][j] = *(pc++);
       }
   }

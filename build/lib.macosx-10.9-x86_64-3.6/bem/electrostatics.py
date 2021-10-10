@@ -59,7 +59,7 @@ class Result(object):
         # spw = tvtk.StructuredPointsWriter(input=sp)
         spw = tvtk.StructuredPointsWriter()
         spw.set_input_data(sp)
-        spw.file_name = "%s_%s.vtk" % (prefix, self.configuration.name)
+        spw.file_name = "%s/%s.vtk" % (prefix, self.configuration.name)
         #xidr = tvtk.XMLImageDataWriter(input=sp)
         for data_name in "potential field pseudo_potential".split():
             data = getattr(self, data_name)

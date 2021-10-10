@@ -80,8 +80,7 @@ void spmulPrecond(ssystem *sys, double *work, int size);    // In mulDo.c
 void mulUp(ssystem *sys);                                   // In mulDo.c
 void mulEval(ssystem *sys);                                 // In mulDo.c
 void mulDown(ssystem *sys);                                 // In mulDo.c
-void setTranslation(ssystem *sys, int val);                 // In mulSetup.c    
-
+void setTranslation(ssystem *sys, int val);                 // In mulSetup.c
 int fastlap(plhsSize,prhsSize,pnumSing,px,pshape,pdtype,plhsType,prhsType,plhsIndex,prhsIndex,plhsVect,prhsVect,pxf,pxnrm,pnumLev,pnumMom,pmaxItr,ptol,pjob, pAreas)
 int *plhsSize, *prhsSize, *pnumSing, *pshape, *pdtype, *plhsType, *prhsType, *plhsIndex, *prhsIndex, *pnumLev, *pnumMom, *pmaxItr, *pjob;
 double *px, *plhsVect, *prhsVect, *pxf, *pxnrm, *ptol, *pAreas;

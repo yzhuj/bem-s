@@ -1,11 +1,12 @@
 MANIFEST.in
-README.md
+README.rst
 setup.py
 bem/__init__.py
 bem/area_constraints.py
 bem/electrostatics.py
 bem/evaluate.py
 bem/fastlap.c
+bem/fastlap.pyx
 bem/fastlap_support.c
 bem/fastlap_support.h
 bem/fastlap_wrapper.py
@@ -13,8 +14,10 @@ bem/grid.py
 bem/pipeline.py
 bem/pytriangle.c
 bem/pytriangle.h
+bem/pytriangle.pyx
 bem/show_result.py
 bem/spherical_harmonics.py
+bem/triangulation.c
 bem/triangulation.py
 bem/formats/__init__.py
 bem/formats/cpy.py
