@@ -10,10 +10,10 @@ sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documen
 sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/ionLifetimes/bem/examples')
 sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/ionLifetimes/electrode')
 
-from helper_functions import *
 from bem import Electrodes, Sphere, Mesh, Grid, Configuration, Result
 from bem.formats import stl
 from trap_library import *
+from scipy.optimize import lsq_linear
 from SimpleTrap_0305 import *
 # Contour plot of potential/pseudo-potential in 3 directions
 # isocontour plot of RF pseudopotential radially from x (axial) direction
@@ -22,7 +22,7 @@ plot_RF(Result, prefix, suffix, grid)
 
 # isocontour plot of DC potential from x (axial) direction
 strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
-plot_DC(Result, prefix, suffix, grid, strs, dir='x')
+# plot_DC(Result, prefix, suffix, grid, strs, dir='x')
 
 # isocontour plot of electrode potential (electrode profile) from z direction
 
@@ -32,12 +32,12 @@ plot_DC(Result, prefix, suffix, grid, strs, dir='x')
 # explore it in fancy 3D
 # fire up a mayavi2 window showing base mesh, charges on final mesh
 # and isosurfaces of the pseudopotential
-Result.view(prefix + suffix, "RF")
+# Result.view(prefix + suffix, "RF")
 # need to start the full eventloop for the window.
 # close it to return control to the notebook
-from pyface.api import GUI
+# from pyface.api import GUI
 
-GUI().start_event_loop()
+# GUI().start_event_loop()
 
 # electrode is an another package in nist-ionstorage github. wwc
 from electrode import System, GridElectrode, utils
@@ -78,15 +78,15 @@ for name in strs:
             if name == 'RF':
                 print("trip")
             else:
-                sx = 2
-                sy = 2
-                sz = 2
+                sx = 1
+                sy = 1
+                sz = 1
                 #             print(vx)
                 pot = np.zeros(2 * p + 1)
                 pt = np.array([xl, yl, zl])
-            outvals = utils.cartesian_to_spherical_harmonics(np.transpose(e.data[p][nx // 2 - 1:nx // 2 + 1,
-                                                                          ny // 2 - 1:ny // 2 + 1,
-                                                                          nz // 2 - 1:nz // 2 + 1, :]))
+            outvals = utils.cartesian_to_spherical_harmonics(np.transpose(e.data[p][nx // 2 - 1:nx // 2,
+                                                                          ny // 2-1:ny // 2,
+                                                                          nz // 2 - 1:nz // 2, :]))
             outvals = np.sum(np.sum(np.sum(outvals, 1), 1), 1)
             arlo = np.append(arlo, outvals)
     lamb[i] = arlo[0:npl]
@@ -125,15 +125,25 @@ u2old = np.array(
      -0.077023, -0.68039, -0.074042, -0.034745, -0.039145, -0.03209, -0.025515, -0.019994, -0.01579, -0.086705])
 lambT = np.transpose(lamb)
 # commando = np.linalg.inv(lambT)
-commandoT = np.zeros((8, len(strs)))
-u2vec = np.zeros(8)
+commandoT = np.zeros((npl, len(strs)))
+u2vec = np.zeros(npl)
 u2vec[6 - offset] = 1
-for i in np.arange(0, 8):
+for i in np.arange(0, npl):
     B = np.zeros(npl)
     B[i] = 1
-    A = np.linalg.lstsq(lambT, B, rcond=None)
-    commandoT[i] = A[0] * (np.dot(lambT, u2old)[5])
-lambT = lambT[0:8]
+    status = 1
+    bd = 32
+    while status>0 and bd>=32:
+        optR = lsq_linear(lambT, B, bounds = (-bd,bd))
+        print('status')
+        print(optR.status)
+        if status<=0:
+            break
+        A = np.linalg.lstsq(lambT, B, rcond=None)
+        commandoT[i] = A[0] * (np.dot(lambT, u2old)[5])
+        bd = bd/2
+
+lambT = lambT[0:npl]
 commando = np.transpose(commandoT)
 from tabulate import tabulate
 
@@ -164,13 +174,16 @@ lmid[147:168] = l1[126:147]
 print("u2 from indexing")
 u2 = np.around(commando[:, 5], 5)
 # el3 solution
-u2 = np.array(
-    [-0.054593, 0.057666, -0.66996, 0.05951, -0.057175, -0.058409, -0.047644, -0.038418, -0.031, -0.02519, -0.045262,
-     -0.077023, -0.68039, -0.074042, -0.034745, -0.039145, -0.03209, -0.025515, -0.019994, -0.01579, -0.086705])
+# u2 = np.array(
+#     [-0.054593, 0.057666, -0.66996, 0.05951, -0.057175, -0.058409, -0.047644, -0.038418, -0.031, -0.02519, -0.045262,
+#      -0.077023, -0.68039, -0.074042, -0.034745, -0.039145, -0.03209, -0.025515, -0.019994, -0.01579, -0.086705])
 # el7 solution
 print("getting u2 again")
 print(np.around(np.dot(lambT, u2) / (np.dot(lambT, u2old)[5]), 3))
-print(np.linalg.norm((np.dot(lambT, u2) - [0, 0, 0, 0, 0, np.dot(lambT, u2)[5], 0, 0]) / np.dot(lambT, u2)[5]))
+# print(np.linalg.norm((np.dot(lambT, u2) - [0, 0, 0, 0, 0, np.dot(lambT, u2)[5], 0, 0]) / np.dot(lambT, u2)[5]))
+print("scaling u2 to old solution")
+#plug old solution to see what u2 it generates, normalize new solution
+#to that old solution's value. probably should do this for all multiples
 
 print("norm")
 print(np.linalg.norm(u2))
@@ -186,8 +199,9 @@ pd.DataFrame(lmid).to_csv(file_name, header=None, index=None, float_format='%.15
 from electrode import System, GridElectrode
 
 # strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
-strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
+strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21 RF".split()
 Vx = np.zeros(())
+Vx2 = np.zeros(())
 # Vx = np.zeros((26,38))
 i = 0
 for inp in strs:
@@ -202,21 +216,29 @@ for inp in strs:
         else:
             p = r.potential
         maxp = np.amax(p)
-        #     x = grid.to_mgrid()[:,p.shape[0]//2]
-        #     p = p[p.shape[0]//2]
+        p2 = p[:,p.shape[1]//2]
         x = grid.to_mgrid()[:, :, p.shape[1] // 2]
-        p = p[:, p.shape[1] // 2]
         if inp == "RF":
             print("trip")
-            Vx = Vx + p * 0
+            Vx = Vx + p * 1
+            Vx2 = Vx2 + (p2) * 1
         else:
             #         s[inp].dc = u2[i]*1
-            Vx = Vx + (p * u2[i] * 1)
+            Vx2 = Vx2+(p2 * u2[i] * 1)*1
+            Vx = Vx + (p * u2[i] * 1)*1
     #     else:
     #         Vx = Vx
     print(i)
     i = i + 1
 
+print("saddle finding...")
+xsave = x
+x,y,z = grid.to_xyz()
+sdl = find_saddle(Vx,x,y,z,3)
+sdlVal = Vx[sdl[0],sdl[1],sdl[2]]
+print(sdl)
+globmin = find_saddle(Vx,x,y,z,3,min=True)
+globminval = Vx[globmin[0],globmin[1],globmin[2]]
 # print("yz plane, %s potential"%ele)
 fig, ax = plt.subplots()
 ax.set_aspect("equal")
@@ -228,21 +250,21 @@ yticks = np.arange(-10, 10, 1)
 ax.set_yticks(yticks)
 xticks = np.arange(-10, 10, 1)
 ax.set_xticks(xticks)
-# ax.plot(3.7,1.8,marker = 'o')
-ax.plot(xl, zl, marker='o', color='k')
+ax.plot(x[sdl[0]],z[sdl[2]],marker = 'x',color='k')
+ax.plot(x[globmin[0]],z[globmin[2]], marker='o', color='k')
 ax.set_ylim(zl - Lz / 2, zl + Lz / 2)
 ax.set_xlim(xl - Lx / 2, xl + Lx / 2)
 print(Vx.min())
 print(Vx.max())
 print(np.shape(Vx))
-yticks = np.arange(zl - Lz / 2, zl + Lz / 2, 0.02)
+yticks = np.arange(zl - Lz / 2, zl + Lz / 2, 0.1)
 ax.set_yticks(yticks)
-xticks = np.arange(xl - Lx / 2, xl + Lx / 2, 0.02)
+xticks = np.arange(xl - Lx / 2, xl + Lx / 2, 0.1)
 ax.set_xticks(xticks)
-# ax.contourf(x[1], x[2], Vx, levels=np.linspace(-10,10,20), cmap=plt.cm.RdYlGn)
+# ax.contour(x[1], x[2], Vx, levels=np.linspace(-10,10,20), cmap=plt.cm.RdYlGn)
 # 2e-2
-ax.contourf(x[0], x[2], Vx, levels=np.linspace(Vx.min(), Vx.max(), 100), cmap=plt.cm.RdYlGn)  # 2e-2
-
+ax.contour(xsave[0], xsave[2], Vx2, levels=np.linspace(Vx2.min(), Vx2.max(), 100), cmap=plt.cm.RdYlGn)  # 2e-2
+plt.show()
 # In[198]:
 
 
@@ -269,7 +291,7 @@ for inp in strs:
         p = p[p.shape[0] // 2]
         if inp == "RF":
             print("trip")
-            Vx = Vx + p * 0
+            Vx = Vx + p * 1
         else:
             val = p * u2[i] * 1
             #         s[inp].dc = u2[i]
@@ -286,24 +308,22 @@ fig.set_size_inches(20, 10)
 # ax.set_ylim(-1,2)
 ax.grid(axis='both')
 # ax.plot(3.7,1.8,marker = 'o')
-ax.plot(yl, zl, marker='o', color='k')
+ax.plot(y[sdl[1]],z[sdl[2]],marker = 'x',color='k')
+ax.plot(y[globmin[1]], z[globmin[2]], marker='o', color='k')
 ax.set_xlim(yl - Ly / 2, yl + Ly / 2)
 ax.set_ylim(zl - Lz / 2, zl + Lz / 2)
-xticks = np.arange(yl - Ly / 2, yl + Ly / 2, 0.02)
+xticks = np.arange(yl - Ly / 2, yl + Ly / 2, 0.1)
 ax.set_xticks(xticks)
-yticks = np.arange(zl - Lz / 2, zl + Lz / 2, 0.02)
+yticks = np.arange(zl - Lz / 2, zl + Lz / 2, 0.1)
 ax.set_yticks(yticks)
 print(Vx.min())
 print(Vx.max())
 print(np.shape(Vx))
-# ax.contourf(x[1], x[2], Vx, levels=np.linspace(-10,10,20), cmap=plt.cm.RdYlGn)    # 2e-2
+# ax.contour(x[1], x[2], Vx, levels=np.linspace(-10,10,20), cmap=plt.cm.RdYlGn)    # 2e-2
 v = np.linspace(Vx.min(), Vx.max(), 80)
-ax.contourf(x[1], x[2], Vx, levels=v, cmap=plt.cm.RdYlGn)  # 2e-2
+ax.contour(x[1], x[2], Vx, levels=np.linspace(Vx.min(),Vx.max(),300), cmap=plt.cm.RdYlGn)  # 2e-2
+plt.show()
 
-# In[ ]:
-
-
-# In[162]:
 
 
 import scipy.constants as ct
@@ -330,10 +350,14 @@ n = 30
 # xyz = np.mgrid[0:1, -.02:.02:1j*n, .5:1.5:1j*n]
 xyz = grid.to_mgrid()
 p = s.potential(xyz.reshape(3, -1).T, 0).reshape(xyz[0].shape)
-v = np.linspace(-3, 100, 17)
+v = np.linspace(-3, 10, 17)
 fig, ax = plt.subplots()
 ax.set_aspect("equal")
 fig.set_size_inches(8, 10)
-ax.contourf(xyz[1, 10, :, :], xyz[2, 10, :, :], p[10, :, :], v, cmap=plt.cm.RdYlGn)
+ax.contour(xyz[1, 9, :, :], xyz[2, 9, :, :], p[9, :, :], v, cmap=plt.cm.RdYlGn)
 
 
+plt.show()
+
+print("Trap Depth")
+print(globminval-sdlVal)

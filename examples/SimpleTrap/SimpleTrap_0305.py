@@ -42,7 +42,7 @@ from trap_library import *
 # ### Import STL geometry file
 # base file name for outputs and inputs is the script name
 
-prefix = "htrapF"
+prefix = "htrap_el4_4slit_2x300"
 suffix = ""
 # scale to natural units (ion height)
 # this seems not right to me- I feel like the ion-to-electrode distance is own for a spherical
@@ -71,14 +71,14 @@ mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=scale/1e-3,
 # The meshes are 2-dimensional triangles on the surface of electrodes. The region enclosed by constraint shape can have finer mesh. Triangulation is done by `triangle` C library.
 
 xl = 3.7
-yl = 0.0
+yl = 0
 zl = 1.5
 # set .1 max area within 3
 # areas_from_constraints specifies sphere with finer mesh inside it.
 mpl.rcParams['lines.linewidth'] = 0.2
-rad = 6
-size = 0.05
-file_name = "mesh_"+str(rad)+"_"+str(size)+"SOld.txt"
+rad = 3
+size = 0.2
+file_name = "mesh_"+str(rad)+"_"+str(size)+"SOldsol.txt"
 print(file_name)
 mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
            radius=rad, inside=size/10, outside=0.4))  # "inside", "outside" set different mesh densities.
@@ -109,7 +109,7 @@ plot_mesh(xl,yl,mesh,scale)
 # For reference, to compute Seidelin trap, grid shape = (60, 60, 60) takes 266 s, while shape = (150, 150, 150) takes 3369 s.
 
 # grid to evalute potential and fields atCreate a grid in unit of scaled length l. Only choose the interested region (trap center) to save time.
-n, s = 100, 0.1
+n, s = 100, 0.05
 Lx, Ly, Lz = 1,1,2 # in the unit of scaled length l
 sx, sy, sz = s, s, s
 
@@ -142,6 +142,5 @@ def run_map():
     print("Computing time: %f s"%(time()-t0))
     # run_job casts a word after finishing each electrode.
 
-run_map()
-
+# run_map()
 
