@@ -25,7 +25,7 @@ def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
 
 def plot_mesh(xl,yl,mesh,scale):
     # Plot triangle meshes.
-    fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(24, 12), dpi=400)
+    fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(12, 6), dpi=200)
     ax.set_xlabel("x/l", fontsize=10)
     ax.set_ylabel("y/l", fontsize=10)
     ax.text(-1.5, 7, "l = %d um" % (scale / 1e-6), fontsize=12)

@@ -51,7 +51,10 @@ s = System()
 strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
 excl = {
     "DC6": ["Null", 0],
-    "DC14": [13, 12]
+    "DC14": [13, 12],
+    "DC11": ["Null",0],
+    "DC12": ["Null",0]
+
 }
 exp = 4
 offset = 1
@@ -132,15 +135,14 @@ for i in np.arange(0, npl):
     B = np.zeros(npl)
     B[i] = 1
     status = 1
-    bd = 32
+    bd = 64
     while status>0 and bd>=32:
         optR = lsq_linear(lambT, B, bounds = (-bd,bd))
         print('status')
         print(optR.status)
         if status<=0:
             break
-        A = np.linalg.lstsq(lambT, B, rcond=None)
-        commandoT[i] = A[0] * (np.dot(lambT, u2old)[5])
+        commandoT[i] = optR.x * (np.dot(lambT, u2old)[5])
         bd = bd/2
 
 lambT = lambT[0:npl]
@@ -148,7 +150,7 @@ commando = np.transpose(commandoT)
 from tabulate import tabulate
 
 print("checking construction")
-print(np.dot(lambT, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]))
+print(np.dot(lambT, [0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]))
 print(arlo)
 
 print("checking inverse")

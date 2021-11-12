@@ -42,7 +42,7 @@ from trap_library import *
 # ### Import STL geometry file
 # base file name for outputs and inputs is the script name
 
-prefix = "htrap_el4_4slit_2x300"
+prefix = "htrap_13-14_6-gnd_11-12-gnd"
 suffix = ""
 # scale to natural units (ion height)
 # this seems not right to me- I feel like the ion-to-electrode distance is own for a spherical
@@ -64,7 +64,7 @@ print("Triangles:",len(s_nta[0]),"\nColors:",len(s_nta[2]),"\n")    # This isn't
 # "scale=scale/1e-6" only scales dimensionless scale/1e-6.    1e-6: if stl uses micron as unit.
 
 mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=scale/1e-3,
-    rename=el_colordict['htrap_f'], quiet=False))
+    rename=el_colordict['htrap_6-gnd_13-14-gnd_11-12-gnd'], quiet=False))
 
 # ### Generate triangle mesh with constraints
 #
@@ -76,14 +76,14 @@ zl = 1.5
 # set .1 max area within 3
 # areas_from_constraints specifies sphere with finer mesh inside it.
 mpl.rcParams['lines.linewidth'] = 0.2
-rad = 3
-size = 0.2
-file_name = "mesh_"+str(rad)+"_"+str(size)+"SOldsol.txt"
+rad = 4
+size = 2
+file_name = "mesh_"+str(rad)+"_"+str(size)+"6-gnd_11-12-gnd_13-14_2.txt"
 print(file_name)
-mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
-           radius=rad, inside=size/10, outside=0.4))  # "inside", "outside" set different mesh densities.
+# mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
+#            radius=rad, inside=size/10, outside=1.0))  # "inside", "outside" set different mesh densities.
 # # retriangulate quality and quiet with areas
-mesh.triangulate(opts="q25Q",new = False)
+mesh.triangulate(opts="",new = False)
 # save base mesh to vtks
 # mesh.to_vtk(prefix+suffix)
 mesh.to_vtk(prefix+suffix)
@@ -113,8 +113,8 @@ n, s = 100, 0.05
 Lx, Ly, Lz = 1,1,2 # in the unit of scaled length l
 sx, sy, sz = s, s, s
 
-prefix = "htrapF_s"+str(s)+"_size"+str(size)+""
-prefix = "htrapF"
+prefix = "htrapF_mega_short"+str(s)+"_size"+str(size)+""
+# prefix = "htrapF"
 
 # os.mkdir(prefix)
 suffix = ""
