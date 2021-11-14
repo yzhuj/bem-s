@@ -72,16 +72,16 @@ mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=scale/1e-3,
 
 xl = 3.7
 yl = 0
-zl = 1.5
+zl = 1.0
 # set .1 max area within 3
 # areas_from_constraints specifies sphere with finer mesh inside it.
 mpl.rcParams['lines.linewidth'] = 0.2
 rad = 4
-size = 2
-file_name = "mesh_"+str(rad)+"_"+str(size)+"6-gnd_11-12-gnd_13-14_2.txt"
+size = 0.2
+file_name = "mesh_"+str(rad)+"_"+str(size)+"6-gnd_11-12-gnd_13-14_high.txt"
 print(file_name)
-# mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
-#            radius=rad, inside=size/10, outside=1.0))  # "inside", "outside" set different mesh densities.
+mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
+           radius=rad, inside=size/10, outside=1.0))  # "inside", "outside" set different mesh densities.
 # # retriangulate quality and quiet with areas
 mesh.triangulate(opts="",new = False)
 # save base mesh to vtks
@@ -110,7 +110,7 @@ plot_mesh(xl,yl,mesh,scale)
 
 # grid to evalute potential and fields atCreate a grid in unit of scaled length l. Only choose the interested region (trap center) to save time.
 n, s = 100, 0.05
-Lx, Ly, Lz = 1,1,2 # in the unit of scaled length l
+Lx, Ly, Lz = 3,1,1 # in the unit of scaled length l
 sx, sy, sz = s, s, s
 
 prefix = "htrapF_mega_short"+str(s)+"_size"+str(size)+""

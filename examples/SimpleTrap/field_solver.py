@@ -135,8 +135,10 @@ for i in np.arange(0, npl):
     B = np.zeros(npl)
     B[i] = 1
     status = 1
-    bd = 64
-    while status>0 and bd>=32:
+    start = 7
+    end = start-3
+    bd = 2**start
+    while status>0 and bd>=2**end:
         optR = lsq_linear(lambT, B, bounds = (-bd,bd))
         print('status')
         print(optR.status)
@@ -236,10 +238,10 @@ for inp in strs:
 print("saddle finding...")
 xsave = x
 x,y,z = grid.to_xyz()
-sdl = find_saddle(Vx,x,y,z,3)
+sdl = find_saddle_drag(Vx,x,y,z,3)
 sdlVal = Vx[sdl[0],sdl[1],sdl[2]]
 print(sdl)
-globmin = find_saddle(Vx,x,y,z,3,min=True)
+globmin = find_saddle_drag(Vx,x,y,z,3,min=True)
 globminval = Vx[globmin[0],globmin[1],globmin[2]]
 # print("yz plane, %s potential"%ele)
 fig, ax = plt.subplots()
@@ -265,7 +267,7 @@ xticks = np.arange(xl - Lx / 2, xl + Lx / 2, 0.1)
 ax.set_xticks(xticks)
 # ax.contour(x[1], x[2], Vx, levels=np.linspace(-10,10,20), cmap=plt.cm.RdYlGn)
 # 2e-2
-ax.contour(xsave[0], xsave[2], Vx2, levels=np.linspace(Vx2.min(), Vx2.max(), 100), cmap=plt.cm.RdYlGn)  # 2e-2
+ax.contourf(xsave[0], xsave[2], Vx2, levels=np.linspace(Vx2.min(), (Vx2.max()-Vx2.min())*0.2+Vx2.min(), 100), cmap=plt.cm.RdYlGn)  # 2e-2
 plt.show()
 # In[198]:
 
@@ -323,7 +325,7 @@ print(Vx.max())
 print(np.shape(Vx))
 # ax.contour(x[1], x[2], Vx, levels=np.linspace(-10,10,20), cmap=plt.cm.RdYlGn)    # 2e-2
 v = np.linspace(Vx.min(), Vx.max(), 80)
-ax.contour(x[1], x[2], Vx, levels=np.linspace(Vx.min(),Vx.max(),300), cmap=plt.cm.RdYlGn)  # 2e-2
+ax.contourf(x[1], x[2], Vx, levels=np.linspace(Vx.min(),Vx.max(),300), cmap=plt.cm.RdYlGn)  # 2e-2
 plt.show()
 
 
@@ -356,7 +358,7 @@ v = np.linspace(-3, 10, 17)
 fig, ax = plt.subplots()
 ax.set_aspect("equal")
 fig.set_size_inches(8, 10)
-ax.contour(xyz[1, 9, :, :], xyz[2, 9, :, :], p[9, :, :], v, cmap=plt.cm.RdYlGn)
+ax.contourf(xyz[1, 9, :, :], xyz[2, 9, :, :], p[9, :, :], v, cmap=plt.cm.RdYlGn)
 
 
 plt.show()
