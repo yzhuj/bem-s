@@ -42,7 +42,7 @@ from trap_library import *
 # ### Import STL geometry file
 # base file name for outputs and inputs is the script name
 
-prefix = "htrap_13-14_6-gnd_11-12-gnd"
+prefix = "htrap_13-14_6-gnd_11-12-gnd_el4_"
 suffix = ""
 # scale to natural units (ion height)
 # this seems not right to me- I feel like the ion-to-electrode distance is own for a spherical
@@ -70,7 +70,7 @@ mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=scale/1e-3,
 #
 # The meshes are 2-dimensional triangles on the surface of electrodes. The region enclosed by constraint shape can have finer mesh. Triangulation is done by `triangle` C library.
 
-xl = 3.7
+xl = 1
 yl = 0
 zl = 1.0
 # set .1 max area within 3
@@ -142,5 +142,5 @@ def run_map():
     print("Computing time: %f s"%(time()-t0))
     # run_job casts a word after finishing each electrode.
 
-run_map()
+# run_map()
 

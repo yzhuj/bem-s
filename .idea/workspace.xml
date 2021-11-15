@@ -2,7 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0807720-0f7f-42f5-bd71-69d86284633c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/field_solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/field_solver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC0.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC0.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC0_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC0_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC1.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC1.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC10.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC10.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC10_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC10_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC13.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC13.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC13_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC13_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC15.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC15.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC15_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC15_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC16.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC16.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC16_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC16_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC17.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC17.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC17_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC17_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC18.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC18.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC18_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC18_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC19.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC19.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC19_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC19_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC1_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC1_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC2.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC2.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC20.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC20.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC20_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC20_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC21.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC21.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC21_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC21_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC2_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC2_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC3.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC3.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC3_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC3_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC4.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC4.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC4_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC4_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC5.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC5.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC5_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC5_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC7.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC7.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC7_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC7_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC8.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC8.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC8_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC8_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC9.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC9.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC9_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC9_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_RF.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_RF.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_RF_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_RF_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_13-14_6-gnd_11-12-gnd_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrap_13-14_6-gnd_11-12-gnd_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_superhigh.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_superhigh.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="118" column="18" selection-start-line="118" selection-start-column="18" selection-end-line="118" selection-end-column="18" />
+            <state relative-caret-position="171">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="e#845#855#0" expanded="true" />
               </folding>
@@ -39,7 +80,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1965">
+            <state relative-caret-position="118">
               <caret line="137" column="14" selection-start-line="137" selection-start-column="14" selection-end-line="137" selection-end-column="14" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -87,8 +128,8 @@
       <find>.min</find>
       <find>file_name</find>
       <find>0.02</find>
-      <find>/2</find>
       <find>**</find>
+      <find>/2</find>
     </findStrings>
     <replaceStrings>
       <replace>contour</replace>
@@ -294,12 +335,12 @@
       <workItem from="1636422578272" duration="1771000" />
       <workItem from="1636675196121" duration="10182000" />
       <workItem from="1636961711863" duration="513000" />
-      <workItem from="1637000369268" duration="616000" />
+      <workItem from="1637000369268" duration="898000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103387000" />
+    <option name="totallyTimeSpent" value="103669000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -319,7 +360,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23788546" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23788546" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39941263" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -334,7 +375,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="SciView" order="3" visible="true" weight="0.36443383" />
+      <window_info active="true" anchor="right" id="SciView" order="3" visible="true" weight="0.24720894" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
@@ -363,7 +404,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/bem$field_solver.coverage" NAME="field_solver Coverage Results" MODIFIED="1636946860512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
+    <SUITE FILE_PATH="coverage/bem$field_solver.coverage" NAME="field_solver Coverage Results" MODIFIED="1637019877439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
     <SUITE FILE_PATH="coverage/bem$SimpleTrap0305.coverage" NAME="SimpleTrap0305 Coverage Results" MODIFIED="1636419307339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
     <SUITE FILE_PATH="coverage/bem$setup.coverage" NAME="setup Coverage Results" MODIFIED="1633907594559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bem$SimpleTrap.coverage" NAME="SimpleTrap0305 Coverage Results" MODIFIED="1629932030566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
@@ -680,16 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="118" column="18" selection-start-line="118" selection-start-column="18" selection-end-line="118" selection-end-column="18" />
-          <folding>
-            <element signature="e#845#855#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/helper_functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -702,10 +733,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1965">
+        <state relative-caret-position="118">
           <caret line="137" column="14" selection-start-line="137" selection-start-column="14" selection-end-line="137" selection-end-column="14" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#845#855#0" expanded="true" />
           </folding>
         </state>
       </provider>

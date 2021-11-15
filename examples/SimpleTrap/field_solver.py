@@ -135,7 +135,7 @@ for i in np.arange(0, npl):
     B = np.zeros(npl)
     B[i] = 1
     status = 1
-    start = 12
+    start = 10
     end = start-3
     bd = 2**start
     while status>0 and bd>=2**end:
