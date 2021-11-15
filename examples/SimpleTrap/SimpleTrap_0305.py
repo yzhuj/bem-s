@@ -78,7 +78,7 @@ zl = 1.0
 mpl.rcParams['lines.linewidth'] = 0.2
 rad = 4
 size = 0.2
-file_name = "mesh_"+str(rad)+"_"+str(size)+"6-gnd_11-12-gnd_13-14_high.txt"
+file_name = "mesh_"+str(rad)+"_"+str(size)+"6-gnd_11-12-gnd_13-14_superhigh.txt"
 print(file_name)
 mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
            radius=rad, inside=size/10, outside=1.0))  # "inside", "outside" set different mesh densities.
@@ -142,5 +142,5 @@ def run_map():
     print("Computing time: %f s"%(time()-t0))
     # run_job casts a word after finishing each electrode.
 
-# run_map()
+run_map()
 
