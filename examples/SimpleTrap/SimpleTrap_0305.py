@@ -151,6 +151,6 @@ def run_map():
     print("Computing time: %f s"%(time()-t0))
     # run_job casts a word after finishing each electrode.
 #
-# run_map()
-#s
+run_map()
+#
 #
