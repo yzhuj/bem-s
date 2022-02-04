@@ -2,8 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0807720-0f7f-42f5-bd71-69d86284633c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/examples/SimpleTrap/cfile_Htrap_el3 (1).txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/field_solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/field_solver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC0.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC0.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC0_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC0_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC1.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC1.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC10.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC10.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC10_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC10_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC13.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC13.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC13_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC13_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC15.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC15.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC15_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC15_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC16.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC16.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC16_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC16_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC17.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC17.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC17_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC17_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC18.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC18.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC18_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC18_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC19.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC19.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC19_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC19_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC1_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC1_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC2.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC2.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC20.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC20.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC20_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC20_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC21.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC21.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC21_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC21_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC2_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC2_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC3.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC3.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC3_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC3_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC4.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC4.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC4_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC4_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC5.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC5.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC5_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC5_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC7.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC7.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC7_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC7_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC8.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC8.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC8_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC8_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC9.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC9.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC9_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_DC9_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_RF.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_RF.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_RF_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mega_short0.05_size0.2_RF_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_13-14_6-gnd_11-12-gnd_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrap_13-14_6-gnd_11-12-gnd_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_el3_2x300_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrap_el3_2x300_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_mesh.vtk" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/htrap_mesh.vtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2.f3d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_el4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_el4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_low.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_low.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helper_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/helper_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trap_library.py" beforeDir="false" afterPath="$PROJECT_DIR$/trap_library.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,26 +63,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-              <folding>
-                <element signature="e#845#855#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/helper_functions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="114">
+              <caret line="100" column="6" lean-forward="true" selection-start-line="100" selection-end-line="100" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -40,10 +75,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="196" column="35" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="35" />
+            <state relative-caret-position="124">
+              <caret line="89" selection-start-line="89" selection-end-line="89" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/helper_functions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,41 +107,42 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>[Ex,</find>
-      <find>sdl</find>
-      <find>globmin</find>
+      <find>plot(</find>
       <find>'o'</find>
-      <find>glob</find>
-      <find>dropping</find>
-      <find>DC6</find>
-      <find>21</find>
-      <find>htra</find>
-      <find>save</find>
-      <find>csv</find>
-      <find>excl</find>
-      <find>commandoT =</find>
+      <find>grid</find>
+      <find>x=</find>
+      <find>x =</find>
+      <find>xsave =</find>
+      <find>Vx =</find>
+      <find>ylim(</find>
+      <find>zl</find>
+      <find>xl,yl</find>
+      <find>Lz</find>
+      <find>xl =</find>
+      <find>plot_RF</find>
       <find>commandoT</find>
-      <find>Bd</find>
-      <find>'x'</find>
-      <find>nx</find>
-      <find>contour</find>
-      <find>contour(</find>
-      <find>contourf(</find>
-      <find>def run_</find>
+      <find>Vx2 =</find>
+      <find>u2 =</find>
+      <find>npl =</find>
+      <find>-2</find>
+      <find>xl,</find>
+      <find>xl</find>
+      <find>u</find>
+      <find>u2 from p</find>
+      <find>u2vec =</find>
       <find>globminval</find>
-      <find>sdl =</find>
-      <find>find_saddle</find>
-      <find>file</find>
-      <find>.min</find>
-      <find>0.02</find>
-      <find>**</find>
-      <find>/2</find>
-      <find>file_name</find>
+      <find>sdlval</find>
+      <find>inside</find>
+      <find>1e</find>
+      <find>rad</find>
+      <find>load_soln</find>
+      <find>plot_</find>
     </findStrings>
     <replaceStrings>
       <replace>contour</replace>
       <replace>find_saddle</replace>
       <replace>find_saddle_drag</replace>
+      <replace>/2</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -112,9 +160,9 @@
         <option value="$PROJECT_DIR$/bem/fastlap.c" />
         <option value="$PROJECT_DIR$/bem/fastlap_support.c" />
         <option value="$PROJECT_DIR$/trap_library.py" />
-        <option value="$PROJECT_DIR$/helper_functions.py" />
         <option value="$PROJECT_DIR$/examples/SimpleTrap/field_solver.py" />
         <option value="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py" />
+        <option value="$PROJECT_DIR$/helper_functions.py" />
       </list>
     </option>
   </component>
@@ -125,10 +173,10 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="98" />
-    <option name="y" value="23" />
-    <option name="width" value="1296" />
-    <option name="height" value="773" />
+    <option name="x" value="72" />
+    <option name="y" value="101" />
+    <option name="width" value="1294" />
+    <option name="height" value="753" />
   </component>
   <component name="ProjectId" id="1yYaRJdDwHtXmTB2NJW6fzBDOuN" />
   <component name="ProjectView">
@@ -136,6 +184,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -148,11 +197,23 @@
               <item name="bem" type="47feb1d3:ProjectViewModuleNode" />
               <item name="bem" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="bem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bem" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="bem" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bem" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="bem" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="SimpleTrap" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -169,6 +230,9 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/examples/SimpleTrap" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -231,8 +295,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.field_solver" />
       <item itemvalue="Python.SimpleTrap_0305" />
+      <item itemvalue="Python.field_solver" />
     </list>
     <recent_temporary>
       <list>
@@ -295,12 +359,24 @@
       <workItem from="1636422578272" duration="1771000" />
       <workItem from="1636675196121" duration="10182000" />
       <workItem from="1636961711863" duration="513000" />
-      <workItem from="1637000369268" duration="978000" />
+      <workItem from="1637000369268" duration="4121000" />
+      <workItem from="1642033099200" duration="3405000" />
+      <workItem from="1642108984224" duration="5000" />
+      <workItem from="1642138313233" duration="1436000" />
+      <workItem from="1642205808528" duration="38220000" />
+      <workItem from="1643133032611" duration="3000" />
+      <workItem from="1643161108945" duration="7299000" />
+      <workItem from="1643274521160" duration="21004000" />
+      <workItem from="1643416191458" duration="36797000" />
+      <workItem from="1643854938738" duration="2420000" />
+      <workItem from="1643933978920" duration="640000" />
+      <workItem from="1643935210421" duration="2620000" />
+      <workItem from="1643943761644" duration="977000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103749000" />
+    <option name="totallyTimeSpent" value="221718000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -312,15 +388,38 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="98" y="23" width="1296" height="773" extended-state="0" />
-    <editor active="true" />
+    <frame x="72" y="101" width="1294" height="753" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15470494" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19648562" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23788546" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36157337" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3207262" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.328594" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3274596" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Jupyter" order="11" weight="0.32543445" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32599118" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.32599118" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" anchor="right" id="SciView" order="3" visible="true" weight="0.6853035" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22789943" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.28928047" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39941263" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -335,9 +434,9 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.24720894" />
+      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.22303325" />
       <window_info anchor="right" id="Database" order="4" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -360,15 +459,55 @@
           <line>116</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../electrode/electrode/utils.py</url>
+          <line>430</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../electrode/electrode/utils.py</url>
+          <line>429</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/bem/electrostatics.py</url>
+          <line>281</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py</url>
+          <line>374</line>
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py</url>
+          <line>189</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py</url>
+          <line>199</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py</url>
+          <line>168</line>
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py</url>
+          <line>207</line>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/bem$field_solver.coverage" NAME="field_solver Coverage Results" MODIFIED="1637019947854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
+    <SUITE FILE_PATH="coverage/bem$field_solver.coverage" NAME="field_solver Coverage Results" MODIFIED="1644009255794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
     <SUITE FILE_PATH="coverage/bem$SimpleTrap0305.coverage" NAME="SimpleTrap0305 Coverage Results" MODIFIED="1636419307339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
     <SUITE FILE_PATH="coverage/bem$setup.coverage" NAME="setup Coverage Results" MODIFIED="1633907594559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bem$SimpleTrap.coverage" NAME="SimpleTrap0305 Coverage Results" MODIFIED="1629932030566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
-    <SUITE FILE_PATH="coverage/bem$SimpleTrap_0305.coverage" NAME="SimpleTrap_0305 Coverage Results" MODIFIED="1636911121585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
+    <SUITE FILE_PATH="coverage/bem$SimpleTrap_0305.coverage" NAME="SimpleTrap_0305 Coverage Results" MODIFIED="1642486075622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
@@ -395,116 +534,53 @@
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>int(sdl)</expression-string>
+        <expression-string>np.dot(u2old,u2old)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>sdl[0]</expression-string>
+        <expression-string>np.dot(u2,u2)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>sdl</expression-string>
+        <expression-string>np.dot(u2,u2old)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>np.append(test,dragPath[test])</expression-string>
+        <expression-string>u2</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>np.append(test,dragPath[idx])</expression-string>
+        <expression-string>np.dot(lambT,u2)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>test</expression-string>
+        <expression-string>np.dot(lamb,u2)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>test = np.where(dragVal == np.max(dragVal))</expression-string>
+        <expression-string>np.linalg.norm(np.dot(lambT,u2old))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>np.where(dragVal == np.max(dragVal))</expression-string>
+        <expression-string>np.linalg.norm(np.dot(lambT,u2))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>np.where(dragVal = np.max(dragVal))</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>dragVal</expression-string>
+        <expression-string>np.linalg.norm(u2)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../../../../Jupyter/runtime/nbserver-8514-open.html" />
-    <entry file="file://$PROJECT_DIR$/examples/Hucul-west_3DTrap/DataProcessing_HW.ipynb">
-      <provider selected="true" editor-type-id="jupyter-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/Hucul-west_3DTrap/Hucul-west_blade_Trap.ipynb">
-      <provider selected="true" editor-type-id="jupyter-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/opt/anaconda3/lib/python3.7/distutils/unixccompiler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/opt/anaconda3/lib/python3.7/site-packages/Cython/Build/Dependencies.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="113" selection-start-line="113" selection-end-line="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bem/tests/fastlap.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/.pyxbld/temp.macosx-10.9-x86_64-3.7/pyrex/bem/pytriangle.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC4.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/.pyxbld/temp.macosx-10.9-x86_64-3.6/pyrex/bem/pytriangle.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="612" column="21" selection-start-line="612" selection-start-column="21" selection-end-line="612" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/distutils/unixccompiler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.ipynb">
-      <provider selected="true" editor-type-id="jupyter-editor" />
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/collections/__init__.pyi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-450">
-          <caret line="297" column="8" selection-start-line="297" selection-start-column="8" selection-end-line="297" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -514,9 +590,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap.ipynb">
-      <provider selected="true" editor-type-id="jupyter-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/helper_functions.py" />
     <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/multiprocessing/pool.py">
@@ -573,20 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/site-packages/scipy/optimize/_lsq/lsq_linear.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="271" selection-start-line="271" selection-end-line="271" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../electrode/electrode/electrode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="530" column="57" selection-start-line="530" selection-start-column="57" selection-end-line="530" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/site-packages/scipy/ndimage/interpolation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -601,13 +660,6 @@
           <folding>
             <element signature="e#804#852#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../electrode/electrode/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7710">
-          <caret line="72" column="17" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -630,25 +682,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/htrap.stl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/htrapF.stl">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bem/triangulation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="1740" selection-start-line="1740" selection-end-line="1740" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bem/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -660,53 +695,194 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_low.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_el3.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/eggs.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../electrode/electrode/electrode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-330">
+          <caret line="416" column="8" selection-start-line="416" selection-start-column="8" selection-end-line="416" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/site-packages/electrode-1.5+dev-py3.6-macosx-10.9-x86_64.egg/electrode/electrode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="518" selection-start-line="518" selection-end-line="518" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/site-packages/numpy/linalg/linalg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="203" selection-start-line="203" selection-end-line="203" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/site-packages/electrode-1.5+dev-py3.6-macosx-10.9-x86_64.egg/electrode/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="304" selection-start-line="304" selection-end-line="304" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/htrapShort_el4.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/site-packages/tvtk/tvtk_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="615" selection-start-line="615" selection-end-line="615" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/site-packages/pyfastlap-0.0+dev-py3.6-macosx-10.9-x86_64.egg/bem/triangulation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="435" selection-start-line="435" selection-end-line="435" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_el4.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap.stl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/htrap.stl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/eggs2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2229" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/site-packages/scipy/optimize/_lsq/lsq_linear.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="263" selection-start-line="263" selection-end-line="263" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/htrap_13-14_6-gnd_11-12-gnd.stl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/gnd_11-12-gnd_13-14_el_Jan2022.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2154" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/htrap_DC0.vtk">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd.stl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../electrode/electrode/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="413" column="25" selection-start-line="413" selection-start-column="8" selection-end-line="413" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/site-packages/tvtk/array_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="337" selection-start-line="337" selection-end-line="337" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="1740" selection-start-line="1740" selection-end-line="1740" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="182">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trap_library.py">
+    <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/site-packages/pyface/gui_application.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        <state relative-caret-position="98">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bem/pytriangle.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="220" column="25" selection-start-line="220" selection-start-column="18" selection-end-line="220" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../../Caches/PyCharm2019.1/python_stubs/-859469721/scipy/spatial/qhull.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="1134" column="18" selection-start-line="1134" selection-start-column="8" selection-end-line="1134" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bem/triangulation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="333" column="35" lean-forward="true" selection-start-line="333" selection-start-column="30" selection-end-line="333" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bem/electrostatics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1030">
-          <caret line="291" column="8" selection-start-line="291" selection-start-column="8" selection-end-line="291" selection-end-column="8" />
+        <state relative-caret-position="3555">
+          <caret line="239" column="7" selection-start-line="239" selection-start-column="7" selection-end-line="239" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trap_library.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="196" column="35" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="35" />
+        <state relative-caret-position="124">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/helper_functions.py">
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="114">
+          <caret line="100" column="6" lean-forward="true" selection-start-line="100" selection-end-line="100" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py">
+    <entry file="file://$PROJECT_DIR$/helper_functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+        <state relative-caret-position="191">
+          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
           <folding>
-            <element signature="e#845#855#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

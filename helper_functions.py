@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 from bem.formats import stl
 import logging, os
+import csv
+from scipy.signal import argrelextrema
 
 def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
     if not use_stl:
@@ -25,15 +27,15 @@ def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
 
 def plot_mesh(xl,yl,mesh,scale):
     # Plot triangle meshes.
-    fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(12, 6), dpi=200)
+    fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(12, 6), dpi=400)
     ax.set_xlabel("x/l", fontsize=10)
     ax.set_ylabel("y/l", fontsize=10)
     ax.text(-1.5, 7, "l = %d um" % (scale / 1e-6), fontsize=12)
-    ax.plot(xl, yl, marker='o', color='k')
+    ax.plot(xl, yl, marker='.', color='k')
     # ax.grid(axis = 'both')
-    yticks = np.arange(-100, 100, 2)
+    yticks = np.arange(-1, 1, 0.1)
     ax.set_yticks(yticks)
-    xticks = np.arange(-100, 100, 2)
+    xticks = np.arange(-1, 1, 0.1)
     ax.set_xticks(xticks)
     mesh.plot(ax)
     plt.show()
@@ -43,13 +45,13 @@ def run_job(args):
     # job is Configuration instance.
     job, grid, prefix = args
     # refine twice adaptively with increasing number of triangles, min angle 25 deg.
-    # job.adapt_mesh(triangles=1e2, opts="q25Q")
-    # job.adapt_mesh(triangles=1e3, opts="q25Q")
+    # job.adapt_mesh(triangles=4e2, opts="qQ")
+    job.adapt_mesh(triangles=1e3, opts="qQ")
     # solve for surface charges
-    job.solve_singularities(num_mom=5, num_lev=1)
+    job.solve_singularities(num_mom=6, num_lev=3)
 #     print("done")
     # get potentials and fields
-    result = job.simulate(grid, field=job.name=="RF", num_lev=4)    # For "RF", field=True computes the field.
+    result = job.simulate(grid, field=job.name=="RF", num_lev=1)    # For "RF", field=True computes the field.
     result.to_vtk(prefix)
     print("finished job %s" % job.name)
     return job.collect_charges()
@@ -66,9 +68,9 @@ def plot_RF(Result,prefix,suffix,grid):
     fig.set_size_inches(4, 10)
     ax.set_aspect("equal")
     ax.grid(axis='both')
-    yticks = np.arange(0.5, 1.5, 0.1)
+    yticks = np.arange(-0.1, 0.1, 0.01)
     ax.set_yticks(yticks)
-    xticks = np.arange(-1, 1, 0.1)
+    xticks = np.arange(-0.1, 0.1, 0.01)
     ax.set_xticks(xticks)
     # ax.set_ylim(0.5, 1.5)
     # ax.set_xlim(0.5,1.5)
@@ -221,7 +223,7 @@ def find_saddle_drag(V,X,Y,Z,dim, scale=1, Z0=None,min=False):
         if len(V.shape)!=3:
             return('Problem with find_saddle.m dimensionalities.')
         # Normalize field
-        E=V/float(np.amax(V))
+        E=V
 
         #Start the search by looking at the very first location
         m=E[0,0,0]
@@ -253,7 +255,25 @@ def find_saddle_drag(V,X,Y,Z,dim, scale=1, Z0=None,min=False):
             outlist = np.append(idx, absmin)
         else:
             idx = np.where(dragVal == np.max(dragVal))
-            sad = dragPath[idx]
+            candidates = argrelextrema(dragVal, np.greater)[0]
+            if len(candidates) == 0:
+                if dragVal[0] < dragVal[len(dragVal)-1]:
+                    idx = 0
+                else:
+                    idx = len(dragVal)
+            if len(candidates) == 1:
+                idx = candidates[0]
+            else:
+                for i in range(len(candidates)):
+                    if i == 0:
+                        idx = candidates[0]
+                    elif dragVal[candidates[i]] < dragVal[idx]:
+                        idx = candidates[i]
+            plt.plot(dragVal)
+            plt.plot(idx,dragVal[idx-1],'x')
+            plt.plot(len(X)//2,V[len(X) // 2, len(Y) // 2, len(Z) // 2],'o')
+            plt.show()
+            sad = dragPath[idx-1]
             outlist = np.append(idx,sad)
         return outlist.astype(int)
     #################################################################################################
@@ -294,3 +314,17 @@ def find_saddle_drag(V,X,Y,Z,dim, scale=1, Z0=None,min=False):
             print('find_saddle: Saddle out of bounds in  y (j) direction.\n')
             return origin
     return origin
+
+def load_soln(file):
+    with open(file) as f:
+        lmid = f.read()
+        lmid = lmid.split('\n')[0:168]
+        lmid = np.asarray(lmid)
+        lmid = lmid.astype(np.float)
+        l1 = lmid.astype(np.float)
+    l1[147:168] = lmid[63:84]
+    l1[105:126] = lmid[84:105]
+    l1[63:84] = lmid[105:126]
+    l1[84:105] = lmid[126:147]
+    l1[126:147] = lmid[147:168]
+    return l1

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-#here here!
+#here heref!
 #more
 # In[1]:
 
@@ -38,16 +38,21 @@ from helper_functions import *
 from bem import Electrodes, Sphere, Mesh, Grid, Configuration, Result
 from bem.formats import stl
 from trap_library import *
+import numpy as np
+
 
 # ### Import STL geometry file
 # base file name for outputs and inputs is the script name
 
-prefix = "htrap_13-14_6-gnd_11-12-gnd"
+prefix = "htrap13-14_6-11-12-4-5-8-gnd"
 suffix = ""
 # scale to natural units (ion height)
 # this seems not right to me- I feel like the ion-to-electrode distance is own for a spherical
 # electrode geometry
-scale = 72e-6    # Distance from ion to electrode is 40 um.
+leng = 1
+factor = 1
+# 72/leng
+scale = 1e-3   # Distance from ion to electrode is 40 um.
 use_stl = True
 
 mesh,s_nta = load_file(Mesh,Electrodes,prefix,scale,use_stl)
@@ -63,30 +68,34 @@ print("Triangles:",len(s_nta[0]),"\nColors:",len(s_nta[2]),"\n")    # This isn't
 # stl_to_mesh() only assigns names and does scaling, doing no triangulation to stl mesh.
 # "scale=scale/1e-6" only scales dimensionless scale/1e-6.    1e-6: if stl uses micron as unit.
 
-mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=scale/1e-3,
-    rename=el_colordict['htrap_6-gnd_13-14-gnd_11-12-gnd'], quiet=False))
+mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=1,
+    rename=el_colordict[prefix], quiet=False))
 
 # ### Generate triangle mesh with constraints
 #
 # The meshes are 2-dimensional triangles on the surface of electrodes. The region enclosed by constraint shape can have finer mesh. Triangulation is done by `triangle` C library.
 
-xl = 1
-yl = 0
-zl = 1.0
+xl = 3.7*72*1e-3
+yl = -0.051*72*1e-3
+zl = 1.06*72*1e-3
 # set .1 max area within 3
 # areas_from_constraints specifies sphere with finer mesh inside it.
 mpl.rcParams['lines.linewidth'] = 0.2
-rad = 4
-size = 0.2
-file_name = "mesh_"+str(rad)+"_"+str(size)+"6-gnd_11-12-gnd_13-14_el4.txt"
+rad = 5*72*1e-3
+size = 100.0
+file_name = "el2(4-5-6-8-11-12-gnd_13-14).txt"
 print(file_name)
+ # "inside", "outside" set different mesh densities.
+# mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
+#            radius=10*factor, inside=0.1*factor**2, outside=1000))
+# mesh.triangulate(opts="",new = False)
 mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
-           radius=rad, inside=size/10, outside=1.0))  # "inside", "outside" set different mesh densities.
+           radius=rad, inside=2e-4, outside=1e-3))
 # # retriangulate quality and quiet with areas
 mesh.triangulate(opts="",new = False)
 # save base mesh to vtks
 # mesh.to_vtk(prefix+suffix)
-mesh.to_vtk(prefix+suffix)
+# mesh.to_vtk(prefix+suffix)
 print("Output vtk:",os.path.abspath("./"+prefix+suffix+".vtk"))    # output path
 
 plot_mesh(xl,yl,mesh,scale)
@@ -109,12 +118,12 @@ plot_mesh(xl,yl,mesh,scale)
 # For reference, to compute Seidelin trap, grid shape = (60, 60, 60) takes 266 s, while shape = (150, 150, 150) takes 3369 s.
 
 # grid to evalute potential and fields atCreate a grid in unit of scaled length l. Only choose the interested region (trap center) to save time.
-n, s = 100, 0.05
-Lx, Ly, Lz = 3,1,1 # in the unit of scaled length l
+n, s = 100, 0.002
+Lx, Ly, Lz = 0.150,0.075,0.075 # in the unit of scaled length l
 sx, sy, sz = s, s, s
 
 prefix = "htrapF_mega_short"+str(s)+"_size"+str(size)+""
-# prefix = "htrapF"
+# prefix = "htrap_13-14_6-gnd_11-12-gnd"
 
 # os.mkdir(prefix)
 suffix = ""
@@ -141,6 +150,7 @@ def run_map():
     list(pmap(run_job, ((job, grid, prefix+suffix) for job in jobs)))
     print("Computing time: %f s"%(time()-t0))
     # run_job casts a word after finishing each electrode.
-
-run_map()
-
+#
+# run_map()
+#s
+#

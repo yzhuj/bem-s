@@ -50,16 +50,22 @@ s = System()
 # strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
 strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
 excl = {
-    "DC6": ["Null", 0],
+"DC6": ["Null", 0],
+    "DC4": ["Null", 0],
+    "DC5": ["Null", 0],
+    "DC8": ["Null", 0],
     "DC14": [13, 12],
-    "DC11": ["Null",0],
-    "DC12": ["Null",0]
-
+    "DC11": ["Null", 0],
+    "DC12": ["Null", 0]
 }
-exp = 4
+ordr = 2
+exp = ordr+2
 offset = 1
 
-npl = 9 - offset
+npl = 1
+for i in range(exp):
+    npl = npl+2*i-1
+npl =  npl - offset
 lamb = np.zeros((len(strs), npl))
 i = 0
 
@@ -81,21 +87,21 @@ for name in strs:
             if name == 'RF':
                 print("trip")
             else:
-                sx = 1
-                sy = 1
-                sz = 1
+                sx = 10
+                sy = 10
+                sz = 10
                 #             print(vx)
                 pot = np.zeros(2 * p + 1)
                 pt = np.array([xl, yl, zl])
-            outvals = utils.cartesian_to_spherical_harmonics(np.transpose(e.data[p][nx // 2 - 1:nx // 2,
-                                                                          ny // 2-1:ny // 2,
-                                                                          nz // 2 - 1:nz // 2, :]))
-            outvals = np.sum(np.sum(np.sum(outvals, 1), 1), 1)
+            outvals = utils.cartesian_to_spherical_harmonics(np.transpose(e.data[p][nx // 2,
+                                                                          ny // 2,
+                                                                          nz // 2, :]))
+            # outvals = np.sum(np.sum(np.sum(outvals, 1), 1), 1)
             arlo = np.append(arlo, outvals)
     lamb[i] = arlo[0:npl]
     i = i + 1
 print(np.shape(lamb))
-l = 72e-6  # length scale
+l=leng  # length scale
 u = 100.  # peak rf voltage
 o = 36.e6 * 2 * np.pi  # rf frequency
 m = 40 * ct.atomic_mass  # ion mass
@@ -119,34 +125,34 @@ s["RF"].rf = u  # peak rf voltage
 # In[15]:
 
 
-# u2old = np.array([-0.0178185, 0.0153893, 0.0434955, 0.473985, 3.0024, -3.33158, \
-# -4.52325, -0.919275, -0.716663, -0.784725, -0.0289778, 0.0169508, \
-# 0.0820125, 0.601035, 2.83178, -3.5178, -6.54885, -0.756, 0.840975, \
-# -0.0394898, -0.90165])/7
-u2old = np.array(
-    [-0.054593, 0.057666, -0.66996, 0.05951, -0.057175, -0.058409, -0.047644, -0.038418, -0.031, -0.02519, -0.045262,
-     -0.077023, -0.68039, -0.074042, -0.034745, -0.039145, -0.03209, -0.025515, -0.019994, -0.01579, -0.086705])
 lambT = np.transpose(lamb)
-# commando = np.linalg.inv(lambT)
-commandoT = np.zeros((npl, len(strs)))
 u2vec = np.zeros(npl)
 u2vec[6 - offset] = 1
-for i in np.arange(0, npl):
-    B = np.zeros(npl)
-    B[i] = 1
-    status = 1
-    start = 10
-    end = start-3
-    bd = 2**start
-    while status>0 and bd>=2**end:
-        optR = lsq_linear(lambT, B, bounds = (-bd,bd))
-        print('status')
-        print(optR.status)
-        if status<=0:
-            break
-        commandoT[i] = optR.x * (np.dot(lambT, u2old)[5])
-        bd = bd/2
-
+commando = np.linalg.pinv(lambT)
+commandoT = np.transpose(commando)
+# commandoT = np.zeros((npl, len(strs)))
+# for i in np.arange(0, npl):
+#     B = np.zeros(npl)
+#     B[i] = 1
+#     status = 1
+#     start = 1e5
+#     end = 2
+#     bd = start
+#     while status>0 and bd>=end:
+#         optR = lsq_linear(lambT, B, bounds = [-bd,bd])
+#         print('status')
+#         print(optR.status)
+#         print('cost')
+#         print(optR.cost)
+#         if optR.cost > 4e-2:
+#             break
+#         commandoT[i] = optR.x
+#         bd = bd/2
+#     print("next")
+file = '.txt'
+# u2old = np.around(load_soln(file)[105:126],5)
+u2old = np.around(load_soln(file)[105:126],5)
+lambTfull = lambT
 lambT = lambT[0:npl]
 commando = np.transpose(commandoT)
 from tabulate import tabulate
@@ -156,11 +162,11 @@ print(np.dot(lambT, [0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1])
 print(arlo)
 
 print("checking inverse")
-print(tabulate(np.around(np.dot(commando, lambT))))
+print(tabulate(np.around(np.dot(commando, lambT),2)))
 
 print("u2 from pinv")
-u2fromInv = np.around(np.dot(commando, u2vec), 1)
-# print(u2fromInv)
+u2fromInv = np.around(np.dot(lamb, u2vec), 1)
+print(u2fromInv)
 for stri in excl:
     print(stri)
     idx = excl[stri][0]
@@ -174,16 +180,26 @@ lmid[84:105] = l1[105:126]
 lmid[105:126] = l1[63:84]
 lmid[126:147] = l1[84:105]
 lmid[147:168] = l1[126:147]
+
 # lmid = lamb.flatten()
 print("u2 from indexing")
-u2 = np.around(commando[:, 5], 5)
+
+
+# u2 = u2- np.around(load_soln(file)[21:42],5)*1000
+#
+u2 = commandoT[5]
+# u2 = u2old*100
+
+# u2 = u2old *100/1.1
+# u2 = (u2 -np.around(l1[21:42],5)*3.4 -np.around(l1[105:126],5)*0)
 # el3 solution
 # u2 = np.array(
 #     [-0.054593, 0.057666, -0.66996, 0.05951, -0.057175, -0.058409, -0.047644, -0.038418, -0.031, -0.02519, -0.045262,
 #      -0.077023, -0.68039, -0.074042, -0.034745, -0.039145, -0.03209, -0.025515, -0.019994, -0.01579, -0.086705])
 # el7 solution
 print("getting u2 again")
-print(np.around(np.dot(lambT, u2) / (np.dot(lambT, u2old)[5]), 3))
+print(np.around(np.dot(lambTfull, u2),2))
+                # / (np.dot(lambT, u2old)[5]), 3))
 # print(np.linalg.norm((np.dot(lambT, u2) - [0, 0, 0, 0, 0, np.dot(lambT, u2)[5], 0, 0]) / np.dot(lambT, u2)[5]))
 print("scaling u2 to old solution")
 #plug old solution to see what u2 it generates, normalize new solution
@@ -224,14 +240,12 @@ for inp in strs:
         x = grid.to_mgrid()[:, :, p.shape[1] // 2]
         if inp == "RF":
             print("trip")
-            Vx = Vx + p * 1
-            Vx2 = Vx2 + (p2) * 1
+            Vx = Vx + p * 0
+            Vx2 = Vx2 + (p2) * 0
         else:
             #         s[inp].dc = u2[i]*1
-            Vx2 = Vx2+(p2 * u2[i] * 1)*1
-            Vx = Vx + (p * u2[i] * 1)*1
-    #     else:
-    #         Vx = Vx
+            Vx2 = Vx2+(p2 * u2[i])
+            Vx = Vx + (p * u2[i])
     print(i)
     i = i + 1
 
@@ -239,10 +253,11 @@ print("saddle finding...")
 xsave = x
 x,y,z = grid.to_xyz()
 sdl = find_saddle_drag(Vx,x,y,z,3)
-sdlVal = Vx[sdl[0],sdl[1],sdl[2]]
+sdlVal = Vx[sdl[0]-1,sdl[1]-1,sdl[2]-1]
 print(sdl)
 globmin = find_saddle_drag(Vx,x,y,z,3,min=True)
 globminval = Vx[globmin[0],globmin[1],globmin[2]]
+
 # print("yz plane, %s potential"%ele)
 fig, ax = plt.subplots()
 ax.set_aspect("equal")
@@ -254,7 +269,7 @@ yticks = np.arange(-10, 10, 1)
 ax.set_yticks(yticks)
 xticks = np.arange(-10, 10, 1)
 ax.set_xticks(xticks)
-ax.plot(x[sdl[0]],z[sdl[2]],marker = 'x',color='k')
+ax.plot(x[sdl[0]-1],z[sdl[2]-1],marker = 'x',color='k')
 ax.plot(x[globmin[0]],z[globmin[2]], marker='o', color='k')
 ax.set_ylim(zl - Lz / 2, zl + Lz / 2)
 ax.set_xlim(xl - Lx / 2, xl + Lx / 2)
@@ -263,11 +278,11 @@ print(Vx.max())
 print(np.shape(Vx))
 yticks = np.arange(zl - Lz / 2, zl + Lz / 2, 0.1)
 ax.set_yticks(yticks)
-xticks = np.arange(xl - Lx / 2, xl + Lx / 2, 0.1)
+xticks = np.arange(xl - Lx / 2, xl + Lx / 2, 0.5)
 ax.set_xticks(xticks)
 # ax.contour(x[1], x[2], Vx, levels=np.linspace(-10,10,20), cmap=plt.cm.RdYlGn)
 # 2e-2
-ax.contourf(xsave[0], xsave[2], Vx2, levels=np.linspace(Vx2.min(), (Vx2.max()-Vx2.min())*0.2+Vx2.min(), 100), cmap=plt.cm.RdYlGn)  # 2e-2
+ax.contourf(xsave[0], xsave[2], Vx2, levels=np.linspace(Vx2.min(), (Vx2.max()-Vx2.min())*1.0+Vx2.min(), 100), cmap=plt.cm.RdYlGn)  # 2e-2
 plt.show()
 # In[198]:
 
@@ -295,7 +310,7 @@ for inp in strs:
         p = p[p.shape[0] // 2]
         if inp == "RF":
             print("trip")
-            Vx = Vx + p * 1
+            Vx = Vx + p * 0
         else:
             val = p * u2[i] * 1
             #         s[inp].dc = u2[i]
@@ -332,7 +347,7 @@ plt.show()
 
 import scipy.constants as ct
 
-l = 72e-6  # length scale
+l = 100e-6  # length scale
 u = 100.  # peak rf voltage
 o = 36e6 * 2 * np.pi  # rf frequency
 m = 40 * ct.atomic_mass  # ion mass
@@ -344,7 +359,7 @@ s["RF"].rf = u  # peak rf voltage
 # method = 'Newton-CG'
 
 # x0 = s.minimum((4.34507963, -0.04303287,  0.99403176))
-x0 = np.array([3.89080547, -0.05081175, 1.05714154])
+x0 = np.array([6.1, -0.05081175, 1.05714154])*72*1e-3
 print(s.electrical_potential(x0)[0])
 # for _ in s.analyze_static(x0,m=m,l=l, o=o):
 #     print(_)
@@ -364,4 +379,4 @@ ax.contourf(xyz[1, 9, :, :], xyz[2, 9, :, :], p[9, :, :], v, cmap=plt.cm.RdYlGn)
 plt.show()
 
 print("Trap Depth")
-print(globminval-sdlVal)
+print("%f meV" %((globminval-sdlVal)*1000))
