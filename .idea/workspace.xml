@@ -2,7 +2,367 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0807720-0f7f-42f5-bd71-69d86284633c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/Body1.stl" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/trapstl/Body1.stl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap.cpx" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/mysteryFiles/SimpleTrap.cpx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap.cpy" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/mysteryFiles/SimpleTrap.cpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap.ele" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/mysteryFiles/SimpleTrap.ele" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap.ipt" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/mysteryFiles/SimpleTrap.ipt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap.stl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC1.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC1_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC2.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC2_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC3.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC3_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC4.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC4_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC5.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC5_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC6.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_DC6_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_RF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_RF.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_RF_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/cfile_Htrap_el3 (1).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/eggs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/eggs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/eggs2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/el2(4-5-6-8-11-12-gnd_13-14).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/field_solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/field_solver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/gnd_11-12-gnd_13-14_el_Jan2022.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/gnd_11-12-gnd_13-14_el_Jan2022_el4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap.f3d" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/f3d/htrap.f3d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap.stl" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/trapstl/htrap.stl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap13-14_6-11-12-4-5-8-gnd.stl" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/trapstl/htrap13-14_6-11-12-4-5-8-gnd.stl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap13-14_6-11-12-4-5-8-gnd_2.stl" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/trapstl/htrap13-14_6-11-12-4-5-8-gnd_2.stl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap13-14_6-11-12-4-5-8-gnd_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapCut2x300um.f3d" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/f3d/htrapCut2x300um.f3d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF.stl" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/trapstl/htrapF.stl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC0.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC1.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC10.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC11.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC12.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC13.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC14.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC15.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC16.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC17.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC18.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC19.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC2.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC20.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC21.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC3.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC4.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC5.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC6.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC7.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC8.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/DC9.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF/RF.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_RF_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC0.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC1.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC10.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC11.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC12.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC13.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC14.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC15.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC16.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC17.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC18.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC19.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC2.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC20.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC21.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC3.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC4.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC5.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC6.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC7.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC8.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/DC9.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4/RF.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC0_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC10_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC11_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC12_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC13_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC14_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC15_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC16_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC17_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC18_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC19_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC1_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC20_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC21_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC2_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC3_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC4_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC5_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC6_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC7_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC8_mesh 2.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC8_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC9_mesh 2.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_DC9_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_RF_mesh 2.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapF_s0.1_size0.4_RF_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd.stl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC0.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC0_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC1.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC10.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC10_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC11.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC11_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC12.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC12_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC13.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC13_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC15.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC15_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC16.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC16_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC17.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC17_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC18.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC18_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC19.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC19_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC1_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC2.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC20.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC20_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC21.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC21_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC2_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC3.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC3_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC4.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC4_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC5.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC5_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC7.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC7_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC8.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC8_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC9.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_DC9_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_RF.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_RF_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapS1314_S6gnd_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort.3mf" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/3mf/htrapShort.3mf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort.stl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort7_el6-&gt;gnd_el14-&gt;13.csv" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/txtcsv4gui/htrapShort7_el6-&gt;gnd_el14-&gt;13.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC0.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC0_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC1.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC10.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC10_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC11.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC11_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC12.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC12_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC13.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC13_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC15.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC15_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC16.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC16_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC17.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC17_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC18.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC18_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC19.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC19_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC1_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC2.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC20.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC20_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC21.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC21_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC2_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC3.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC3_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC4.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC4_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC5.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC5_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC6.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC6_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC7.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC7_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC8.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC8_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC9.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_DC9_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_RF.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_RF_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_el4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/txtcsv4gui/htrapShort_el4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_el6-&gt;gnd_el14-&gt;13.csv" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/txtcsv4gui/htrapShort_el6-&gt;gnd_el14-&gt;13.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapShort_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapSlit2x300.f3d" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/f3d/htrapSlit2x300.f3d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapSlit2x300.stl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapSlit2x300_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_13-14_6-gnd_11-12-gnd.3mf" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/3mf/htrap_13-14_6-gnd_11-12-gnd.3mf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_13-14_6-gnd_11-12-gnd.stl" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/trapstl/htrap_13-14_6-gnd_11-12-gnd.stl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_13-14_6-gnd_11-12-gnd_mesh.stl" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/trapstl/htrap_13-14_6-gnd_11-12-gnd_mesh.stl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_13-14_6-gnd_11-12-gnd_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_DC0.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_RF.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_RF_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_el3_2x300.csv" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/txtcsv4gui/htrap_el3_2x300.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_el3_2x300.stl" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/trapstl/htrap_el3_2x300.stl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_el4_4slits_2x300.csv" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/txtcsv4gui/htrap_el4_4slits_2x300.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_el6-gnd_el13-el14_el11-el12-gnd.3mf" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SimpleTrap/3mf/htrap_el6-gnd_el13-el14_el11-el12-gnd.3mf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrap_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2.stl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC0.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC0_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC1.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC10.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC10_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC11.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC11_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC12.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC12_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC13.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC13_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC14.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC14_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC15.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC15_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC16.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC16_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC17.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC17_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC18.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC18_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC19.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC19_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC1_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC2.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC20.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC20_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC21.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC21_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC2_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC3.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC3_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC4.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC4_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC5.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC5_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC6.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC6_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC7.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC7_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC8.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC8_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC9.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_DC9_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_RF.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_RF_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/htrapv2_mesh.vtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_0_0.1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_2.16_0.0186-gnd_11-12-gnd_13-14_el3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_2.88_0.1446-gnd_11-12-gnd_13-14_el3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_2_0.1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_2_0.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_2_005.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_3_0.1S.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_3_0.1SOld.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_3_0.2SOld.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_3_0.2SOld0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_3_0.2SOld1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_3_0.2SOld2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_3_0.2SOld3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_3_0.2SOld4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_3_0.2SOld5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_3_0.2SOldPrev.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_3_0.2SOldsol.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_3_0.5SOld.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_3_1SOld.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4.32_0.01446-gnd_11-12-gnd_13-14_el3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4.32_0.0366-gnd_11-12-gnd_13-14_el3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4.32_0.1446-gnd_11-12-gnd_13-14_el3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.15.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.25.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_el3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_el3_(new).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_el4-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_el4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_high-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_high.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_low-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_low.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_superhigh-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.26-gnd_11-12-gnd_13-14_superhigh.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0.75.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_005.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_0075.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_01.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_015.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_02.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_025.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_03.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_04.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_05.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_075.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_26-gnd_11-12-gnd_13-14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_26-gnd_11-12-gnd_13-14_2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_2SOldsol.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_4_max.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_5_0.1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_5_0.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_6.0_0.056-gnd_11-12-gnd_13-14_el3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_6_0.1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_6_0.1S.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_6_0.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_6_0.2S.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_7.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_7.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_7_0.15S.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_7_0.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_7_0.2S.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_7_0.3S.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_7_0.4S.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_7_0.5S.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_7_1.0S.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_7_1S.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_7_2S.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_8_0.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_9_0.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_f_01.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_f_025.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_f_05.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_f_07.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_f_075.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_f_1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_f_10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_f_2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_f_20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_f_4.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_f_4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/mesh_f_max.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SimpleTrap/test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/helper_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/helper_functions.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,20 +372,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="154" column="1" lean-forward="true" selection-start-line="154" selection-start-column="1" selection-end-line="154" selection-end-column="1" />
+            <state relative-caret-position="-16">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="e#846#856#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="-190">
+              <caret line="53" column="12" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="12" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -36,10 +399,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helper_functions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3768">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="103">
+              <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#236#994#0" />
+                <element signature="e#1034#1508#0" />
+                <element signature="e#1564#2146#0" />
+                <element signature="e#2192#2928#0" />
+                <element signature="e#2987#3869#0" />
+                <element signature="e#3933#8543#0" />
+                <element signature="e#8612#13109#0" />
+                <element signature="e#13136#13492#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/import_stl.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,9 +491,9 @@
         <option value="$PROJECT_DIR$/bem/fastlap.c" />
         <option value="$PROJECT_DIR$/bem/fastlap_support.c" />
         <option value="$PROJECT_DIR$/trap_library.py" />
-        <option value="$PROJECT_DIR$/examples/SimpleTrap/field_solver.py" />
-        <option value="$PROJECT_DIR$/helper_functions.py" />
         <option value="$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py" />
+        <option value="$PROJECT_DIR$/helper_functions.py" />
+        <option value="$PROJECT_DIR$/examples/SimpleTrap/field_solver.py" />
       </list>
     </option>
   </component>
@@ -122,8 +504,8 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="72" />
-    <option name="y" value="101" />
+    <option name="x" value="-160" />
+    <option name="y" value="702" />
     <option name="width" value="1294" />
     <option name="height" value="753" />
   </component>
@@ -179,11 +561,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/examples/SimpleTrap" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/examples/SimpleTrap/mysteryFiles" />
+      <recent name="$PROJECT_DIR$/examples/SimpleTrap/trapstl" />
+      <recent name="$PROJECT_DIR$/examples/SimpleTrap/csv4gui" />
+      <recent name="$PROJECT_DIR$/examples/SimpleTrap/solutions" />
+      <recent name="$PROJECT_DIR$/examples/SimpleTrap/f3d" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -320,12 +706,12 @@
       <workItem from="1643854938738" duration="2420000" />
       <workItem from="1643933978920" duration="640000" />
       <workItem from="1643935210421" duration="2620000" />
-      <workItem from="1643943761644" duration="1207000" />
+      <workItem from="1643943761644" duration="3683000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221948000" />
+    <option name="totallyTimeSpent" value="224424000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -337,15 +723,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="72" y="101" width="1294" height="753" extended-state="0" />
-    <editor active="true" />
+    <frame x="-160" y="702" width="1294" height="753" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19329074" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28434506" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36157337" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36157337" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3207262" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -360,7 +745,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.17971246" />
+      <window_info active="true" anchor="right" id="SciView" order="3" visible="true" weight="0.63258785" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
     <layout-to-restore>
@@ -426,34 +811,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py</url>
-          <line>374</line>
+          <line>372</line>
           <option name="timeStamp" value="105" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py</url>
-          <line>189</line>
+          <line>187</line>
           <option name="timeStamp" value="110" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py</url>
-          <line>199</line>
+          <line>197</line>
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py</url>
-          <line>168</line>
+          <line>166</line>
           <option name="timeStamp" value="114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py</url>
-          <line>207</line>
+          <line>205</line>
           <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/helper_functions.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="121" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/bem$field_solver.coverage" NAME="field_solver Coverage Results" MODIFIED="1644012667009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
+    <SUITE FILE_PATH="coverage/bem$field_solver.coverage" NAME="field_solver Coverage Results" MODIFIED="1644015237743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
     <SUITE FILE_PATH="coverage/bem$SimpleTrap0305.coverage" NAME="SimpleTrap0305 Coverage Results" MODIFIED="1636419307339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
     <SUITE FILE_PATH="coverage/bem$setup.coverage" NAME="setup Coverage Results" MODIFIED="1633907594559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bem$SimpleTrap.coverage" NAME="SimpleTrap0305 Coverage Results" MODIFIED="1629932030566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples/SimpleTrap" />
@@ -531,31 +921,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="138" column="37" selection-start-line="138" selection-start-column="37" selection-end-line="138" selection-end-column="37" />
-          <folding>
-            <element signature="e#918#936#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/helper_functions.py" />
-    <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/multiprocessing/pool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="265" selection-start-line="265" selection-end-line="265" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bem/fastlap_support.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="75" column="1" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fastlap/fastlap.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -581,18 +946,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="56" column="28" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap.cpy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/import_stl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -632,7 +985,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/htrapF.stl">
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/trapstl/htrapF.stl">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/bem/__init__.py">
@@ -682,7 +1035,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/htrapShort_el4.csv">
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/txtcsv4gui/htrapShort_el4.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/opt/anaconda3/envs/py3bem/lib/python3.6/site-packages/tvtk/tvtk_base.py">
@@ -708,7 +1061,7 @@
     <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap.stl">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/htrap.stl">
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/trapstl/htrap.stl">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/eggs2.txt">
@@ -723,7 +1076,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/htrap_13-14_6-gnd_11-12-gnd.stl">
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/trapstl/htrap_13-14_6-gnd_11-12-gnd.stl">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/gnd_11-12-gnd_13-14_el_Jan2022.txt">
@@ -810,30 +1163,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py">
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/htrapF_RF_mesh.vtk">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_RF.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/mysteryFiles/SimpleTrap.ele">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/mysteryFiles/SimpleTrap.cpy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="-551" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/mysteryFiles/SimpleTrap.cpx">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/import_stl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/helper_functions.py">
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3768">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="-16">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#846#856#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/SimpleTrap_0305.py">
+    <entry file="file://$PROJECT_DIR$/helper_functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="154" column="1" lean-forward="true" selection-start-line="154" selection-start-column="1" selection-end-line="154" selection-end-column="1" />
+        <state relative-caret-position="103">
+          <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#236#994#0" />
+            <element signature="e#1034#1508#0" />
+            <element signature="e#1564#2146#0" />
+            <element signature="e#2192#2928#0" />
+            <element signature="e#2987#3869#0" />
+            <element signature="e#3933#8543#0" />
+            <element signature="e#8612#13109#0" />
+            <element signature="e#13136#13492#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/SimpleTrap/field_solver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-190">
+          <caret line="53" column="12" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

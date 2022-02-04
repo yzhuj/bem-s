@@ -2,8 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from bem.formats import stl
-import logging, os
-import csv
+import os
 from scipy.signal import argrelextrema
 
 def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
@@ -17,7 +16,7 @@ def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
     else:
         # load electrode faces from colored stl
         # s_nta is intermediate processed stl file.
-        s_nta = stl.read_stl(open("%s.stl" % prefix, "rb"))
+        s_nta = stl.read_stl(open("trapstl/%s.stl" % prefix, "rb"))
         mpl.rcParams['lines.linewidth'] = 0.2
         print("Import stl:", os.path.abspath("./" + prefix + ".stl"), "\n")
         print("Electrode colors (numbers):\n")
@@ -25,6 +24,9 @@ def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
     return mesh,s_nta
 
 
+
+#Create custom subplot w/ dimensions that you want, add the trapping point,
+#then use mesh object's 'plot' function to add the mesh to it.
 def plot_mesh(xl,yl,mesh,scale):
     # Plot triangle meshes.
     fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(12, 6), dpi=400)
@@ -40,13 +42,14 @@ def plot_mesh(xl,yl,mesh,scale):
     mesh.plot(ax)
     plt.show()
 
-# Define calculation function.
+# Trap simulations.
 def run_job(args):
     # job is Configuration instance.
     job, grid, prefix = args
+
     # refine twice adaptively with increasing number of triangles, min angle 25 deg.
     # job.adapt_mesh(triangles=4e2, opts="qQ")
-    job.adapt_mesh(triangles=1e3, opts="qQ")
+    # job.adapt_mesh(triangles=1e3, opts="qQ")
     # solve for surface charges
     job.solve_singularities(num_mom=6, num_lev=3)
 #     print("done")
