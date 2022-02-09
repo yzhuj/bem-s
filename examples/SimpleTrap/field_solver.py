@@ -373,45 +373,6 @@ plt.show()
 print("Trap Depth")
 print("%f meV" %((globminval-sdlVal)*1000))
 
-import pickle
 
-x, y, z = grid.to_xyz()
-nx = len(x)
-ny = len(y)
-nz = len(z)
-ntotal = nx*ny*nz
-
-trap = {'X': x,
-        'Y': y,
-        'Z': z}
-i = 0
-strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
-result0 = Result.from_vtk(prefix + suffix, 'DC1')
-p0 = result0.potential
-for ele in strs:
-    if ele not in excl:
-        result = Result.from_vtk(prefix + suffix, ele)
-        p = result.potential
-        p = np.swapaxes(p,0,2)
-        p = np.swapaxes(p,1,2)
-        trap[ele] = {'potential': p}
-        trap[ele]['position'] = [0,i]
-    else:
-        trap[ele] = {'potential': np.zeros(np.shape(p0))}
-        trap[ele]['position'] = [0, i]
-    i = i+1
-
-
-fout = './htrap_simulation_1.pkl'
-
-electrode_list = strs
-
-f = open(fout, 'wb')
-trap1 = {'X':trap['Y'],
-       'Y':trap['Z'],
-       'Z':trap['X'],
-        'electrodes':{}}
-for electrode in electrode_list:
-    trap1['electrodes'][electrode] = trap[electrode]
-pickle.dump(trap1, f, -1)
-f.close()
+fout = 'htrap_simulation_1'
+write_pickle(prefix,fout,grid,excl)
