@@ -44,7 +44,7 @@ import numpy as np
 # ### Import STL geometry file
 # base file name for outputs and inputs is the script name
 
-prefix = "htrap13-14_6-11-12-4-5-8-gnd"
+prefix = "htrapf"
 suffix = ""
 # scale to natural units (ion height)
 # this seems not right to me- I feel like the ion-to-electrode distance is own for a spherical
@@ -90,9 +90,9 @@ print(file_name)
 #            radius=10*factor, inside=0.1*factor**2, outside=1000))
 # mesh.triangulate(opts="",new = False)
 mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
-           radius=rad, inside=2e-4, outside=1e-3))
+           radius=rad, inside=2e-4, outside=2e-3))
 # # retriangulate quality and quiet with areas
-mesh.triangulate(opts="",new = False)
+mesh.triangulate(opts="q25Q",new = False)
 # save base mesh to vtks
 # mesh.to_vtk(prefix+suffix)
 # mesh.to_vtk(prefix+suffix)
@@ -119,7 +119,7 @@ plot_mesh(xl,yl,mesh,scale)
 
 # grid to evalute potential and fields atCreate a grid in unit of scaled length l. Only choose the interested region (trap center) to save time.
 n, s = 100, 0.002
-Lx, Ly, Lz = 0.150,0.075,0.075 # in the unit of scaled length l
+Lx, Ly, Lz = 0.100,0.100,0.100 # in the unit of scaled length l
 sx, sy, sz = s, s, s
 
 prefix = "htrapF_mega_short"+str(s)+"_size"+str(size)+""
@@ -151,6 +151,6 @@ def run_map():
     print("Computing time: %f s"%(time()-t0))
     # run_job casts a word after finishing each electrode.
 #
-run_map()
+# run_map()
 #
 #

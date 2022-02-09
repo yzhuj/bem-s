@@ -48,13 +48,14 @@ def run_job(args):
     job, grid, prefix = args
 
     # refine twice adaptively with increasing number of triangles, min angle 25 deg.
-    # job.adapt_mesh(triangles=4e2, opts="qQ")
-    # job.adapt_mesh(triangles=1e3, opts="qQ")
+    # job.adapt_mesh(triangles=4e2, opts="q25Q")
+    # job.adapt_mesh(triangles=1e4, opts="q25Q")
     # solve for surface charges
-    job.solve_singularities(num_mom=6, num_lev=3)
+    job.solve_singularities(num_mom=4, num_lev=3)
 #     print("done")
     # get potentials and fields
-    result = job.simulate(grid, field=job.name=="RF", num_lev=1)    # For "RF", field=True computes the field.
+    # For "RF", field=True computes the field.
+    result = job.simulate(grid, field=job.name=="RF", num_lev=1)
     result.to_vtk(prefix)
     print("finished job %s" % job.name)
     return job.collect_charges()

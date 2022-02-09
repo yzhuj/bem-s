@@ -46,15 +46,15 @@ import scipy.constants as ct
 
 s = System()
 # load the electrostatics results into a electrode.System()
-strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
+strs = "DC0 DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
 excl = {
-"DC6": ["Null", 0],
-    "DC4": ["Null", 0],
-    "DC5": ["Null", 0],
-    "DC8": ["Null", 0],
-    "DC14": [13, 12],
-    "DC11": ["Null", 0],
-    "DC12": ["Null", 0]
+# "DC6": ["Null", 0],
+#     "DC4": ["Null", 0],
+#     "DC5": ["Null", 0],
+#     "DC8": ["Null", 0],
+#     "DC14": [13, 12],
+#     "DC11": ["Null", 0],
+#     "DC12": ["Null", 0]
 }
 ordr = 2
 exp = ordr+2
@@ -85,16 +85,9 @@ for name in strs:
             if name == 'RF':
                 print("trip")
             else:
-                sx = 10
-                sy = 10
-                sz = 10
-                #             print(vx)
-                pot = np.zeros(2 * p + 1)
-                pt = np.array([xl, yl, zl])
-            outvals = utils.cartesian_to_spherical_harmonics(np.transpose(e.data[p][nx // 2,
-                                                                          ny // 2,
-                                                                          nz // 2, :]))
-            # outvals = np.sum(np.sum(np.sum(outvals, 1), 1), 1)
+                outvals = utils.cartesian_to_spherical_harmonics(np.transpose(e.data[p][nx // 2,
+                                                                              ny // 2,
+                                                                              nz // 2, :]))
             arlo = np.append(arlo, outvals)
     lamb[i] = arlo[0:npl]
     i = i + 1
@@ -147,7 +140,7 @@ commandoT = np.transpose(commando)
 #         commandoT[i] = optR.x
 #         bd = bd/2
 #     print("next")
-file = '.txt'
+file = 'txtcsv4gui/cfile_Htrap_el3.txt'
 # u2old = np.around(load_soln(file)[105:126],5)
 u2old = np.around(load_soln(file)[105:126],5)
 lambTfull = lambT
@@ -156,7 +149,7 @@ commando = np.transpose(commandoT)
 from tabulate import tabulate
 
 print("checking construction")
-print(np.dot(lambT, [0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]))
+# print(np.dot(lambT, [0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]))
 print(arlo)
 
 print("checking inverse")
@@ -250,6 +243,7 @@ for inp in strs:
 print("saddle finding...")
 xsave = x
 x,y,z = grid.to_xyz()
+xin = x
 sdl = find_saddle_drag(Vx,x,y,z,3)
 sdlVal = Vx[sdl[0]-1,sdl[1]-1,sdl[2]-1]
 print(sdl)
@@ -378,3 +372,46 @@ plt.show()
 
 print("Trap Depth")
 print("%f meV" %((globminval-sdlVal)*1000))
+
+import pickle
+
+x, y, z = grid.to_xyz()
+nx = len(x)
+ny = len(y)
+nz = len(z)
+ntotal = nx*ny*nz
+
+trap = {'X': x,
+        'Y': y,
+        'Z': z}
+i = 0
+strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
+result0 = Result.from_vtk(prefix + suffix, 'DC1')
+p0 = result0.potential
+for ele in strs:
+    if ele not in excl:
+        result = Result.from_vtk(prefix + suffix, ele)
+        p = result.potential
+        p = np.swapaxes(p,0,2)
+        p = np.swapaxes(p,1,2)
+        trap[ele] = {'potential': p}
+        trap[ele]['position'] = [0,i]
+    else:
+        trap[ele] = {'potential': np.zeros(np.shape(p0))}
+        trap[ele]['position'] = [0, i]
+    i = i+1
+
+
+fout = './htrap_simulation_1.pkl'
+
+electrode_list = strs
+
+f = open(fout, 'wb')
+trap1 = {'X':trap['Y'],
+       'Y':trap['Z'],
+       'Z':trap['X'],
+        'electrodes':{}}
+for electrode in electrode_list:
+    trap1['electrodes'][electrode] = trap[electrode]
+pickle.dump(trap1, f, -1)
+f.close()
