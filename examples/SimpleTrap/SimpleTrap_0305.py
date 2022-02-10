@@ -55,6 +55,7 @@ factor = 1
 scale = 1e-3   # Distance from ion to electrode is 40 um.
 use_stl = True
 
+
 mesh,s_nta = load_file(Mesh,Electrodes,prefix,scale,use_stl)
 # The formal rename of electrode. Assign each electrode a string name instead of its color coding. Use the numbers you get above.
 # `stl.stl_to_mesh()` prints normal vectors (different faces) in each electrode.
@@ -83,7 +84,7 @@ zl = 1.06*72*1e-3
 mpl.rcParams['lines.linewidth'] = 0.2
 rad = 5*72*1e-3
 size = 100.0
-file_name = "el2(4-5-6-8-11-12-gnd_13-14).txt"
+file_name = "el3(4-5-6-8-11-12-gnd_13-14).txt"
 print(file_name)
  # "inside", "outside" set different mesh densities.
 # mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),

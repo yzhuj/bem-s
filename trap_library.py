@@ -21,7 +21,7 @@ el_colordict = {
 31754:"DC21"},
 
 #el6 shorted to gnd, el13 shorted to el14, 11 to 12 and gnd
-'htrap_6-gnd_13-14-gnd_11-12-gnd':
+'htrap_13-14_6-gnd_11-12-gnd_mesh':
  {1023:"DC0",31754:"DC1",17439:"RF",20511:"DC2",8776:"DC3",21535:"DC4",23583:"DC5",
   15391:"DC7",18463:"DC8",568:"DC9",14367:"DC10",3171:"DC13",6175:"DC15",
  13343:"DC16",31:"DC17",7199:"DC18",2079:"DC19",4127:"DC20",

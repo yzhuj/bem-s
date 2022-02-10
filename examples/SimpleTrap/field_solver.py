@@ -46,7 +46,7 @@ import scipy.constants as ct
 
 s = System()
 # load the electrostatics results into a electrode.System()
-strs = "DC0 DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
+strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
 excl = {
 # "DC6": ["Null", 0],
 #     "DC4": ["Null", 0],
@@ -56,7 +56,7 @@ excl = {
 #     "DC11": ["Null", 0],
 #     "DC12": ["Null", 0]
 }
-ordr = 2
+ordr = 3
 exp = ordr+2
 offset = 1
 
@@ -71,6 +71,7 @@ r = Result.from_vtk(prefix, "DC1")
 e = GridElectrode.from_result(r, maxderiv=exp)
 print("here")
 print(np.shape(e.data[1]))
+roi = 2
 for name in strs:
     if name in excl:
         print(name)
@@ -142,7 +143,7 @@ commandoT = np.transpose(commando)
 #     print("next")
 file = 'txtcsv4gui/cfile_Htrap_el3.txt'
 # u2old = np.around(load_soln(file)[105:126],5)
-u2old = np.around(load_soln(file)[105:126],5)
+u2old = load_soln(file)[105:126]
 lambTfull = lambT
 lambT = lambT[0:npl]
 commando = np.transpose(commandoT)
@@ -179,14 +180,7 @@ print("u2 from indexing")
 # u2 = u2- np.around(load_soln(file)[21:42],5)*1000
 #
 u2 = commandoT[5]
-# u2 = u2old*100
-
-# u2 = u2old *100/1.1
-# u2 = (u2 -np.around(l1[21:42],5)*3.4 -np.around(l1[105:126],5)*0)
-# el3 solution
-# u2 = np.array(
-#     [-0.054593, 0.057666, -0.66996, 0.05951, -0.057175, -0.058409, -0.047644, -0.038418, -0.031, -0.02519, -0.045262,
-#      -0.077023, -0.68039, -0.074042, -0.034745, -0.039145, -0.03209, -0.025515, -0.019994, -0.01579, -0.086705])
+u2 = u2old
 # el7 solution
 print("getting u2 again")
 print(np.around(np.dot(lambTfull, u2),2))
@@ -206,7 +200,7 @@ pd.DataFrame(lmid).to_csv(file_name, header=None, index=None, float_format='%.15
 # In[13]:
 
 
-# isocontour plot of DC potential from x (axial) direction
+# contour plot of DC potential from x (radial) direction
 from electrode import System, GridElectrode
 
 # strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
@@ -227,7 +221,7 @@ for inp in strs:
         else:
             p = r.potential
         maxp = np.amax(p)
-        p2 = p[:,p.shape[1]//2]
+        p2 = p[:,p.shape[1]//2,:]
         x = grid.to_mgrid()[:, :, p.shape[1] // 2]
         if inp == "RF":
             print("trip")
@@ -279,7 +273,7 @@ plt.show()
 # In[198]:
 
 
-# isocontour plot of DC potential from x (axial) direction
+# isocontour plot of DC potential from z (axial) direction
 from electrode import System, GridElectrode
 
 strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21 RF".split()
@@ -299,7 +293,7 @@ for inp in strs:
             p = r.potential
         maxp = np.amax(p)
         x = grid.to_mgrid()[:, p.shape[0] // 2]
-        p = p[p.shape[0] // 2]
+        p = p[p.shape[0] // 2,:,:]
         if inp == "RF":
             print("trip")
             Vx = Vx + p * 0
