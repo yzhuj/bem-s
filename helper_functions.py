@@ -56,14 +56,14 @@ def run_job(args):
 #     print("done")
     # get potentials and fields
     # For "RF", field=True computes the field.
-    result = job.simulate(grid, field=job.name=="RF", num_lev=1)
+    result = job.simulate(grid, field=job.name=="VK", num_lev=1)
     result.to_vtk(prefix)
     print("finished job %s" % job.name)
     return job.collect_charges()
 
-def plot_RF(Result,prefix,suffix,grid):
-    result = Result.from_vtk(prefix + suffix, "RF")
-    p = result.pseudo_potential
+def plot_RF(Result,prefix,grid):
+    result = Result.from_vtk(prefix, "RF")
+    p = result.potential
     maxp = np.amax(p)
     print("p max", maxp)
     x,y,z = grid.to_xyz() # p.shape[0]/2 is in the middle of x.
@@ -79,7 +79,8 @@ def plot_RF(Result,prefix,suffix,grid):
     ax.set_xticks(xticks)
     # ax.set_ylim(0.5, 1.5)
     # ax.set_xlim(0.5,1.5)
-    ax.contour(y,z, np.transpose(p), levels=np.linspace(p.min(),(p.max()-p.min())*0.1+p.min(), 100), cmap=plt.cm.RdYlGn)
+    range = 0.35
+    ax.contour(y,z, np.transpose(p), levels=np.linspace((p.max()-p.min())*range+p.min(),(p.max()-p.min())*(1-range)+p.min(), 100), cmap=plt.cm.RdYlGn)
     plt.show()
 
 def plot_DC(Result,prefix,suffix,grid,strs,dir='x'):
@@ -335,7 +336,7 @@ def load_soln(file):
     return l1
 
 
-def write_pickle(fin,fout,grid,excl):
+def write_pickle(fin,fout,grid):
     #grid is the field grid pts that give the locations of each simulated potential point
     #fin is the filename of the of the input vtk sim file
     #fout is the filename of the pickle you want to save to

@@ -44,8 +44,7 @@ import numpy as np
 # ### Import STL geometry file
 # base file name for outputs and inputs is the script name
 
-prefix = "htrapf"
-suffix = ""
+stl_file_in = "htrapf"
 # scale to natural units (ion height)
 # this seems not right to me- I feel like the ion-to-electrode distance is own for a spherical
 # electrode geometry
@@ -56,7 +55,7 @@ scale = 1e-3   # Distance from ion to electrode is 40 um.
 use_stl = True
 
 
-mesh,s_nta = load_file(Mesh,Electrodes,prefix,scale,use_stl)
+mesh,s_nta = load_file(Mesh,Electrodes,stl_file_in,scale,use_stl)
 # The formal rename of electrode. Assign each electrode a string name instead of its color coding. Use the numbers you get above.
 # `stl.stl_to_mesh()` prints normal vectors (different faces) in each electrode.
 
@@ -70,22 +69,22 @@ print("Triangles:",len(s_nta[0]),"\nColors:",len(s_nta[2]),"\n")    # This isn't
 # "scale=scale/1e-6" only scales dimensionless scale/1e-6.    1e-6: if stl uses micron as unit.
 
 mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=1,
-    rename=el_colordict[prefix], quiet=False))
+    rename=el_colordict[stl_file_in], quiet=False))
 
 # ### Generate triangle mesh with constraints
 #
 # The meshes are 2-dimensional triangles on the surface of electrodes. The region enclosed by constraint shape can have finer mesh. Triangulation is done by `triangle` C library.
-
+#there are all in units of mm now (Ben S. feb 2022)
 xl = 3.7*72*1e-3
 yl = -0.051*72*1e-3
 zl = 1.06*72*1e-3
+rad = 5*72*1e-3
+size = 100.0
 # set .1 max area within 3
 # areas_from_constraints specifies sphere with finer mesh inside it.
 mpl.rcParams['lines.linewidth'] = 0.2
-rad = 5*72*1e-3
-size = 100.0
-file_name = "el3(4-5-6-8-11-12-gnd_13-14).txt"
-print(file_name)
+
+
  # "inside", "outside" set different mesh densities.
 # mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
 #            radius=10*factor, inside=0.1*factor**2, outside=1000))
@@ -95,9 +94,7 @@ mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
 # # retriangulate quality and quiet with areas
 mesh.triangulate(opts="q25Q",new = False)
 # save base mesh to vtks
-# mesh.to_vtk(prefix+suffix)
-# mesh.to_vtk(prefix+suffix)
-print("Output vtk:",os.path.abspath("./"+prefix+suffix+".vtk"))    # output path
+print("Output vtk:",os.path.abspath("./"+stl_file_in+".vtk"))    # output path
 
 plot_mesh(xl,yl,mesh,scale)
 
@@ -123,11 +120,7 @@ n, s = 100, 0.002
 Lx, Ly, Lz = 0.100,0.100,0.100 # in the unit of scaled length l
 sx, sy, sz = s, s, s
 
-prefix = "htrapF_mega_short"+str(s)+"_size"+str(size)+""
-# prefix = "htrap_13-14_6-gnd_11-12-gnd"
-
-# os.mkdir(prefix)
-suffix = ""
+vtk_out = "htrapF_mega_short"+str(s)+"_size"+str(size)+""
 print("done")
 
 # ni is grid point number, si is step size. Thus to fix size on i direction you need to fix ni*si.
@@ -142,16 +135,19 @@ print("Grid origin/l:", grid.get_origin())
 # Calculation. Parallel computation `Pool().map`
 # generate electrode potential configurations to simulate
 # use regexps to match electrode names
-jobs = list(Configuration.select(mesh, "DC.*","RF"))    # select() picks one electrode each time.
+
+jobs = list(Configuration.select(mesh,"RF"))    # select() picks one electrode each time.
 # run the different electrodes on the parallel pool
 pmap = Pool().map # parallel map
 # pmap = map # serial map
 t0 = time()
+
 def run_map():
-    list(pmap(run_job, ((job, grid, prefix+suffix) for job in jobs)))
+    list(pmap(run_job, ((job, grid, vtk_out) for job in jobs)))
     print("Computing time: %f s"%(time()-t0))
     # run_job casts a word after finishing each electrode.
-#
+
 # run_map()
-#
-#
+
+fout = 'htrap_simulation_1'
+write_pickle(vtk_out,fout,grid)

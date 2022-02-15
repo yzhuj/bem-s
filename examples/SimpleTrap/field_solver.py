@@ -18,7 +18,7 @@ from SimpleTrap_0305 import *
 # Contour plot of potential/pseudo-potential in 3 directions
 # isocontour plot of RF pseudopotential radially from x (axial) direction
 
-plot_RF(Result, prefix, suffix, grid)
+plot_RF(Result, vtk_out, grid)
 
 # isocontour plot of DC potential from x (axial) direction
 strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
@@ -49,14 +49,14 @@ s = System()
 strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
 excl = {
 # "DC6": ["Null", 0],
-#     "DC4": ["Null", 0],
-#     "DC5": ["Null", 0],
-#     "DC8": ["Null", 0],
-#     "DC14": [13, 12],
-#     "DC11": ["Null", 0],
-#     "DC12": ["Null", 0]
+    # "DC4": ["Null", 0],
+    # "DC5": ["Null", 0],
+    # "DC8": ["Null", 0],
+    # "DC14": [13, 12],
+    # "DC11": ["Null", 0],
+    # "DC12": ["Null", 0]
 }
-ordr = 3
+ordr = 2
 exp = ordr+2
 offset = 1
 
@@ -141,7 +141,7 @@ commandoT = np.transpose(commando)
 #         commandoT[i] = optR.x
 #         bd = bd/2
 #     print("next")
-file = 'txtcsv4gui/cfile_Htrap_el3.txt'
+file = 'txtcsv4gui/el3_4-5-6-8-11-12-gnd_13-14.txt'
 # u2old = np.around(load_soln(file)[105:126],5)
 u2old = load_soln(file)[105:126]
 lambTfull = lambT
@@ -211,7 +211,7 @@ Vx2 = np.zeros(())
 i = 0
 for inp in strs:
     arlo = np.array([])
-    if inp in excl:
+    if inp in excl and excl[inp]:
         print(inp)
     else:
         r = Result.from_vtk(prefix + suffix, inp)
@@ -229,8 +229,8 @@ for inp in strs:
             Vx2 = Vx2 + (p2) * 0
         else:
             #         s[inp].dc = u2[i]*1
-            Vx2 = Vx2+(p2 * u2[i])
-            Vx = Vx + (p * u2[i])
+            Vx2 = Vx2+(p2 * u2[i])*1
+            Vx = Vx + (p * u2[i])*1
     print(i)
     i = i + 1
 
@@ -268,7 +268,7 @@ xticks = np.arange(xl - Lx / 2, xl + Lx / 2, 0.5)
 ax.set_xticks(xticks)
 # ax.contour(x[1], x[2], Vx, levels=np.linspace(-10,10,20), cmap=plt.cm.RdYlGn)
 # 2e-2
-ax.contourf(xsave[0], xsave[2], Vx2, levels=np.linspace(Vx2.min(), (Vx2.max()-Vx2.min())*1.0+Vx2.min(), 100), cmap=plt.cm.RdYlGn)  # 2e-2
+ax.contourf(xsave[0], xsave[2], Vx2, levels=np.linspace((Vx2.max()-Vx2.min())*0+Vx2.min(), (Vx2.max()-Vx2.min())*1+Vx2.min(), 100), cmap=plt.cm.RdYlGn)  # 2e-2
 plt.show()
 # In[198]:
 
@@ -369,4 +369,4 @@ print("%f meV" %((globminval-sdlVal)*1000))
 
 
 fout = 'htrap_simulation_1'
-write_pickle(prefix,fout,grid,excl)
+write_pickle(prefix,fout,grid)
