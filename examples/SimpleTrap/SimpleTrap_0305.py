@@ -30,9 +30,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from multiprocessing import Pool
 
-sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/ionLifetimes/bem')
-sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/ionLifetimes/bem/examples')
-sys.path.append('/Users/Ben/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/ionLifetimes/electrode')
+
 import numpy as np
 from helper_functions import *
 from bem import Electrodes, Sphere, Mesh, Grid, Configuration, Result
