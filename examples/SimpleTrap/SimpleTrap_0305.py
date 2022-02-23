@@ -73,7 +73,7 @@ mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=1,
 #
 # The meshes are 2-dimensional triangles on the surface of electrodes. The region enclosed by constraint shape can have finer mesh. Triangulation is done by `triangle` C library.
 #there are all in units of mm now (Ben S. feb 2022)
-xl = 1.35*72*1e-3
+xl = (3.1)*72*1e-3
 yl = -0.051*72*1e-3
 zl = 1.06*72*1e-3
 rad = 5*72*1e-3
@@ -118,7 +118,7 @@ n, s = 100, 0.002
 Lx, Ly, Lz = 0.100,0.100,0.100 # in the unit of scaled length l
 sx, sy, sz = s, s, s
 
-vtk_out = "htrapF_mega_short"+str(s)+"_size"+str(size)+""
+vtk_out = "vtks/htrapf"
 print("done")
 
 # ni is grid point number, si is step size. Thus to fix size on i direction you need to fix ni*si.
@@ -147,9 +147,9 @@ def run_map():
 
 run_map()
 
-fout = 'htrap_simulation_1_el4'
+fout = 'htrap_simulation_1_el3.5'
 write_pickle(vtk_out,fout,grid)
 
-f = open('./' + 'gridExample' + '.pkl', 'wb')
-pickle.dump(grid, f, -1)
-f.close()
+# f = open('./' + 'gridExample' + '.pkl', 'wb')
+# pickle.dump(grid, f, -1)
+# f.close()

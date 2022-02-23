@@ -57,7 +57,7 @@ def run_job(args):
 #     print("done")
     # get potentials and fields
     # For "RF", field=True computes the field.
-    result = job.simulate(grid, field=job.name=="VK", num_lev=1)
+    result = job.simulate(grid, field=job.name=="RF", num_lev=1)
     result.to_vtk(prefix)
     print("finished job %s" % job.name)
     return job.collect_charges()
