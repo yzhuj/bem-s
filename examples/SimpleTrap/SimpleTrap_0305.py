@@ -75,7 +75,7 @@ mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=1,
 #
 # The meshes are 2-dimensional triangles on the surface of electrodes. The region enclosed by constraint shape can have finer mesh. Triangulation is done by `triangle` C library.
 #there are all in units of mm now (Ben S. feb 2022)
-xl = 3.7*72*1e-3
+xl = 1.35*72*1e-3
 yl = -0.051*72*1e-3
 zl = 1.06*72*1e-3
 rad = 5*72*1e-3
@@ -136,7 +136,7 @@ print("Grid origin/l:", grid.get_origin())
 # generate electrode potential configurations to simulate
 # use regexps to match electrode names
 
-jobs = list(Configuration.select(mesh,"RF"))    # select() picks one electrode each time.
+jobs = list(Configuration.select(mesh,"DC.*","RF"))    # select() picks one electrode each time.
 # run the different electrodes on the parallel pool
 pmap = Pool().map # parallel map
 # pmap = map # serial map
@@ -149,5 +149,9 @@ def run_map():
 
 # run_map()
 
-fout = 'htrap_simulation_1'
+fout = 'htrap_simulation_1_el4'
 write_pickle(vtk_out,fout,grid)
+
+f = open('./' + 'gridExample' + '.pkl', 'wb')
+pickle.dump(grid, f, -1)
+f.close()

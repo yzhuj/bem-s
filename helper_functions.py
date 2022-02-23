@@ -5,6 +5,7 @@ from bem.formats import stl
 import os
 from scipy.signal import argrelextrema
 from bem import Result
+import pickle
 
 def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
     if not use_stl:
@@ -340,7 +341,6 @@ def write_pickle(fin,fout,grid):
     #grid is the field grid pts that give the locations of each simulated potential point
     #fin is the filename of the of the input vtk sim file
     #fout is the filename of the pickle you want to save to
-    import pickle
     x, y, z = grid.to_xyz()
     nx = len(x)
     ny = len(y)
