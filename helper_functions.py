@@ -34,7 +34,7 @@ def plot_mesh(xl,yl,mesh,scale):
     fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(12, 6), dpi=400)
     ax.set_xlabel("x/l", fontsize=10)
     ax.set_ylabel("y/l", fontsize=10)
-    ax.text(-1.5, 7, "l = %d um" % (scale / 1e-6), fontsize=12)
+    ax.text(0, 0, "l = %d um" % (scale / 1e-6), fontsize=12)
     ax.plot(xl, yl, marker='.', color='k')
     # ax.grid(axis = 'both')
     yticks = np.arange(-1, 1, 0.1)

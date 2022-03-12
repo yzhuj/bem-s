@@ -143,6 +143,8 @@ def stl_to_mesh(normals, triangles, attributes, scale=None, rename=None, quiet=T
         # nms = [array([x,y,z]),...] trs = [ array([[x1,y1,z1],[x2,y2,z2],[x3,y3,z3]]),...]
     o = OrderedDict()    # o = {name: [(points, triangles)]}
     for a, nm_tr in d.items():
+        #nm_tr[0] are the normal vectors
+        #nm_tr[1] are the vertex points
         nms, trs = np.array(nm_tr[0]), np.array(nm_tr[1])
         if scale:
             trs /= scale
