@@ -52,12 +52,9 @@ factor = 1
 scale = 1e-3   # Distance from ion to electrode is 40 um.
 use_stl = True
 
-
 mesh,s_nta = load_file(Mesh,Electrodes,stl_file_in,scale,use_stl)
 # The formal rename of electrode. Assign each electrode a string name instead of its color coding. Use the numbers you get above.
 # `stl.stl_to_mesh()` prints normal vectors (different faces) in each electrode.
-
-
 print(len(s_nta), type(s_nta),"\n")
 # s_nta is a length 3 tuple. (normal, triangle, attribute)
 # Normal direction of each triangle, three vetice of triangles, coding number of colors.
