@@ -27,6 +27,7 @@ Python version <= 3.9 is required.
 Anaconda environment tool is recommended:
 
     $ conda create -n ele39 python=3.9
+    
     $ conda activate ele39
 
 To set up (in folder of setup.py, setup.cfg, pyproject.toml and MANIFEST.in):
