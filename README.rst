@@ -4,6 +4,7 @@ BEM
 
 License
 -------
+
 see COPYING
 
 Introduction
@@ -26,6 +27,7 @@ Python version <= 3.9 is required.
 Anaconda environment tool is recommended:
 
     $ conda create -n ele39 python=3.9
+    
     $ conda activate ele39
 
 To set up (in folder of setup.py, setup.cfg, pyproject.toml and MANIFEST.in):
@@ -133,12 +135,17 @@ Examples\TesSphere_1mm\       1mm tessellated sphere
 Examples\SimpleTrap\          Simple Signe style trap
 Examples\Skull trap\          Skull trap outline to test Inventor import macros
 
-------------------------
+
 Notes for software developers:
+------------------------
 
 * exact dependent package version is listed in 'environment/' for reference. 
   If mayavi can't be built, you should try to restrict the version of vtk, PyQt5 , mayavi in setup.py first.
+  
 * mayavi with its dependence vtk, PyQt5 is very sensitive to environment. For this version, keep vtk<9.1 is important.Their future versions should be handled carefully.
+
 * we use setup.py, setup.cfg, pyproject.toml and MANIFEST.in instead of a single setup.py file. setup.py is almost unchanged, setup.cfg fixes the argument build_ext --inplace, and pyproject.toml installs numpy and Cypython before setup.py runs.
+
 * When debugging, you may 1. set pmap = map (serial map) instead of parallel computation 2. create an environment without running setup.py and add father folder of BEM to the system path, so that you can set break point in BEM
+
 * When testing on Centos, our codes can run except for the part of mayavi. Maybe set python=3.6 is better for CentOS.
