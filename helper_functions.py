@@ -6,6 +6,7 @@ import os
 from scipy.signal import argrelextrema
 from bem import Result
 import pickle
+import copy
 
 def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
     if not use_stl:
@@ -20,7 +21,7 @@ def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
         # s_nta is intermediate processed stl file.
         s_nta = stl.read_stl(open("trapstl/%s.stl" % prefix, "rb"))
         mpl.rcParams['lines.linewidth'] = 0.2
-        print("Import stl:", os.path.abspath("./" + prefix + ".stl"), "\n")
+        print("Import stl:", os.path.abspath("./trapstl/%s.stl" % prefix), "\n")
         print("Electrode colors (numbers):\n")
         mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=scale / 1e-3, rename={0: "DC21"}))
     return mesh,s_nta
@@ -37,30 +38,47 @@ def plot_mesh(xl,yl,mesh,scale):
     ax.text(0, 0, "l = %d um" % (scale / 1e-6), fontsize=12)
     ax.plot(xl, yl, marker='.', color='k')
     # ax.grid(axis = 'both')
-    yticks = np.arange(-1, 1, 0.1)
+    yticks = np.arange(-1, 1, 0.2)
     ax.set_yticks(yticks)
-    xticks = np.arange(-1, 1, 0.1)
+    xticks = np.arange(-1, 1, 0.4)
     ax.set_xticks(xticks)
     mesh.plot(ax)
-    plt.show()
+    plt.savefig('fig.png', bbox_inches='tight')
+    #plt.show()
 
 # Trap simulations.
 def run_job(args):
     # job is Configuration instance.
-    job, grid, prefix = args
-
+    job, grid, prefix, test_cvg, job_fine = args
+        
+        
     # refine twice adaptively with increasing number of triangles, min angle 25 deg.
     # job.adapt_mesh(triangles=4e2, opts="q25Q")
     # job.adapt_mesh(triangles=1e4, opts="q25Q")
     # solve for surface charges
     job.solve_singularities(num_mom=4, num_lev=3)
+    if test_cvg:
+        job_fine.solve_singularities(num_mom=4, num_lev=3)
 #     print("done")
     # get potentials and fields
     # For "RF", field=True computes the field.
-    result = job.simulate(grid, field=job.name=="RF", num_lev=1)
+    if not test_cvg:
+        result = job.simulate(grid, field=job.name=="RF", num_lev=1)
+    # If test convergence, always computes the field
+    else:
+        result_fine = job_fine.simulate(grid, field=False, num_lev=1)
+        result = job.simulate(grid, field=job.name=="RF", num_lev=1)
+        # relative error
+        rela_error = (result_fine.potential - result.potential)/result.potential
+        rela_error = abs(rela_error.reshape((np.prod(rela_error.shape))))
+        print("job %s :" % job.name,"max relative erro:",max(rela_error),"average relative error",np.mean(rela_error))
+    
     result.to_vtk(prefix)
     print("finished job %s" % job.name)
     return job.collect_charges()
+
+
+
 
 def plot_RF(Result,prefix,grid):
     result = Result.from_vtk(prefix, "RF")

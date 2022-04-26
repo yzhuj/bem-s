@@ -21,10 +21,7 @@
 # Hack to prevent stupid error on exit of `python setup.py test`. (See
 # http://www.eby-sarna.com/pipermail/peak/2010-May/003357.html.)
 # https://github.com/erikrose/more-itertools/commit/da7e3c771523711adeaef3c6a67ba99de5e2e81a
-try:
-    import multiprocessing
-except ImportError:
-    pass
+
 
 try:
     from setuptools import setup, Extension, find_packages
@@ -32,9 +29,9 @@ except ImportError:
     from distutils import setup
     from distutils.extension import Extension
 
-from Cython.Distutils import build_ext
 import numpy
-import os
+import Cython
+from Cython.Distutils import build_ext
 
 setup(
     name="pyfastlap",
@@ -45,7 +42,21 @@ setup(
     author_email="jordens@gmail.com",
     url="http://launchpad.net/pyfastlap",
     license="multiple",
-    install_requires=["numpy", "mayavi", "cython"],
+    python_requires="<3.10",
+    install_requires=[
+                    "numpy", 
+                    "pandas",
+                    "cython",
+                    "jupyter",
+                    "scipy",
+                    "matplotlib",
+                    "cvxopt",
+                    "cvxpy",
+                    "apptools",
+                    "envisage",
+                    'vtk<9.1',
+                    'PyQt5',
+                    "mayavi"],
     packages = find_packages(),
     test_suite = "bem.tests",
     cmdclass = {"build_ext": build_ext},

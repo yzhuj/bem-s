@@ -1,3 +1,9 @@
 numpy
-mayavi
 cython
+jupyter
+scipy
+matplotlib
+cvxopt
+apptools
+envisage
+mayavi

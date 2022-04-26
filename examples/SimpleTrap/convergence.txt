@@ -1,0 +1,24 @@
+job DC14 : max relative erro: 0.011621127712847184 average relative error 0.003571786182171818
+job DC12 : max relative erro: 0.009415071971441166 average relative error 0.0012644793003923434
+job DC1 : max relative erro: 0.010267352310517057 average relative error 0.00766325833995303
+job DC16 : max relative erro: 0.019525122977914085 average relative error 0.012243813348151398
+job DC15 : max relative erro: 0.012356972990023123 average relative error 0.0045511523987377305
+job DC13 : max relative erro: 0.007521416222304878 average relative error 0.002216902908577361
+job DC17 : max relative erro: 0.011008384118950148 average relative error 0.0024837920027528768
+job DC11 : max relative erro: 0.010210827503665667 average relative error 0.0020721321112527336
+job DC9 : max relative erro: 0.016686069305404193 average relative error 0.002997634011930149
+job DC0 : max relative erro: 0.0071466160294374635 average relative error 0.005298205634886456
+job DC18 : max relative erro: 0.030081090747742224 average relative error 0.013770904626761274
+job DC10 : max relative erro: 0.007044708186013768 average relative error 0.0015573196420303897
+job DC21 : max relative erro: 0.007498211112996463 average relative error 0.002643474698795606
+job DC8 : max relative erro: 0.033672623275047234 average relative error 0.012679031526370173
+job RF : max relative erro: 0.007137463670342557 average relative error 0.001290398431672644
+job DC7 : max relative erro: 0.005986150849045858 average relative error 0.0027172034095608454
+job DC6 : max relative erro: 0.013573587384000756 average relative error 0.005237513102789755
+job DC4 : max relative erro: 0.014740519556664512 average relative error 0.006789680984837629
+job DC19 : max relative erro: 0.009431948117050224 average relative error 0.0015392101032218337
+job DC5 : max relative erro: 0.015972934415037488 average relative error 0.00855281077135927
+job DC2 : max relative erro: 0.01893968880755082 average relative error 0.010913452210194897
+job DC3 : max relative erro: 0.00740514823842016 average relative error 0.0015146262221408082
+job DC20 : max relative erro: 0.01573264753801758 average relative error 0.008588196544006884
+Computing time: 2577.511241 s

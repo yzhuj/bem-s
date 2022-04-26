@@ -4,84 +4,7 @@ BEM
 
 License
 -------
-
-Triangle (in triangle/)
-.......................
-
-These programs may be freely redistributed under the condition that the
-copyright notices (including the copy of this notice in the code
-comments and the copyright notice printed when the `-h` switch is
-selected) are not removed, and no compensation is received.  Private,
-research, and institutional use is free.  You may distribute modified
-versions of this code UNDER THE CONDITION THAT THIS CODE AND ANY
-MODIFICATIONS MADE TO IT IN THE SAME FILE REMAIN UNDER COPYRIGHT OF THE
-ORIGINAL AUTHOR, BOTH SOURCE AND OBJECT CODE ARE MADE FREELY AVAILABLE
-WITHOUT CHARGE, AND CLEAR NOTICE IS GIVEN OF THE MODIFICATIONS.
-Distribution of this code as part of a commercial system is permissible
-ONLY BY DIRECT ARRANGEMENT WITH THE AUTHOR.  (If you are not directly
-supplying this code to a customer, and you are instead telling them how
-they can obtain it for free, then you are not required to make any
-arrangement with me.)
-
-Fastlap (in fastlap/)
-.....................
-
-This software is being provided to you, the LICENSEE, by the Massachusetts
-Institute of Technology (M.I.T.) under the following license. By
-obtaining, using and/or copying this software, you agree that you have
-read, understood, and will comply with these terms and conditions:
-
-Permission to use, copy, modify and distribute this software and its
-documentation for any purpose and without fee or royalty is hereby granted,
-provided that you agree to comply with the following copyright notice and
-statements, including the disclaimer, and that the same appear on ALL
-copies of the software and documentation, including modifications that you
-make for internal use or for distribution:
-
-Copyright 1992 by the Massachusetts Institute of Technology. All rights
-reserved.
-
-THIS SOFTWARE IS PROVIDED "AS IS", AND M.I.T. MAKES NO REPRESENTATIONS OR
-WARRANTIES, EXPRESS OR IMPLIED. By way of example, but not limitation,
-M.I.T. MAKES NO REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS
-FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
-DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS,
-TRADEMARKS OR OTHER RIGHTS.
-
-The name of the Massachusetts Institute of Technology or M.I.T. may NOT
-be used in advertising or publicity pertaining to distribution of the
-software. Title to copyright in this software and any associated
-documentation shall at all times remain with M.I.T., and USER agrees to
-preserve same.
-
-Written by: K. Nabors, T. Korsmeyer, and J. White
-
-Code written by NIST employees (examples/, inventor/)
-.....................................................
-
-This software was developed at the National Institute of Standards and
-Technology (NIST) by employees of the Federal Government in the course
-of their official duties. Pursuant to title 17 Section 105 of the United
-States Code, this software is not subject to copyright protection and is
-in the public domain. NIST assumes no responsibility whatsoever for its
-use by other parties, and makes no guarantees, expressed or implied,
-about its quality, reliability, or any other characteristic.
-
-Wrappers, integration and driver layers (bem/)
-..............................................
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+see COPYING
 
 Introduction
 ------------
@@ -94,24 +17,26 @@ in doc/fastlap_fl-2.0-22oct96 for reference.
 Python Environment Setup
 ------------------------
 
-03/2019 Wance Wang
+04/2022 Wenhao He
 
-Create a python environment "ele36" for bem package:
+For users:
 
-    $ conda create -n ele36 python=3.6  
-    $ conda install -n ele36 jupyter scipy matplotlib cython cvxopt apptools envisage  
-    $ source activate ele36
-    $ pip install mayavi
+Python version <= 3.9 is required. 
 
-Or you can reproduce my environment by using file `ele36pip_2019.yml`.
+Anaconda environment tool is recommended:
 
-    $ conda env create -f ele36pip_2019.yml  
-    $ source activate ele36  
+    $ conda create -n ele39 python=3.9
+    $ conda activate ele39
 
-For building `fastlap` and `triangle` C extensions:
+To set up (in folder of setup.py, setup.cfg, pyproject.toml and MANIFEST.in):
 
-    $ python setup.py build_ext --inplace
-(When you want to rebuild it, add a `--force` option.)
+    $ pip install .
+
+The workflow of our package is explained in examples/SimpleTrap/SimpleTrap_0305.py
+
+4/23/2022: tested compatible with latest vtk==9.0.3, latest mayavi==4.7.4, and old PyQt5==5.15.6 on python==3.9.12 on both Linux(Ubuntu 20.04.3) and macOS(Monterey 12.1 intel). Newer python versions do not supports mayavi, more tests are needed on Windows. CentOs supports all parts except for mayavi.
+
+(When using Ubuntu, you may have to make your PyQt5 5.15.6 work first: set export QT_DEBUG_PLUGINS=1 in ~/.bashrc and install libxcb-xinerama0)
 
 
 General Notes
@@ -207,3 +132,13 @@ The vtk.reg file assumes a directory C:\Program Files\ParaView\
 Examples\TesSphere_1mm\       1mm tessellated sphere
 Examples\SimpleTrap\          Simple Signe style trap
 Examples\Skull trap\          Skull trap outline to test Inventor import macros
+
+------------------------
+Notes for software developers:
+
+* exact dependent package version is listed in 'environment/' for reference. 
+  If mayavi can't be built, you should try to restrict the version of vtk, PyQt5 , mayavi in setup.py first.
+* mayavi with its dependence vtk, PyQt5 is very sensitive to environment. For this version, keep vtk<9.1 is important.Their future versions should be handled carefully.
+* we use setup.py, setup.cfg, pyproject.toml and MANIFEST.in instead of a single setup.py file. setup.py is almost unchanged, setup.cfg fixes the argument build_ext --inplace, and pyproject.toml installs numpy and Cypython before setup.py runs.
+* When debugging, you may 1. set pmap = map (serial map) instead of parallel computation 2. create an environment without running setup.py and add father folder of BEM to the system path, so that you can set break point in BEM
+* When testing on Centos, our codes can run except for the part of mayavi. Maybe set python=3.6 is better for CentOS.
