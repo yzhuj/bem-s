@@ -12,5 +12,14 @@ int ONsolve(ssystem *sys, snglrty *snglist, fieldpt *fptlist, int size, int maxi
 int gmres(ssystem *sys, snglrty *snglist, fieldpt *fptlist, double *p, double *r,
           double *ap, double *z, double **bv, double **bh, int size, int maxiter, double *tol);
 void apply(ssystem *sys, double *q, double *p, int size);
+int fastlap(int *plhsSize, int *prhsSize,
+            int *pnumSing, double *px, int *pshape, int *pdtype,
+            int *plhsType, int *prhsType,
+            int *plhsIndex, int *prhsIndex,
+            double *plhsVect, double *prhsVect,
+            double *pxf, double *pxnrm,
+            int *pnumLev, int *pnumMom, int *pmaxItr,
+            double *ptol, int *pjob, double* pAreas);
+
 
 #endif

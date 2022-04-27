@@ -352,7 +352,7 @@ ssystem *sys;
 
   if(sys->depth < 2) {
 #if NOWARN == OFF
-    fprintf(stdout, "FLW-mulMatUp: no multipole acceleration at all\n");
+    fprintf(stdout, ": no multipole acceleration at all\n");
 #endif
     return;	/* return if upward pass not possible */
   }
@@ -385,7 +385,7 @@ ssystem *sys;
 #endif
 #if NOWARN == OFF
   if((sys->multilist[sys->depth] == NULL) && (sys->depth < 3)) {
-    fprintf(stdout, "FLW-mulMatUp: no multipole acceleration at all.\n");
+    fprintf(stdout, ": no multipole acceleration at all.\n");
   }
 #endif
 
@@ -401,7 +401,7 @@ ssystem *sys;
 #endif
 #if NOWARN == OFF
     if((sys->multilist[depth] == NULL) && (depth < 3)) {
-      fprintf(stdout, "FLW-mulMatUp: no multipole acceleration at all.\n");
+      fprintf(stdout, ": no multipole acceleration at all.\n");
     }
 #endif
 

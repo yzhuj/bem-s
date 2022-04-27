@@ -2,7 +2,7 @@
 # coding: utf-8
 #here heref!
 #more
-# In[1]:
+
 
 
 #   bem: triangulation and fmm/bem electrostatics tools
@@ -28,17 +28,19 @@ import numpy as np
 import resource
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-from multiprocessing import Pool
+import multiprocessing 
+multiprocessing.set_start_method("fork")
 
 
 import numpy as np
-from helper_functions import *
+
 from bem import Electrodes, Sphere, Mesh, Grid, Configuration, Result
 from bem.formats import stl
-from trap_library import *
 import numpy as np
-
-
+import copy
+sys.path.append('../../')
+from helper_functions import *
+from trap_library import *
 # ### Import STL geometry file
 # base file name for outputs and inputs is the script name
 
@@ -52,6 +54,12 @@ factor = 1
 scale = 1e-3   # Distance from ion to electrode is 40 um.
 use_stl = True
 
+# we use a finite difference method to test converge:
+# we set the mesh double finer, if the change of field is small, then we regard it converge
+test_cvg = True
+
+
+
 mesh,s_nta = load_file(Mesh,Electrodes,stl_file_in,scale,use_stl)
 # The formal rename of electrode. Assign each electrode a string name instead of its color coding. Use the numbers you get above.
 # `stl.stl_to_mesh()` prints normal vectors (different faces) in each electrode.
@@ -62,9 +70,11 @@ print("Triangles:",len(s_nta[0]),"\nColors:",len(s_nta[2]),"\n")    # This isn't
 
 # stl_to_mesh() only assigns names and does scaling, doing no triangulation to stl mesh.
 # "scale=scale/1e-6" only scales dimensionless scale/1e-6.    1e-6: if stl uses micron as unit.
-
+print('test_rename',el_colordict[stl_file_in])
 mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=1,
     rename=el_colordict[stl_file_in], quiet=False))
+
+
 
 # ### Generate triangle mesh with constraints
 #
@@ -75,23 +85,32 @@ yl = -0.051*72*1e-3
 zl = 1.06*72*1e-3
 rad = 5*72*1e-3
 size = 100.0
+inside=2e-4
+outside=2e-3
 # set .1 max area within 3
 # areas_from_constraints specifies sphere with finer mesh inside it.
-mpl.rcParams['lines.linewidth'] = 0.2
+mpl.rcParams['lines.linewidth'] = 0.2 ###########
 
+plot_mesh(xl,yl,mesh,scale)
 
  # "inside", "outside" set different mesh densities.
 # mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
 #            radius=10*factor, inside=0.1*factor**2, outside=1000))
 # mesh.triangulate(opts="",new = False)
 mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
-           radius=rad, inside=2e-4, outside=2e-3))
+           radius=rad, inside=inside, outside=outside))
 # # retriangulate quality and quiet with areas
 mesh.triangulate(opts="q25Q",new = False)
+
+if test_cvg:
+    mesh_fine = copy.deepcopy(mesh)
+    mesh_fine.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),radius=rad, inside=inside/2, outside=outside/2))
+    mesh_fine.triangulate(opts="q25Q",new = False)
+
+
 # save base mesh to vtks
 print("Output vtk:",os.path.abspath("./"+stl_file_in+".vtk"))    # output path
 
-plot_mesh(xl,yl,mesh,scale)
 
 
 # ### Main boundary element calculations
@@ -127,18 +146,25 @@ grid = Grid(center=(xl,yl,zl), step=(sx, sy, sz), shape=(nx, ny, nz))
 # Grid center (nx, ny ,nz)/2 is shifted to origin
 print("Grid origin/l:", grid.get_origin())
 
+
+
+
 # Calculation. Parallel computation `Pool().map`
 # generate electrode potential configurations to simulate
 # use regexps to match electrode names
 
 jobs = list(Configuration.select(mesh,"DC.*","RF"))    # select() picks one electrode each time.
+
+if test_cvg:
+    jobs_fine = list(Configuration.select(mesh_fine,"DC.*","RF"))
+
 # run the different electrodes on the parallel pool
-pmap = Pool().map # parallel map
-# pmap = map # serial map
+pmap = multiprocessing.Pool().map # parallel map
+#pmap = map # serial map
 t0 = time()
 
 def run_map():
-    list(pmap(run_job, ((job, grid, vtk_out) for job in jobs)))
+    list(pmap(run_job, ((jobs[i], grid, vtk_out, test_cvg , jobs_fine[i]) for i in range(len(jobs)))))
     print("Computing time: %f s"%(time()-t0))
     # run_job casts a word after finishing each electrode.
 
@@ -150,3 +176,5 @@ write_pickle(vtk_out,fout,grid)
 # f = open('./' + 'gridExample' + '.pkl', 'wb')
 # pickle.dump(grid, f, -1)
 # f.close()
+
+

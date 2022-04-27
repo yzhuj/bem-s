@@ -186,7 +186,7 @@ class Result(object):
 class Configuration(object):
     """
     a simulation configuration: simulate given mesh for certain
-    potentials on certain lecetrodes
+    potentials on certain electrodes
     """
     mesh = None
     potentials = None
