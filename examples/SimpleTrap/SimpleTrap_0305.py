@@ -34,11 +34,11 @@ multiprocessing.set_start_method("fork")
 
 import numpy as np
 
+sys.path.append('../../')
 from bem import Electrodes, Sphere, Mesh, Grid, Configuration, Result
 from bem.formats import stl
 import numpy as np
 import copy
-sys.path.append('../../')
 from helper_functions import *
 from trap_library import *
 # ### Import STL geometry file

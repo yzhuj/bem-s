@@ -30,7 +30,7 @@ def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
 
 #Create custom subplot w/ dimensions that you want, add the trapping point,
 #then use mesh object's 'plot' function to add the mesh to it.
-def plot_mesh(xl,yl,mesh,scale):
+def plot_mesh(xl,yl,mesh,scale,name):
     # Plot triangle meshes.
     fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(12, 6), dpi=400)
     ax.set_xlabel("x/l", fontsize=10)
@@ -43,7 +43,7 @@ def plot_mesh(xl,yl,mesh,scale):
     xticks = np.arange(-1, 1, 0.4)
     ax.set_xticks(xticks)
     mesh.plot(ax)
-    plt.savefig('fig.png', bbox_inches='tight')
+    plt.savefig(name, bbox_inches='tight')
     #plt.show()
 
 # Trap simulations.
