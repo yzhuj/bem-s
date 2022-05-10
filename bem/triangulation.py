@@ -39,6 +39,17 @@ def check_rightHand(points,triangles):
             return False
     return True
 
+def correct_rightHand(points,triangles):
+    for i in range(len(triangles)):
+        tri = triangles[i]
+        a = np.array(points[tri[0]])
+        b = np.array(points[tri[1]])
+        c = np.array(points[tri[2]])
+        _deternminant = np.cross(b-a,c-a)
+        if _deternminant < 0:
+            triangles[i][1], triangles[i][2] = triangles[i][2], triangles[i][1]
+    return points, triangles
+
 class ThreeTwoTransform(object):
     """
     transforms planar face coordinates between 3D cartesian and 2D local
@@ -267,11 +278,12 @@ class Triangulation(object):
         Returns the new triangulation or self.
         """
         # logging.debug("calling triangulate()")
-        _args_to_pass = copy.deepcopy(self._args)
+        self._args['points'],self._args['triangles'] = correct_rightHand(self._args['points'],self._args['triangles'])
         print('points',self._args['points'])
         print('triangles',self._args['triangles'])
         print('right_hand',check_rightHand(self._args['points'],self._args['triangles']))
         #self.unify_dup_points(_args_to_pass)
+        _args_to_pass = copy.deepcopy(self._args)
         ret = triangulate(opts=opts, **_args_to_pass)
         # logging.debug("done with triangulate()")
         if new:
