@@ -259,7 +259,7 @@ class Triangulation(object):
         """
         # logging.debug("calling triangulate()")
         _args_to_pass = copy.deepcopy(self._args)
-        self.unify_dup_points(_args_to_pass)
+        #self.unify_dup_points(_args_to_pass)
         ret = triangulate(opts=opts, **_args_to_pass)
         # logging.debug("done with triangulate()")
         if new:
@@ -380,7 +380,9 @@ class Mesh(OrderedDict):
         else:
             obj = self
         for name, faces in self.items():
+            print('start triangulate',name)
             obj[name] = [face.triangulate(opts, new) for face in faces]
+            print('finish triangulate',name)
         obj.gather()
         return obj
 

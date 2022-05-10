@@ -73,10 +73,9 @@ el_colordict = {8776:"DC3"}
 
 color_dict = {
     meshlab_bemCol['bem30']:"DC0",
-    
     meshlab_bemCol['bem25']:"RF",
     meshlab_bemCol['bem1'] : "DC1",
-    meshlab_bemCol['bem2'] : "DC2",
+    #meshlab_bemCol['bem2'] : "DC2",
     meshlab_bemCol['bem3'] : "DC3",
     meshlab_bemCol['bem4'] : "DC4",
     meshlab_bemCol['bem5'] : "DC5",
@@ -152,16 +151,17 @@ mpl.rcParams['lines.linewidth'] = 0.2 ###########
 
 plot_mesh(xl,yl,mesh,scale,'fig1.png')
 
-#mesh.triangulate(opts="q20u",new = False)
-#plot_mesh(xl,yl,mesh,scale,'fig2.png')
+mesh.triangulate(opts="q25Q",new = False)
+plot_mesh(xl,yl,mesh,scale,'fig2.png')
  # "inside", "outside" set different mesh densities.Q
 # mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
 #            radius=10*factor, inside=0.1*factor**2, outside=1000))
 # mesh.triangulate(opts="",new = False)
+print('--------------')
 mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
            radius=rad, inside=inside, outside=outside))
 # # retriangulate quality and quiet with areas
-mesh.triangulate(opts="q25Q",new = False)
+mesh.triangulate(opts="q20Q",new = False)
 plot_mesh(xl,yl,mesh,scale,'fig3.png')
 if test_cvg:
     mesh_fine = copy.deepcopy(mesh)
