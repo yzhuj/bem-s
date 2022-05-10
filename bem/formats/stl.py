@@ -238,7 +238,7 @@ def partition_normals_interception_connectivity(normals,triangles,numbers=[],TOL
         i = np.arange(0,plane_points.shape[0],3)    # shape[0] is the number of points in the plane.
         index_numbers = np.c_[i, i+1, i+2].astype(np.intc)
         # unify duplicated points
-        #plane_points,index_numbers = unify_dup_points(plane_points,index_numbers) 
+        plane_points,index_numbers = unify_dup_points(plane_points,index_numbers) 
         # verify it is right handed
         plane_points,index_numbers = correct_normals(nm, plane_points, index_numbers)
 

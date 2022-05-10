@@ -29,6 +29,15 @@ except ImportError:
 
 from .pytriangle import triangulate
 
+def check_rightHand(points,triangles):
+    for tri in triangles:
+        a = np.array(points[tri[0]])
+        b = np.array(points[tri[1]])
+        c = np.array(points[tri[2]])
+        _deternminant = np.cross(b-a,c-a)
+        if _deternminant < 0:
+            return False
+    return True
 
 class ThreeTwoTransform(object):
     """
@@ -259,6 +268,9 @@ class Triangulation(object):
         """
         # logging.debug("calling triangulate()")
         _args_to_pass = copy.deepcopy(self._args)
+        print('points',self._args['points'])
+        print('triangles',self._args['triangles'])
+        print('right_hand',check_rightHand(self._args['points'],self._args['triangles']))
         #self.unify_dup_points(_args_to_pass)
         ret = triangulate(opts=opts, **_args_to_pass)
         # logging.debug("done with triangulate()")

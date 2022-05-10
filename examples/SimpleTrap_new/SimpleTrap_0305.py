@@ -84,8 +84,8 @@ color_dict = {
     meshlab_bemCol['bem8'] : "DC8",
     meshlab_bemCol['bem9'] : "DC9",
     meshlab_bemCol['bem10'] : "DC10",
-    meshlab_bemCol['bem11'] : "DC11",
-    meshlab_bemCol['bem12'] : "DC12",
+    #meshlab_bemCol['bem11'] : "DC11",
+    #meshlab_bemCol['bem12'] : "DC12",
     meshlab_bemCol['bem13'] : "DC13",
     meshlab_bemCol['bem14'] : "DC14",
     meshlab_bemCol['bem15'] : "DC15",
@@ -151,7 +151,7 @@ mpl.rcParams['lines.linewidth'] = 0.2 ###########
 
 plot_mesh(xl,yl,mesh,scale,'fig1.png')
 
-mesh.triangulate(opts="q25Q",new = False)
+mesh.triangulate(opts="q10Q",new = False)
 plot_mesh(xl,yl,mesh,scale,'fig2.png')
  # "inside", "outside" set different mesh densities.Q
 # mesh.areas_from_constraints(Sphere(center=np.array([xl,yl,zl]),
