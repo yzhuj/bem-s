@@ -140,59 +140,8 @@ def partition_normals(normals,triangles,numbers=[],TOL=1e-6):
 
 # hwh function
 # partite by two standards:1.same normal 2. same interception 
-def partition_normals_and_interception(normals,triangles,numbers=[],TOL=1e-6, TOL2 = 1e-6):
-    # hwh_warning: this TOL2 must be adapted with scale
-    # hwh_warning: may be better to unify points in this step
-    """Partition points into different planes according to the normals in 
-    one electrode, for 3D/2D meshing (Shewchuk's triangle C code is 2D meshing).
-    Return points_numbers which has following format
-
-    [(plane1_points,serial_numbers1),(plane2_points,serial_numbers2),...]
-
-    plane_points -- array([ [x1,y1,z1],[x2,y2,z2],... [xn,yn,zn] ])
-    serial_numbers -- array([ [0,1,2],[3,4,5],... [n-3,n-2,n-1] ])
-
-    TOL: normal deviation tolerances
-    """
-    # compute interception
-    interce = []
-    for nm,tr in zip(normals,triangles):
-        nm0 = np.dot(nm,tr[0])
-        nm1 = np.dot(nm,tr[1])
-        nm2 = np.dot(nm,tr[2])
-        interce.append((nm0+nm1+nm2)/3)
-    interceptions = np.array(interce)
-
-    nm_unique = [normals[0]]      # normals[0] as the first nm
-    ic_unique = [interceptions[0]]      # normals[0] as the first nm
-    points = [[]]    # Each sublist [] represents a plane
-    for nm, tr, ic in zip(normals, triangles,interceptions):
-        add_plane = True
-        # Search existing normals in nm_unique, in reversed order. (Faces in the same plane are often ajacent.)
-        for ith in range(len(nm_unique)-1,-1,-1):   # ith normal -- ith plane
-            if np.linalg.norm(nm-nm_unique[ith]) < TOL and np.linalg.norm(ic-ic_unique[ith]) < TOL2:
-                # Plane points aren't grouped by triangles -- [array([x1,y1,z1]),array([x2,y2,z2]), ...]
-                points[ith].extend(tr)
-                add_plane = False
-                break
-        # All normals don't coincide with the new nm, record it.
-        if add_plane:
-            nm_unique.append(nm)
-            ic_unique.append(ic)
-            points.append([])
-            points[-1].extend(tr)
-    points_numbers = []
-    for plane in points:
-        plane_points = np.ascontiguousarray(plane,dtype=np.double)
-        i = np.arange(0,plane_points.shape[0],3)    # shape[0] is the number of points in the plane.
-        index_numbers = np.c_[i, i+1, i+2].astype(np.intc)
-        points_numbers.append( (plane_points,index_numbers) )
-    return points_numbers, np.array(nm_unique,dtype=np.double)
-
-# hwh function
-# partite by three standards:1.same normal 2. same interception 3. single connectivity
 # automatically unify same points
-def partition_normals_interception_connectivity(normals,triangles,numbers=[],TOL=1e-6, TOL2 = 1e-6):
+def partition_normals_interception(normals,triangles,numbers=[],TOL=1e-6, TOL2 = 1e-6):
     # hwh_warning: this TOL2 must be adapted with scale
     """Partition points into different planes according to the normals in 
     one electrode, for 3D/2D meshing (Shewchuk's triangle C code is 2D meshing).
@@ -323,7 +272,7 @@ def stl_to_mesh(normals, triangles, attributes, scale=None, rename=None, quiet=T
         else:
             n = "stl_%i" % a    # default name
         if partition:    # Designed for 3D multiplane partition.  
-            o[n], planes = partition_normals_interception_connectivity(nms, trs)
+            o[n], planes = partition_normals_interception(nms, trs)
             if not quiet:
                 print("%i planes in electrode %s"%(len(planes),n))
                 print("normals vectors:\n", planes)
