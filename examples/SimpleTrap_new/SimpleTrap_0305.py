@@ -40,64 +40,11 @@ from bem.formats import stl
 import numpy as np
 import copy
 from helper_functions import *
-from bemCol_lib.bemCol import rgb2stl, meshlab_bemCol, bemCol
+from bemCol_lib.bemCol import rgb2stl, meshlab_bemCol, bemCol_dict, bemCol
 
 
-el_colordict = {1023:"DC0",
-31754:"DC1",
-17439:"RF",
-20511:"DC2",
-8776:"DC3",
-21535:"DC4",
-23583:"DC5",
-24607:"DC6",
-15391:"DC7",
-18463:"DC8",
-568:"DC9",
-14367:"DC10",
-1055:"DC11",
-3171:"DC12",
-8223:"DC13",
-10271:"DC14",
-6175:"DC15",
- 13343:"DC16",
- 31:"DC17",
- 7199:"DC18",
- 2079:"DC19",
- 4127:"DC20"
-#30653:"DC21"
-}
-
-el_colordict = {8776:"DC3"}
 
 
-color_dict = {
-    meshlab_bemCol['bem30']:"DC0",
-    meshlab_bemCol['bem25']:"RF",
-    meshlab_bemCol['bem1'] : "DC1",
-    meshlab_bemCol['bem2'] : "DC2",
-    meshlab_bemCol['bem3'] : "DC3",
-    meshlab_bemCol['bem4'] : "DC4",
-    meshlab_bemCol['bem5'] : "DC5",
-    meshlab_bemCol['bem6'] : "DC6",
-    meshlab_bemCol['bem7'] : "DC7",
-    meshlab_bemCol['bem8'] : "DC8",
-    meshlab_bemCol['bem9'] : "DC9",
-    meshlab_bemCol['bem10'] : "DC10",
-    meshlab_bemCol['bem11'] : "DC11",
-    meshlab_bemCol['bem12'] : "DC12",
-    meshlab_bemCol['bem13'] : "DC13",
-    meshlab_bemCol['bem14'] : "DC14",
-    meshlab_bemCol['bem15'] : "DC15",
-    meshlab_bemCol['bem16'] : "DC16",
-    meshlab_bemCol['bem17'] : "DC17",
-    meshlab_bemCol['bem18'] : "DC18",
-    meshlab_bemCol['bem19'] : "DC19",
-    meshlab_bemCol['bem20'] : "DC20",
-    meshlab_bemCol['bem21'] : "DC21"
-}
-
-#color_dict = {meshlab_bemCol['bem2'] : "DC2"}
 # ### Import STL geometry file
 # base file name for outputs and inputs is the script name
 
@@ -120,6 +67,37 @@ mesh,s_nta = load_file(Mesh,Electrodes,stl_file_in,scale,use_stl)
 # The formal rename of electrode. Assign each electrode a string name instead of its color coding. Use the numbers you get above.
 # `stl.stl_to_mesh()` prints normal vectors (different faces) in each electrode.
 
+# print color with rename: 'bem1','bem2','uk1','uk2', etc
+# s_nta[2] returns a set of attributes
+print('test num color:',np.array(list(set(s_nta[2]))))
+ele_col = bemCol(np.array(list(set(s_nta[2]))),('fusion360','export_stl'))
+ele_col.print_colors_to_name()
+
+ele_col.set_color_name(color = 'bem1',name = 'DC1')
+ele_col.set_color_name(color = 'bem2',name = 'DC2')
+ele_col.set_color_name(color = 'bem3',name = 'DC3')
+ele_col.set_color_name(color = 'bem4',name = 'DC4')
+ele_col.set_color_name(color = 'bem5',name = 'DC5')
+ele_col.set_color_name(color = 'bem6',name = 'DC6')
+ele_col.set_color_name(color = 'bem7',name = 'DC7')
+ele_col.set_color_name(color = 'bem8',name = 'DC8')
+ele_col.set_color_name(color = 'bem9',name = 'DC9')
+ele_col.set_color_name(color = 'bem10',name = 'DC10')
+ele_col.set_color_name(color = 'bem11',name = 'DC11')
+ele_col.set_color_name(color = 'bem12',name = 'DC12')
+ele_col.set_color_name(color = 'bem13',name = 'DC13')
+ele_col.set_color_name(color = 'bem14',name = 'DC14')
+ele_col.set_color_name(color = 'bem15',name = 'DC15')
+ele_col.set_color_name(color = 'bem16',name = 'DC16')
+ele_col.set_color_name(color = 'bem17',name = 'DC17')
+ele_col.set_color_name(color = 'bem18',name = 'DC18')
+ele_col.set_color_name(color = 'bem19',name = 'DC19')
+ele_col.set_color_name(color = 'bem20',name = 'DC20')
+ele_col.set_color_name(color = 'bem21',name = 'DC21')
+ele_col.set_color_name(color = 'bem30',name = 'DC0')
+ele_col.set_color_name(color = 'bem25',name = 'RF')
+
+ele_col.print_drop_colors()
 
 print(len(s_nta), type(s_nta),"\n")
 # s_nta is a length 3 tuple. (normal, triangle, attribute)
@@ -128,6 +106,7 @@ print("Triangles:",len(s_nta[0]),"\nColors:",len(s_nta[2]),"\n")    # This isn't
 
 # stl_to_mesh() only assigns names and does scaling, doing no triangulation to stl mesh.
 # "scale=scale/1e-6" only scales dimensionless scale/1e-6.    1e-6: if stl uses micron as unit.
+color_dict = ele_col.result_dict
 print('test_rename',color_dict)
 mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=1,
     rename=color_dict, quiet=False))

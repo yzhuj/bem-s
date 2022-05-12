@@ -56,7 +56,8 @@ setup(
                     "envisage",
                     'vtk<9.1',
                     'PyQt5',
-                    "mayavi"],
+                    "mayavi"
+                    ],
     packages = find_packages(),
     test_suite = "bem.tests",
     cmdclass = {"build_ext": build_ext},

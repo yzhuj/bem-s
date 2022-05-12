@@ -279,9 +279,12 @@ class Triangulation(object):
         """
         # logging.debug("calling triangulate()")
         self._args['points'],self._args['triangles'] = correct_rightHand(self._args['points'],self._args['triangles'])
+        '''
+        # for debug
         print('points',self._args['points'])
         print('triangles',self._args['triangles'])
         print('right_hand',check_rightHand(self._args['points'],self._args['triangles']))
+        '''
         #self.unify_dup_points(_args_to_pass)
         _args_to_pass = copy.deepcopy(self._args)
         ret = triangulate(opts=opts, **_args_to_pass)

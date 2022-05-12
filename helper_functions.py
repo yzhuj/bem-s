@@ -23,7 +23,7 @@ def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
         mpl.rcParams['lines.linewidth'] = 0.2
         print("Import stl:", os.path.abspath("./trapstl/%s.stl" % prefix), "\n")
         print("Electrode colors (numbers):\n")
-        mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=scale / 1e-3, rename={0: "DC21"}))
+        mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=scale / 1e-3, rename={0: "DC21"},print_dropping = True))
     return mesh,s_nta
 
 

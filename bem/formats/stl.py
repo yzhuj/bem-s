@@ -223,7 +223,7 @@ def split_by_normal(stlmesh):
     return stlmesh
 
 
-def stl_to_mesh(normals, triangles, attributes, scale=None, rename=None, quiet=True):
+def stl_to_mesh(normals, triangles, attributes, scale=None, rename=None, quiet=True, print_dropping = True):
     """generates a {name: [(points, triangles)]} mesh from the
     stl arrays. For further treatment, use e.g:
 
@@ -263,7 +263,8 @@ def stl_to_mesh(normals, triangles, attributes, scale=None, rename=None, quiet=T
         if rename:
             # At the first run you don't know color number a, this prints it out for the "rename" of next run.
             if a not in rename:
-                print("dropping", a)
+                if print_dropping:
+                    print("dropping", a)
                 continue
             # At the second run you provide the known rename to replace a.
             else:

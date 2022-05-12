@@ -182,6 +182,8 @@ class Result(object):
         scene.scene.isometric_view()
         scene.scene.render()
 
+    #def to_pickle(self,prefix):
+
 
 class Configuration(object):
     """
