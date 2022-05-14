@@ -97,7 +97,6 @@ class bemCol():
         # load default libs
         self.col_lib = {}
         self._load_lib(lib_fusion360)
-        print('test_lib',self.col_lib)
         
     # convert all different cl_format to a standart cl_format in this class: ('RGBA16','_internal')
     def format2RGBA32(self,attr_in:int,format_in):
