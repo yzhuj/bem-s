@@ -149,9 +149,16 @@ if test_cvg:
 
 
 # save base mesh to vtks
-print("Output vtk:",os.path.abspath("./"+stl_file_in+".vtk"))    # output path
+#print("Output vtk:",os.path.abspath("./"+stl_file_in+".vtk"))    # output path
+
+# save base mesh to a pickle file
+fout = 'htrap_simulation_1_el3.5'
+with open('./'+fout+'_meshResult'+'.pkl','wb') as f:
+    pickle.dump(mesh,f)
 
 
+with open('./'+fout+'_meshResult'+'.pkl','rb') as f:
+    mesh = pickle.load(f)
 
 # ### Main boundary element calculations
 #

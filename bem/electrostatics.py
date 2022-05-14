@@ -17,7 +17,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
+import pickle
 import logging, re, operator, os
 
 import numpy as np
@@ -102,6 +102,34 @@ class Result(object):
         center = origin+(np.array(shape)-1)/2.*step
         obj.grid = Grid(center=center, step=step, shape=shape)
         return obj
+
+    @classmethod
+    def from_pkl(cls, prefix, name):
+        file_name="%s_%s.pkl" % (prefix, name)
+        with open(file_name,'rb') as f:
+            res = pickle.load(f)
+        return res
+
+    def to_pkl(self, prefix):
+        file_name = "%s_%s.pkl" % (prefix, self.configuration.name)
+        with open(file_name,'wb') as f:
+            pickle.dump(self, f)
+            print('dump name',file_name)
+
+
+    @classmethod
+    def load(cls, prefix, name, format):
+        obj = cls()
+        if format == 'vtk':
+            return obj.from_vtk(prefix, name)
+        if format == 'pkl':
+            return obj.from_pkl(prefix, name)
+
+    def save(self, prefix,format):
+        if format == 'vtk':
+            return self.to_vtk(prefix)
+        if format == 'pkl':
+            return self.to_pkl(prefix)
 
     @staticmethod
     def view(prefix, name):

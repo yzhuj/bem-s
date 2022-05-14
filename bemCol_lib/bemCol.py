@@ -134,7 +134,7 @@ class bemCol():
                     return int(x/255*31)
             return (_8bit_to_5bit(r),_8bit_to_5bit(g),_8bit_to_5bit(b)), format_out
         else:
-            raise TypeError('format_in not found')
+            raise TypeError('format_in not found:'+str(format_in))
 
     def format2RGBA32_list(self,attr_in,format_in):
         result = [self.format2RGBA32(attr_in[i],format_in) for i in range(len(attr_in))]

@@ -8,6 +8,9 @@ from bem import Result
 import pickle
 import copy
 
+#trans_file = 'vtk'
+trans_file = 'pkl'
+
 def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
     if not use_stl:
         # load electrode faces from loops
@@ -73,7 +76,7 @@ def run_job(args):
         rela_error = abs(rela_error.reshape((np.prod(rela_error.shape))))
         print("job %s :" % job.name,"max relative erro:",max(rela_error),"average relative error",np.mean(rela_error))
     
-    result.to_vtk(prefix)
+    result.save(prefix,trans_file)
     print("finished job %s" % job.name)
     return job.collect_charges()
 
@@ -81,7 +84,7 @@ def run_job(args):
 
 
 def plot_RF(Result,prefix,grid):
-    result = Result.from_vtk(prefix, "RF")
+    result = Result.load(prefix, "RF",trans_file,trans_file)
     p = result.potential
     maxp = np.amax(p)
     print("p max", maxp)
@@ -103,10 +106,10 @@ def plot_RF(Result,prefix,grid):
     plt.show()
 
 def plot_DC(Result,prefix,suffix,grid,strs,dir='x'):
-    p = np.zeros(Result.from_vtk(prefix + suffix, strs[0]).potential.shape)
+    p = np.zeros(Result.load(prefix + suffix, strs[0],trans_file).potential.shape)
     for em in strs:
         ele = em
-        result = Result.from_vtk(prefix + suffix, ele)
+        result = Result.load(prefix + suffix, ele,trans_file)
         pmid = result.potential
         maxp = np.amax(p)
         #     print("p max", maxp)
@@ -370,11 +373,11 @@ def write_pickle(fin,fout,grid):
             'Z': z}
     i = 0
     strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
-    result0 = Result.from_vtk(fin, 'DC1')
+    result0 = Result.load(fin, 'DC1', trans_file)
     p0 = result0.potential
     for ele in strs:
         # if ele not in excl:
-        result = Result.from_vtk(fin, ele)
+        result = Result.load(fin, ele,trans_file)
         p = result.potential
         p = np.swapaxes(p, 0, 2)
         p = np.swapaxes(p, 0, 1)
