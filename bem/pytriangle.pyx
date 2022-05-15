@@ -219,7 +219,7 @@ def triangulate(
         assert not "u" in opts
 
     #print "final options", opts
-    print("test opts",opts)
+    print("final opts",opts)
 
     bopts = opts.encode("ascii")
     copts = bopts

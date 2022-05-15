@@ -54,9 +54,6 @@ setup(
                     "cvxpy",
                     "apptools",
                     "envisage",
-                    'vtk<9.1',
-                    'PyQt5',
-                    "mayavi"
                     ],
     packages = find_packages(),
     test_suite = "bem.tests",
