@@ -17,7 +17,6 @@ def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
         ele = Electrodes.from_trap(open("%s.ele" % prefix), scale)
         # initial triangulation, area 20, quiet
         mesh = Mesh.from_electrodes(ele)
-        mpl.rcParams['lines.linewidth'] = 0.2
         mesh.triangulate(opts="a0.01q25.")
     else:
         # load electrode faces from colored stl
@@ -28,8 +27,6 @@ def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
         print("Electrode colors (numbers):\n")
         mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=scale / 1e-3, rename={0: "DC21"},print_dropping = True))
     return mesh,s_nta
-
-
 
 #Create custom subplot w/ dimensions that you want, add the trapping point,
 #then use mesh object's 'plot' function to add the mesh to it.
