@@ -38,6 +38,9 @@ The workflow of our package is explained in examples/SimpleTrap/SimpleTrap_0305.
 
 5/16/2022: tested compatible with latest vtk==9.0.3, latest mayavi==4.7.4, and old PyQt5==5.15.6 on python==3.9.12 on both Linux(Ubuntu 20.04.3) and macOS(Monterey 12.1 intel) and CentOS(HPC)
 
+Document and Tutorial
+------------------------
+see ./examples/document
 
 General Notes
 -------------
