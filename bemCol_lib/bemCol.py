@@ -157,7 +157,7 @@ class bemCol():
     def print_colors_to_name(self):
         # to collect unknown colors
         unknown_colors = []
-        print('following are colors you need to name')
+        print('colors appear in the stl:')
         for attr in self.stl_attributes:
             print_name = []
             for lib_name,lib_attr in self.col_lib.items():
@@ -171,6 +171,7 @@ class bemCol():
             print_name = ['_unkCol'+str(i)]
             self.set_my_color(unknown_colors[i],('RGBA16','_internal'),print_name[0],set_uknown=True)
             print(print_name)
+        print(len(self.stl_attributes),'colors in total')
 
     def set_color_name(self,color ,name ):
         if self.col_lib[color] in self.result_dict:
