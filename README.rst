@@ -36,9 +36,7 @@ To set up (in folder of setup.py, setup.cfg, pyproject.toml and MANIFEST.in):
 
 The workflow of our package is explained in examples/SimpleTrap/SimpleTrap_0305.py
 
-4/23/2022: tested compatible with latest vtk==9.0.3, latest mayavi==4.7.4, and old PyQt5==5.15.6 on python==3.9.12 on both Linux(Ubuntu 20.04.3) and macOS(Monterey 12.1 intel). Newer python versions do not supports mayavi, more tests are needed on Windows. CentOs supports all parts except for mayavi.
-
-(When using Ubuntu, you may have to make your PyQt5 5.15.6 work first: set export QT_DEBUG_PLUGINS=1 in ~/.bashrc and install libxcb-xinerama0)
+5/16/2022: tested compatible with latest vtk==9.0.3, latest mayavi==4.7.4, and old PyQt5==5.15.6 on python==3.9.12 on both Linux(Ubuntu 20.04.3) and macOS(Monterey 12.1 intel) and CentOS(HPC)
 
 
 General Notes

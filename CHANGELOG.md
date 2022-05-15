@@ -5,6 +5,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## 2022-04 Wenhao He [Unreleased]
+
+### Fixed
+- errors in triangulate wrap functions
+- For 2D trap, parallel planes no longer classified as same plane
+- combine same points in Mesh object, thus eliminate sharp triangles
+- make triangles counter clock wise for triangulation package
+- errors on CentOS(HPC)
+
+### Change
+- abandon mayavi for much more convinient way of maitaining the code
+- new way to name the electrode
+- add a set of standard colors
+- add a document
+- combine BEM and Electrode togethor
+
+
+### to do
+- Simulating different trap geometries
+
 
 
 

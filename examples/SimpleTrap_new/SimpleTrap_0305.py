@@ -35,6 +35,7 @@ multiprocessing.set_start_method("fork")
 import numpy as np
 
 sys.path.append('../../')
+sys.path.append('../../helper_func')
 from bem import Electrodes, Sphere, Mesh, Grid, Configuration, Result
 from bem.formats import stl
 import numpy as np
@@ -154,11 +155,11 @@ if test_cvg:
 # save base mesh to a pickle file
 fout = 'htrap_simulation_1_el3.5'
 with open('./'+fout+'_meshResult'+'.pkl','wb') as f:
-    pickle.dump(mesh,f)
+    pickle.dump((mesh_unit,mesh),f)
 
 
 with open('./'+fout+'_meshResult'+'.pkl','rb') as f:
-    mesh = pickle.load(f)
+    mesh_unit,mesh = pickle.load(f)
 
 # ### Main boundary element calculations
 #

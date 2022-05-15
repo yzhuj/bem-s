@@ -52,7 +52,7 @@ def plot_mesh(xl,yl,mesh,mesh_unit,name):
 # Trap simulations.
 def run_job(args):
     # job is Configuration instance.
-    job, grid, prefix, test_cvg, job_fine = args
+    job, grid, prefix = args
         
         
     # refine twice adaptively with increasing number of triangles, min angle 25 deg.
@@ -60,21 +60,10 @@ def run_job(args):
     # job.adapt_mesh(triangles=1e4, opts="q25Q")
     # solve for surface charges
     job.solve_singularities(num_mom=4, num_lev=3)
-    if test_cvg:
-        job_fine.solve_singularities(num_mom=4, num_lev=3)
 #     print("done")
     # get potentials and fields
     # For "RF", field=True computes the field.
-    if not test_cvg:
-        result = job.simulate(grid, field=job.name=="RF", num_lev=1)
-    # If test convergence, always computes the field
-    else:
-        result_fine = job_fine.simulate(grid, field=False, num_lev=1)
-        result = job.simulate(grid, field=job.name=="RF", num_lev=1)
-        # relative error
-        rela_error = (result_fine.potential - result.potential)/result.potential
-        rela_error = abs(rela_error.reshape((np.prod(rela_error.shape))))
-        print("job %s :" % job.name,"max relative erro:",max(rela_error),"average relative error",np.mean(rela_error))
+    result = job.simulate(grid, field=job.name=="RF", num_lev=1)
     
     result.save(prefix,trans_file)
     print("finished job %s" % job.name)
