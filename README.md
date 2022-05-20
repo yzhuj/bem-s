@@ -45,4 +45,5 @@ Codes in ./examples/SimpleTrap is also helpful.
 5. Please read jupyter notebooks in /examples folder for more instructions.
 
 
-
+## Changlog
+Changes of historical versions are documented in CHANGELOG.md
