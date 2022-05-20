@@ -17,7 +17,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import logging, itertools
+import logging, itertools, copy
 from collections import OrderedDict
 
 import numpy as np
@@ -27,9 +27,28 @@ except ImportError:
     import warnings
     warnings.warn("not tvtk found")
 
-
 from .pytriangle import triangulate
 
+def check_rightHand(points,triangles):
+    for tri in triangles:
+        a = np.array(points[tri[0]])
+        b = np.array(points[tri[1]])
+        c = np.array(points[tri[2]])
+        _deternminant = np.cross(b-a,c-a)
+        if _deternminant < 0:
+            return False
+    return True
+
+def correct_rightHand(points,triangles):
+    for i in range(len(triangles)):
+        tri = triangles[i]
+        a = np.array(points[tri[0]])
+        b = np.array(points[tri[1]])
+        c = np.array(points[tri[2]])
+        _deternminant = np.cross(b-a,c-a)
+        if _deternminant < 0:
+            triangles[i][1], triangles[i][2] = triangles[i][2], triangles[i][1]
+    return points, triangles
 
 class ThreeTwoTransform(object):
     """
@@ -226,7 +245,63 @@ class Triangulation(object):
                 triangles=triangles)
         return obj
 
+    # to unify duplicated points
+    def unify_dup_points(self,_args):
+        o_points = _args['points']
+        o_triangles = _args['triangles']
+        # define a point index dictionary to combine same points
+        o_n = len(o_points)
+        uni_dict = {}
+        n_points = []
+        for i in range(o_n):
+            for j in uni_dict.keys():
+                # if point is the same
+                if np.linalg.norm(o_points[i]-o_points[j],1) < 1e-6:
+                    uni_dict[i] = uni_dict[j]
+                    break
+            else:
+                uni_dict[i] = len(n_points)
+                n_points.append(o_points[i])
+
+        n_points = np.array(n_points)
+
+        n_triangles = np.vectorize(lambda x:uni_dict[x])(o_triangles)
+        n_triangles = np.array(n_triangles,dtype = np.dtype(np.int32))
+
+        _args['points'] = n_points
+        _args['triangles'] = n_triangles
+
     def triangulate(self, opts, new=False):
+        """
+        (re) triangulate this face using options in `opts`. creates a
+        new triangulation if `new` is true, else modifies `self`.
+        Returns the new triangulation or self.
+        """
+        # logging.debug("calling triangulate()")
+        self._args['points'],self._args['triangles'] = correct_rightHand(self._args['points'],self._args['triangles'])
+        '''
+        # for debug
+        print('points',self._args['points'])
+        print('triangles',self._args['triangles'])
+        print('right_hand',check_rightHand(self._args['points'],self._args['triangles']))
+        '''
+        #self.unify_dup_points(_args_to_pass)
+        _args_to_pass = copy.deepcopy(self._args)
+        ret = triangulate(opts=opts, **_args_to_pass)
+        # logging.debug("done with triangulate()")
+        if new:
+            obj = Triangulation()
+        else:
+            obj = self
+        # since triangle() recycles arguments, not necessary
+        # obj._args.update(ret)
+        obj._args = ret
+        obj.coords = self.coords
+        obj.points = self.coords.twod_to_threed(ret["points"])
+        obj.triangles = ret["triangles"]
+        return obj
+
+    def _triangulate_my(self, opts, new=False):
         """
         (re) triangulate this face using options in `opts`. creates a
         new triangulation if `new` is true, else modifies `self`.
@@ -332,7 +407,9 @@ class Mesh(OrderedDict):
         else:
             obj = self
         for name, faces in self.items():
+            print('start triangulate',name)
             obj[name] = [face.triangulate(opts, new) for face in faces]
+            print('finish triangulate',name)
         obj.gather()
         return obj
 
