@@ -9,7 +9,7 @@
     <content url="file://$MODULE_DIR$/../electrode">
       <sourceFolder url="file://$MODULE_DIR$/../electrode" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.9 (ele39)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">

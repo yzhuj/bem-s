@@ -35,6 +35,7 @@ multiprocessing.set_start_method("fork")
 import numpy as np
 
 sys.path.append('../../')
+sys.path.append('helper_func')
 from bem import Electrodes, Sphere, Mesh, Grid, Configuration, Result
 from bem.formats import stl
 import numpy as np
@@ -80,10 +81,14 @@ mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=1,
 #
 # The meshes are 2-dimensional triangles on the surface of electrodes. The region enclosed by constraint shape can have finer mesh. Triangulation is done by `triangle` C library.
 #there are all in units of mm now (Ben S. feb 2022)
-xl = (3.1)*72*1e-3
-yl = -0.051*72*1e-3
-zl = 1.06*72*1e-3
-rad = 5*72*1e-3
+# xl = (3.1)*72*1e-3
+# yl = -0.051*72*1e-3
+# zl = 1.06*72*1e-3
+# rad = 5*72*1e-3
+xl = 0*1e-3
+yl = 0*1e-3
+zl = 50*1e-3
+rad = 200*1e-3
 size = 100.0
 inside=2e-4
 outside=2e-3
