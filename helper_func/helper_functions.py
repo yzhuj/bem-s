@@ -50,8 +50,6 @@ def plot_mesh(xl,yl,mesh,mesh_unit,name):
 def run_job(args):
     # job is Configuration instance.
     job, grid, prefix = args
-        
-        
     # refine twice adaptively with increasing number of triangles, min angle 25 deg.
     # job.adapt_mesh(triangles=4e2, opts="q25Q")
     # job.adapt_mesh(triangles=1e4, opts="q25Q")
@@ -358,13 +356,16 @@ def write_pickle(fin,fout,grid):
             'Y': y,
             'Z': z}
     i = 0
-    strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 DC21".split()
+    strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 RF".split()
     result0 = Result.load(fin, 'DC1', trans_file)
     p0 = result0.potential
     for ele in strs:
         # if ele not in excl:
         result = Result.load(fin, ele,trans_file)
-        p = result.potential
+        if ele == 'RF':
+            p = result.pseudo_potential
+        else:
+            p = result.potential
         p = np.swapaxes(p, 0, 2)
         p = np.swapaxes(p, 0, 1)
         trap[ele] = {'potential': p}

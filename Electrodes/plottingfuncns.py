@@ -200,6 +200,7 @@ def plot_U2(s,xl,zl,roi,height, ey, ez, ex, u3, u2, u5, u1):
     indNearestX_roi = np.abs(s.X_roi - nearestX).argmin()
 
     potential_xy_roi = potential_roi[indNearestX_roi]
+    print(np.shape(potential_xy_roi))
     potential_xy_regen = potential_regen[indNearestX_roi]
 
     fsize = 20
@@ -211,7 +212,7 @@ def plot_U2(s,xl,zl,roi,height, ey, ez, ex, u3, u2, u5, u1):
     ax3 = fig1.add_subplot(grid[1, :])
     ax1.set_title('Simulated potential', fontsize=fsize)
     levels1 = np.linspace(np.amin(potential_xy_roi), np.amax(potential_xy_roi), 100)
-    plot1 = ax1.contourf(s.Z_roi * 1e3, s.Y_roi * 1e3, potential_xy_roi, levels1, cmap=plt.cm.viridis)
+    plot1 = ax1.contourf(s.X_roi * 1e3, s.Y_roi * 1e3, potential_xy_roi, levels1, cmap=plt.cm.viridis)
     plot1_line = ax1.contour(s.Z_roi * 1e3, s.Y_roi * 1e3, potential_xy_roi, colors='w')
     #     ax1.clabel(plot1_line, inline = 1, fontsize = fsize)
     ax1.clabel(plot1_line, colors='w', fmt='%2.3f', fontsize=fsize)
@@ -241,3 +242,7 @@ def plot_U2(s,xl,zl,roi,height, ey, ez, ex, u3, u2, u5, u1):
     ax3.set_xticks(range(len(coeffs)))
     ax3.set_xticklabels(s.multipole_names, rotation=-90, fontsize=fsize)
     plt.show()
+    print(np.shape(voltages))
+    plt.bar(x = np.arange(0,18),height=voltages)
+    plt.show()
+# %%

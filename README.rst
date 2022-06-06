@@ -32,11 +32,11 @@ Anaconda environment tool is recommended:
 
 To set up (in folder of setup.py, setup.cfg, pyproject.toml and MANIFEST.in):
 
-    $ pip install .
+    $ pip3 install .
 
 
 5/16/2022: tested compatible with on python==3.9.12 on both Linux(Ubuntu 20.04.3) and macOS(Monterey 12.1 intel) and CentOS(HPC)
-
+6/03/2022: 
 Document and Tutorial
 ------------------------
 see ./examples/document. It explains our workflow

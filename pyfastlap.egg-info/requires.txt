@@ -1,9 +1,10 @@
 numpy
+pandas
 cython
 jupyter
 scipy
 matplotlib
 cvxopt
+cvxpy
 apptools
 envisage
-mayavi

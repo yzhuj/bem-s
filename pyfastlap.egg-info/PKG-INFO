@@ -6,8 +6,7 @@ Home-page: http://launchpad.net/pyfastlap
 Author: Robert Jordens
 Author-email: jordens@gmail.com
 License: multiple
-Platform: UNKNOWN
+Requires-Python: <3.10
 License-File: COPYING
 
 Python bindings for Fastlap
-
