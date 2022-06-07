@@ -32,7 +32,7 @@ def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
 #then use mesh object's 'plot' function to add the mesh to it.
 def plot_mesh(xl,yl,mesh,mesh_unit,name):
     # Plot triangle meshes.
-    fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(12, 6), dpi=400)
+    fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(12, 6), dpi=800)
     ax.set_xlabel("x/l", fontsize=10)
     ax.set_ylabel("y/l", fontsize=10)
     ax.text(0, 0, "l = %d um" % (mesh_unit / 1e-6), fontsize=12)

@@ -111,7 +111,7 @@ def spher_harm_expansion(potential_grid, r0, X, Y, Z, order):
     n_norm_rows = np.min([Yj.shape[1], len(NormsUptoOrder2)])
     for row_ind in range(n_norm_rows):
         Yj[:,row_ind] = Yj[:,row_ind] / NormsUptoOrder2[row_ind]
-    #Yj, rnorm = spher_harm_basis_v2(r0, X, Y, Z, order)
+    # # Yj, rnorm = spher_harm_basis_v2(r0, X, Y, Z, order)
 
     Mj=np.linalg.lstsq(Yj,W,rcond=None) 
     Mj=Mj[0] # array of coefficients
@@ -122,6 +122,17 @@ def spher_harm_expansion(potential_grid, r0, X, Y, Z, order):
         for m in range(1,2*n+2):
             i += 1
             Mj[i] = Mj[i]/(scale**n)
+    
+    # Mj = np.zeros(np.shape(Yj)[1])
+    # for i in np.arange(np.shape(Yj)[1]):
+    #     Mj[i] = np.dot(Yj[:,i],W)/np.dot(Yj[:,i],np.transpose(Yj[:,i]))
+    
+    # rescale to original units
+    # i = 0
+    # for n in range(1,order+1):
+    #     for m in range(1,2*n+2):
+    #         i += 1
+    #         Mj[i] = Mj[i]/(scale**n)
     return Mj,Yj,scale
 
 def spher_harm_cmp(Mj,Yj,scale,order):

@@ -242,7 +242,4 @@ def plot_U2(s,xl,zl,roi,height, ey, ez, ex, u3, u2, u5, u1):
     ax3.set_xticks(range(len(coeffs)))
     ax3.set_xticklabels(s.multipole_names, rotation=-90, fontsize=fsize)
     plt.show()
-    print(np.shape(voltages))
-    plt.bar(x = np.arange(0,18),height=voltages)
-    plt.show()
 # %%
