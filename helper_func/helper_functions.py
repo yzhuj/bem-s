@@ -22,7 +22,6 @@ def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
         # load electrode faces from colored stl
         # s_nta is intermediate processed stl file.
         s_nta = stl.read_stl(open("trapstl/%s.stl" % prefix, "rb"))
-        mpl.rcParams['lines.linewidth'] = 0.2
         print("Import stl:", os.path.abspath("./trapstl/%s.stl" % prefix), "\n")
         print("Electrode colors (numbers):\n")
         mesh = Mesh.from_mesh(stl.stl_to_mesh(*s_nta, scale=scale / 1e-3, rename={0: "DC21"},print_dropping = True))
@@ -32,7 +31,8 @@ def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
 #then use mesh object's 'plot' function to add the mesh to it.
 def plot_mesh(xl,yl,mesh,mesh_unit,name):
     # Plot triangle meshes.
-    fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(12, 6), dpi=800)
+    mpl.rcParams['lines.linewidth'] = 0.05
+    fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(12, 6), dpi=2000)
     ax.set_xlabel("x/l", fontsize=10)
     ax.set_ylabel("y/l", fontsize=10)
     ax.text(0, 0, "l = %d um" % (mesh_unit / 1e-6), fontsize=12)
