@@ -186,24 +186,27 @@ def plot_1d(s,xl,zl,roi,height, ey, ez, ex, u3, u2, u5, u1):
 # %% md
 # plot potential projection in xy plane when apply voltage solution of a group of multipole coefficients
 # %%
-def plot_U2(s,xl,zl,roi,height, ey, ez, ex, u3, u2, u5, u1):
+def plot_U2(s,xl,zl,roi,height, ey, ez, ex, u3, u2, u5, u1,view='zy'):
     position1 = [xl, height * 1e-3, zl]
     s.update_origin_roi(position1, roi)
     multipole_coeffs = {'Ey': ey, 'Ez': ez, 'Ex': ex, 'U3': u3, 'U2': u2, 'U5': u5, 'U1': u1}
     voltages = s.setMultipoles(multipole_coeffs)
+    print(np.shape(voltages))
     potential_roi = s.potentialControl_roi(voltages)
     potential_regen = s.potentialControl_regen(voltages)
-
     # nearestZ = find_nearest(s.Z, height * 1e-3)
     # indNearestZ_roi = np.abs(s.Z_roi - nearestZ).argmin()
-    nearestX = find_nearest(s.X, height * 1e-3)
-    indNearestX_roi = np.abs(s.X_roi - nearestX).argmin()
-
-    potential_xy_roi = potential_roi[indNearestX_roi]
-    print(np.shape(potential_xy_roi))
-    potential_xy_regen = potential_regen[indNearestX_roi]
-
-    fsize = 20
+    if view == 'zy':
+        nearestX = find_nearest(s.X, height * 1e-3)
+        indNearestX_roi = np.abs(s.X_roi - nearestX).argmin()
+        potential_xy_roi = potential_roi[indNearestX_roi]
+        potential_xy_regen = potential_regen[indNearestX_roi]
+    else:
+        nearestZ = find_nearest(s.Z, height * 1e-3)
+        indNearestZ_roi = np.abs(s.Z_roi - nearestZ).argmin()
+        potential_xy_roi = potential_roi[:,:,indNearestZ_roi]
+        potential_xy_regen = potential_regen[:,:,indNearestZ_roi]
+    fsize = 10
 
     fig1 = plt.figure(figsize=(20, 16))
     grid = plt.GridSpec(2, 2)
@@ -216,8 +219,8 @@ def plot_U2(s,xl,zl,roi,height, ey, ez, ex, u3, u2, u5, u1):
     plot1_line = ax1.contour(s.Z_roi * 1e3, s.Y_roi * 1e3, potential_xy_roi, colors='w')
     #     ax1.clabel(plot1_line, inline = 1, fontsize = fsize)
     ax1.clabel(plot1_line, colors='w', fmt='%2.3f', fontsize=fsize)
-    ax1.set_xlabel('X (mm)', fontsize=fsize)
-    ax1.set_ylabel('Y (mm)', fontsize=fsize)
+    ax1.set_xlabel('X ($\mu$m)', fontsize=fsize)
+    ax1.set_ylabel('Y ($\mu$m)', fontsize=fsize)
     plt.colorbar(plot1, ax=ax1)
 
     ax2.set_title('Regenerated potential', fontsize=fsize)
@@ -226,12 +229,12 @@ def plot_U2(s,xl,zl,roi,height, ey, ez, ex, u3, u2, u5, u1):
     plot2_line = ax2.contour(s.X_roi * 1e3, s.Y_roi * 1e3, potential_xy_regen, colors='w')
     #     ax2.clabel(plot2, inline = 1, fontsize = fsize)
     ax2.clabel(plot2_line, colors='w', fmt='%2.3f', fontsize=fsize)
-    ax2.set_xlabel('X (mm)', fontsize=fsize)
+    ax2.set_xlabel('X ($\mu$m)', fontsize=fsize)
     plt.colorbar(plot2, ax=ax2)
 
     coeffs = s.setVoltages(voltages)
     #     print(coeffs.index)
-    ax3.bar(range(len(coeffs)), np.asarray(coeffs))
+    ax3.bar(np.arange(8), np.asarray(coeffs)[0:8])
     max_coeff = np.max(coeffs)
     min_coeff = np.min(coeffs)
     margin = (max_coeff - min_coeff) * 0.1

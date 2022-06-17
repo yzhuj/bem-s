@@ -31,16 +31,17 @@ def load_file(Mesh,Electrodes,prefix,scale,use_stl=True):
 #then use mesh object's 'plot' function to add the mesh to it.
 def plot_mesh(xl,yl,mesh,mesh_unit,name):
     # Plot triangle meshes.
-    mpl.rcParams['lines.linewidth'] = 0.05
-    fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(12, 6), dpi=2000)
+    mpl.rcParams['lines.linewidth'] = 0.1
+    fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"), figsize=(12, 6), dpi=400)
     ax.set_xlabel("x/l", fontsize=10)
     ax.set_ylabel("y/l", fontsize=10)
     ax.text(0, 0, "l = %d um" % (mesh_unit / 1e-6), fontsize=12)
     ax.plot(xl, yl, marker='.', color='k')
+    ax.grid()
     # ax.grid(axis = 'both')
-    yticks = np.arange(-1, 1, 0.2)
+    yticks = np.arange(-10, 10, 0.1)
     ax.set_yticks(yticks)
-    xticks = np.arange(-1, 1, 0.4)
+    xticks = np.arange(-10, 10, 0.1)
     ax.set_xticks(xticks)
     mesh.plot(ax)
     #plt.savefig(name, bbox_inches='tight')
@@ -342,7 +343,7 @@ def load_soln(file):
     return l1
 
 
-def write_pickle(fin,fout,grid):
+def write_pickle(fin,fout,grid,electrodes):
     #grid is the field grid pts that give the locations of each simulated potential point
     #fin is the filename of the of the input vtk sim file
     #fout is the filename of the pickle you want to save to
@@ -356,7 +357,7 @@ def write_pickle(fin,fout,grid):
             'Y': y,
             'Z': z}
     i = 0
-    strs = "DC1 DC2 DC3 DC4 DC5 DC6 DC7 DC8 DC9 DC10 DC11 DC12 DC13 DC14 DC15 DC16 DC17 DC18 DC19 DC20 RF".split()
+    strs = electrodes
     result0 = Result.load(fin, 'DC1', trans_file)
     p0 = result0.potential
     for ele in strs:

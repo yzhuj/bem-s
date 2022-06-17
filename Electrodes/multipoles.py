@@ -86,7 +86,7 @@ class MultipoleControl:
 
         return
 
-    def update_origin_roi(self, origin, roi):
+    def update_origin_roi(self, origin, roi,update_soln = True):
         '''
         This function updates origin and roi, and also update everything related to them.
         Can be called to update orgin and roi from object.
@@ -107,8 +107,8 @@ class MultipoleControl:
             self.electrode_potential_roi[key] = self.electrode_potential[key][x0_ind - roi[0] : x0_ind + roi[0] + 1, 
                                                   y0_ind - roi[1] : y0_ind + roi[1] + 1, 
                                                   z0_ind - roi[2] : z0_ind + roi[2] + 1]
-
-        self.update_expansion_order(self.order)
+        if update_soln:
+            self.update_expansion_order(self.order)
         return
 
 
