@@ -22,22 +22,16 @@
 # http://www.eby-sarna.com/pipermail/peak/2010-May/003357.html.)
 # https://github.com/erikrose/more-itertools/commit/da7e3c771523711adeaef3c6a67ba99de5e2e81a
 
-# This setup uses cythonize(), which is an updated cython buildin function.
-# See https://cython.readthedocs.io/en/latest/src/changes.html#id42.  wwc
-try:
-    import multiprocessing  # parallel compilation 
-except ImportError:
-    pass
 
 try:
     from setuptools import setup, Extension, find_packages
 except ImportError:
-    from distutils.core import setup    # distutils
+    from distutils import setup
     from distutils.extension import Extension
 
-from Cython.Build import cythonize
 import numpy
-import os
+import Cython
+from Cython.Distutils import build_ext
 
 setup(
     name="pyfastlap",
@@ -48,11 +42,23 @@ setup(
     author_email="jordens@gmail.com",
     url="http://launchpad.net/pyfastlap",
     license="multiple",
-    install_requires=["numpy", "mayavi", "cython"],
+    python_requires="<3.10",
+    install_requires=[
+                    "numpy", 
+                    "pandas",
+                    "cython",
+                    "jupyter",
+                    "scipy",
+                    "matplotlib",
+                    "cvxopt",
+                    "cvxpy",
+                    "apptools",
+                    "envisage",
+                    ],
     packages = find_packages(),
     test_suite = "bem.tests",
-    # zip_safe = False, # See https://cython.readthedocs.io/en/latest/src/reference/compilation.html#configuring-the-c-build
-    ext_modules = cythonize([
+    cmdclass = {"build_ext": build_ext},
+    ext_modules = [
         Extension("bem.fastlap",
             define_macros = [],
             # extra_compile_args=["-ffast-math"],
@@ -74,7 +80,6 @@ setup(
                 "fastlap",
                 numpy.get_include(),],
         ),
-        
         Extension("bem.pytriangle",
             define_macros = [
                 ("TRILIBRARY", "1"),
@@ -90,5 +95,5 @@ setup(
                 "triangle",
                 numpy.get_include(),],
         ),
-    ]),
+    ],
 )

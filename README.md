@@ -5,28 +5,34 @@ from [http://www.rle.mit.edu/cpg/research_codes.htm](http://www.rle.mit.edu/cpg/
 in /doc/fastlap_fl-2.0-22oct96 for reference.
 
 ## Installation
-Create a python3 environment "py3bem" for bem package:
 
-```bash
-conda create -n py3bem python=3
-conda install -n py3bem jupyter scipy matplotlib cython cvxopt apptools envisage
-```
+For users:
 
-Activate the environment and install vtk and mayavi:
-```bash
-conda activate py3bem
-pip install vtk
-pip install mayavi
-```
+Python version <= 3.9 is required. 
 
-In order to get mayavi working, please make sure PyQt5 is also installed.
+Anaconda environment management system is recommended:
 
-Finally, install bem package:
-```bash
-python setup.py install
-```
+    $ conda create -n ele39 python=3.9
+    
+    $ conda activate ele39
 
-3/1/2020: tested compatible with latest vtk==9.0.1, latest mayavi==4.7.2, and old PyQt5==5.10.1 on python==3.6.12 on both Linux and macOS. Need more test on newer Python versions and on Windows.
+To set up (in folder of setup.py, setup.cfg, pyproject.toml and MANIFEST.in):
+
+    $ pip install .
+
+to use mayavi dependent packages(optional):
+
+    $ pip install 'vtk<9.1' 'PyQt5<5.16'; pip install 'mayavi<4.8'
+
+The workflow of our package is explained in examples/SimpleTrap/SimpleTrap_0305.py
+
+5/16/2022: tested compatible with latest vtk==9.0.3, latest mayavi==4.7.4, and old PyQt5==5.15.6 on python==3.9.12 on Linux(Ubuntu 20.04.3) and macOS(Monterey 12.1 intel) and HPC(CentOS Linux release 7.7.1908 (Core)). More tests are needed for Windows.
+
+## Documents and tutorial
+Document for the latest version can be found at ./examples/document, which explains our workflow in detail.
+
+Codes in ./examples/SimpleTrap is also helpful.
+
 
 ## Notes
 
@@ -39,4 +45,5 @@ python setup.py install
 5. Please read jupyter notebooks in /examples folder for more instructions.
 
 
-
+## Changlog
+Changes of historical versions are documented in CHANGELOG.md
