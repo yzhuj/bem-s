@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## TO DO:
+-convergence of electrode package
+-document of electrode package
+
+## 2022-07 Wenhao He
+
+### Change
+- make this package compatible in Windows
+    - main change triangle/triangulate.c and triangle/triangulate.h
+    - for windows, we must change long into __int64
+    - reference: 	https://blog.csdn.net/cuihaolong/article/details/72842026.  and   	https://www.796t.com/post/YThtcXk=.html
+
+
 
 ## 2022-05 Wenhao He
 
