@@ -14098,6 +14098,7 @@ int numberofpointattribs;
 #endif /* not ANSI_DECLARATORS */
 
 {
+  printf("\n C_k1");
   vertex vertexloop;
   REAL x, y;
   int i, j;
@@ -14115,21 +14116,29 @@ int numberofpointattribs;
   if (m->nextras == 0) {
     b->weighted = 0;
   }
-
+  
+  printf("\n C_k2");
   initializevertexpool(m, b);
-
+  printf("\n C_k3");
   /* Read the vertices. */
   coordindex = 0;
   attribindex = 0;
+  printf("%d",m->invertices);
   for (i = 0; i < m->invertices; i++) {
+    printf("\n rnd");
     vertexloop = (vertex) poolalloc(&m->vertices);
+    printf("\n C_k3.1");
     /* Read the vertex coordinates. */
     x = vertexloop[0] = pointlist[coordindex++];
     y = vertexloop[1] = pointlist[coordindex++];
+    printf("\n C_k3.2");
     /* Read the vertex attributes. */
+    printf("%d",numberofpointattribs);
     for (j = 0; j < numberofpointattribs; j++) {
+      printf("\n C_k3.3");
       vertexloop[2 + j] = pointattriblist[attribindex++];
     }
+    
     if (pointmarkerlist != (int *) NULL) {
       /* Read a vertex marker. */
       setvertexmark(vertexloop, pointmarkerlist[i]);
@@ -14137,6 +14146,7 @@ int numberofpointattribs;
       /* If no markers are specified, they default to zero. */
       setvertexmark(vertexloop, 0);
     }
+    
     setvertextype(vertexloop, INPUTVERTEX);
     /* Determine the smallest and largest x and y coordinates. */
     if (i == 0) {
@@ -14148,8 +14158,10 @@ int numberofpointattribs;
       m->ymin = (y < m->ymin) ? y : m->ymin;
       m->ymax = (y > m->ymax) ? y : m->ymax;
     }
+    printf("\n C_k3.4");
   }
 
+  printf("\n C_k4");
   /* Nonexistent x value used as a flag to mark circle events in sweepline */
   /*   Delaunay algorithm.                                                 */
   m->xminextreme = 10 * m->xmin - 9 * m->xmax;
@@ -15689,6 +15701,7 @@ char **argv;
 #endif /* not TRILIBRARY */
 
 {
+
   struct mesh m;
   struct behavior b;
   REAL *holearray;                                        /* Array of holes. */

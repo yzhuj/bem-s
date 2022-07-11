@@ -32,6 +32,20 @@ except ImportError:
 import numpy
 import Cython
 from Cython.Distutils import build_ext
+import sys
+
+plat = sys.platform
+print('operating system:',sys)
+
+# for Windows System
+if plat == 'win32':
+    tri_dir = "triangle-win"
+# for Linux or mac System
+elif plat == 'darwin' or 'linux' or 'linux2':
+    tri_dir = "triangle"
+else:
+    raise TypeError('operating system not found')
+
 
 setup(
     name="pyfastlap",
@@ -90,9 +104,9 @@ setup(
             # extra_compile_args=["-ffast-math"],
             sources = [
                 "bem/pytriangle.pyx",
-                "triangle/triangle.c",],
+                tri_dir+"/triangle.c",],
             include_dirs = [
-                "triangle",
+                tri_dir,
                 numpy.get_include(),],
         ),
     ],

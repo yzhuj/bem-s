@@ -28,7 +28,6 @@ def unify_dup_points(o_points,o_triangles):
 
 # check if it is right  handed
 def correct_normals(nm,o_points,o_triangles):
-    # hwh_warning this function just for check(raise error now)
     # check if left or right
     def _is_right(nm,a,b,c):
         n = np.cross(b-a, c-a)
@@ -44,9 +43,9 @@ def correct_normals(nm,o_points,o_triangles):
         if _is_right(nm,a,b,c):
             n_triangles.append(tri)
         else:
+            # if not right hand
             tri[1],tri[2] = tri[2],tri[1]
             n_triangles.append(tri)
-            raise ValueError('not right hand')
 
     return o_points, np.array(o_triangles)
 
