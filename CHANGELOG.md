@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - main change triangle/triangulate.c and triangle/triangulate.h
     - for windows, we must change long into __int64
     - reference: 	https://blog.csdn.net/cuihaolong/article/details/72842026.  and   	https://www.796t.com/post/YThtcXk=.html
+- 7/11/2022: tested compatible with latest vtk==9.0.3, latest mayavi==4.7.4, and old PyQt5==5.15.6 on python==3.9.12 on Linux(Ubuntu 20.04.3) , macOS(Monterey 12.1 intel) , HPC(CentOS Linux release 7.7.1908 (Core)) and Windows(Windows 10 pro 21H2).
 
 
 
@@ -46,6 +47,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - add a document: ./examples/document
 
+## 2022-03 Shuqi Xu
+
+### Change
+- fix bugs on partition normal
+- fix declaration error on building process
+- update documentation
+- update cythonize version
+- 3/1/2020: tested compatible with latest vtk==9.0.1 and latest mayavi==4.7.2 on python==3.6.12 on both Linux and macOS. Need more test on newer Python versions and on Windows.
+- etc
 
 
 

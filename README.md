@@ -24,8 +24,18 @@ to use mayavi dependent packages(optional):
 
     $ pip install 'vtk<9.1' 'PyQt5<5.16'; pip install 'mayavi<4.8'
 
+tested compatible on following systems(tested in 7/11/2022):
+- macOS(Monterey 12.1 intel)
+- Windows(Windows 10 pro 21H2)
+- Linux(Ubuntu 20.04.3)
+- HPC(CentOS Linux release 7.7.1908 (Core))
 
-7/11/2022: tested compatible with latest vtk==9.0.3, latest mayavi==4.7.4, and old PyQt5==5.15.6 on python==3.9.12 on Linux(Ubuntu 20.04.3) and macOS(Monterey 12.1 intel) and HPC(CentOS Linux release 7.7.1908 (Core)), Windows(Windows 10 pro 21H2).
+package version in test(tested in 7/11/2022):
+- python==3.9.12
+- latest vtk==9.0.3
+- latest mayavi==4.7.4
+- old PyQt5==5.15.6
+
 
 ## Documents and tutorial
 Document for the latest version can be found at ./examples/document, which explains our workflow in detail.
