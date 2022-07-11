@@ -26,7 +26,7 @@ to use mayavi dependent packages(optional):
 
 The workflow of our package is explained in examples/SimpleTrap/SimpleTrap_0305.py
 
-5/16/2022: tested compatible with latest vtk==9.0.3, latest mayavi==4.7.4, and old PyQt5==5.15.6 on python==3.9.12 on Linux(Ubuntu 20.04.3) and macOS(Monterey 12.1 intel) and HPC(CentOS Linux release 7.7.1908 (Core)), Windows 10.
+5/16/2022: tested compatible with latest vtk==9.0.3, latest mayavi==4.7.4, and old PyQt5==5.15.6 on python==3.9.12 on Linux(Ubuntu 20.04.3) and macOS(Monterey 12.1 intel) and HPC(CentOS Linux release 7.7.1908 (Core)), Windows(Windows 10 pro 21H2).
 
 ## Documents and tutorial
 Document for the latest version can be found at ./examples/document, which explains our workflow in detail.
