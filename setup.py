@@ -33,6 +33,14 @@ import numpy
 import Cython
 from Cython.Distutils import build_ext
 
+
+
+# for Windows System
+tri_dir = "triangle"
+# for Linux or mac System
+#tri_dir = "triangle-win"
+
+
 setup(
     name="pyfastlap",
     description="BEM FMM Laplace solver",
@@ -90,9 +98,9 @@ setup(
             # extra_compile_args=["-ffast-math"],
             sources = [
                 "bem/pytriangle.pyx",
-                "triangle/triangle.c",],
+                tri_dir+"/triangle.c",],
             include_dirs = [
-                "triangle",
+                tri_dir,
                 numpy.get_include(),],
         ),
     ],
