@@ -32,13 +32,19 @@ except ImportError:
 import numpy
 import Cython
 from Cython.Distutils import build_ext
+import sys
 
-
+plat = sys.platform
+print('operating system:',sys)
 
 # for Windows System
-tri_dir = "triangle"
+if plat == 'win32':
+    tri_dir = "triangle-win"
 # for Linux or mac System
-#tri_dir = "triangle-win"
+elif plat == 'darwin' or 'linux' or 'linux2':
+    tri_dir = "triangle"
+else:
+    raise TypeError('operating system not found')
 
 
 setup(
