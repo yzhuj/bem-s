@@ -68,6 +68,7 @@ setup(
                     "cvxpy",
                     "apptools",
                     "envisage",
+                    "joblib"
                     ],
     packages = find_packages(),
     test_suite = "bem.tests",
