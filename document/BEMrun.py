@@ -68,7 +68,8 @@ rad = 10*75*1e-3
 # if SHOW_PLOTS:
 # 	plot_mesh(xl,yl,mesh,mesh_unit,title='final triangulation', fout='fig3.png', save=True, dpi=1000)
 
-proceed = input('Proceed with electrostatics? [Enter] to continue.')
+#proceed = input('Proceed with electrostatics? [Enter] to continue.')
+proceed = 'n'
 if proceed!='':
 	print('EXITING')
 	sys.exit()
